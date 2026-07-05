@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { getJSON, setJSON, remove } from "./storage";
+import {
+  subscribeAuth, signInWithGoogle, signOutUser,
+  pullUserState, pushAttempts, pushQuestionLog, subscribeUserState,
+} from "./firebase";
 
 /* ============================================================
    GMAT Focus — Full-Length Timed Simulator (v1, fixed-form)
@@ -449,11 +453,32 @@ function QuestionView({ item, resp, setResp, review }) {
 }
 
 /* ---------- screens ---------- */
-function Intro({ onStart, onPractice, onHistory, attempts }) {
+function AuthBar({ user, cloudStatus, onSignIn, onSignOut }) {
+  const statusText = { local: "Local only", connecting: "Connecting…", synced: "Cloud synced", error: "Sync error" }[cloudStatus] || "Local only";
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 12 }}>
+      {user ? (
+        <>
+          {user.photoURL && <img src={user.photoURL} alt="" style={{ width: 24, height: 24, borderRadius: "50%" }} />}
+          <span className="gx-note" style={{ flex: 1 }}>{user.displayName || user.email} · {statusText}</span>
+          <button className="gx-btn ghost" style={{ padding: "4px 8px" }} onClick={onSignOut}>Sign out</button>
+        </>
+      ) : (
+        <>
+          <span className="gx-note" style={{ flex: 1 }}>{statusText} — sign in to sync history across devices</span>
+          <button className="gx-btn ghost" style={{ padding: "4px 8px" }} onClick={onSignIn}>Sign in with Google</button>
+        </>
+      )}
+    </div>
+  );
+}
+
+function Intro({ onStart, onPractice, onHistory, attempts, user, cloudStatus, onSignIn, onSignOut }) {
   return (
     <div className="gx-wrap">
       <p className="gx-eyebrow" style={{ marginTop: 28 }}>Timed full-length</p>
       <h1 className="gx-h1">GMAT Focus — Practice Simulator</h1>
+      <AuthBar user={user} cloudStatus={cloudStatus} onSignIn={onSignIn} onSignOut={onSignOut} />
       <p className="gx-lead">Three sections, 45 minutes each, 64 questions total. You choose the order. Bookmark questions and change up to three answers per section in Review &amp; Edit, exactly as on the real exam.</p>
       <div className="gx-card">
         <div className="gx-stat"><span>Quantitative Reasoning</span><b>21 Q · 45:00</b></div>
@@ -806,6 +831,19 @@ function History({ attempts, questionLog, onBack, onClear, onClearLog, onUpdateN
   );
 }
 
+/* Merge local + remote records by id, local wins on conflict (most recent
+   device the user actually looked at), then re-sort chronologically. */
+function mergeById(local, remote) {
+  const map = new Map();
+  (remote || []).forEach((r) => map.set(r.id, r));
+  (local || []).forEach((l) => map.set(l.id, l));
+  return Array.from(map.values());
+}
+const mergeAttempts = (local, remote) =>
+  mergeById(local, remote).sort((a, b) => new Date(a.date) - new Date(b.date)).slice(-50);
+const mergeQuestionLog = (local, remote) =>
+  mergeById(local, remote).sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)).slice(-500);
+
 /* ---------- root ---------- */
 export default function App() {
   // a fresh randomized, difficulty-balanced form is drawn per attempt in begin()
@@ -816,8 +854,58 @@ export default function App() {
   const [savedCount, setSavedCount] = useState(null);
   const [attempts, setAttempts] = useState(() => getJSON("gmat:attempts", []));
   const [questionLog, setQuestionLog] = useState(() => getJSON("gmat:questionLog", []));
+  const [user, setUser] = useState(null);
+  const [cloudStatus, setCloudStatus] = useState("local"); // local | connecting | synced
+  const skipPush = useRef({ attempts: false, questionLog: false });
+  const cloudUnsub = useRef(null);
 
   useEffect(() => { setSavedCount(attempts.length); }, []);
+
+  // Google sign-in drives a one-time merge (remote ∪ local, local wins ties)
+  // then a live listener keeps this tab and any other signed-in device in sync.
+  useEffect(() => {
+    const unsubAuth = subscribeAuth(async (u) => {
+      if (cloudUnsub.current) { cloudUnsub.current(); cloudUnsub.current = null; }
+      setUser(u);
+      if (!u) { setCloudStatus("local"); return; }
+      setCloudStatus("connecting");
+      try {
+        const remote = await pullUserState(u.uid);
+        setAttempts((prevAttempts) => {
+          const merged = mergeAttempts(prevAttempts, remote.attempts);
+          setJSON("gmat:attempts", merged);
+          setSavedCount(merged.length);
+          pushAttempts(u.uid, merged).catch(() => {});
+          return merged;
+        });
+        setQuestionLog((prevLog) => {
+          const merged = mergeQuestionLog(prevLog, remote.questionLog);
+          setJSON("gmat:questionLog", merged);
+          pushQuestionLog(u.uid, merged).catch(() => {});
+          return merged;
+        });
+        cloudUnsub.current = subscribeUserState(
+          u.uid,
+          (list) => { skipPush.current.attempts = true; setAttempts(list); setJSON("gmat:attempts", list); setSavedCount(list.length); },
+          (list) => { skipPush.current.questionLog = true; setQuestionLog(list); setJSON("gmat:questionLog", list); }
+        );
+        setCloudStatus("synced");
+      } catch (e) { setCloudStatus("error"); }
+    });
+    return () => { unsubAuth(); if (cloudUnsub.current) cloudUnsub.current(); };
+  }, []);
+
+  useEffect(() => {
+    if (!user) return;
+    if (skipPush.current.attempts) { skipPush.current.attempts = false; return; }
+    pushAttempts(user.uid, attempts).catch(() => {});
+  }, [attempts, user]);
+
+  useEffect(() => {
+    if (!user) return;
+    if (skipPush.current.questionLog) { skipPush.current.questionLog = false; return; }
+    pushQuestionLog(user.uid, questionLog).catch(() => {});
+  }, [questionLog, user]);
 
   function clearHistory() {
     setAttempts([]); setSavedCount(0);
@@ -964,7 +1052,12 @@ export default function App() {
 
   let screen;
   if (phase === "intro") {
-    screen = <Intro onStart={() => setPhase("order")} onPractice={() => setPhase("practice")} onHistory={() => setPhase("history")} attempts={attempts} />;
+    screen = (
+      <Intro
+        onStart={() => setPhase("order")} onPractice={() => setPhase("practice")} onHistory={() => setPhase("history")}
+        attempts={attempts} user={user} cloudStatus={cloudStatus} onSignIn={signInWithGoogle} onSignOut={signOutUser}
+      />
+    );
   } else if (phase === "order") {
     screen = <OrderPick onBegin={begin} />;
   } else if (phase === "practice") {
