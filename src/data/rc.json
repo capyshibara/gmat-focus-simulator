@@ -18,7 +18,8 @@
           "establish that the competitive model of the labor market is fundamentally mistaken"
         ],
         "answer": 3,
-        "exp": "The passage follows the early findings as they shifted the debate from whether they were credible toward which model of the labor market fits, an account of a reshaped debate. The other options overstate the conclusion or seize on a single detail."
+        "exp": "The passage follows the early findings as they shifted the debate from whether they were credible toward which model of the labor market fits, an account of a reshaped debate. The other options overstate the conclusion or seize on a single detail.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P1Q2",
@@ -33,7 +34,8 @@
           "applies only to employment at fast-food restaurants and nowhere else"
         ],
         "answer": 2,
-        "exp": "The monopsony paragraph says that where employers can set wages below the competitive level, a modest increase can raise wages without cutting, and perhaps while raising, employment. The other options reverse this, deny the wage effect, or narrow it beyond what the passage says."
+        "exp": "The monopsony paragraph says that where employers can set wages below the competitive level, a modest increase can raise wages without cutting, and perhaps while raising, employment. The other options reverse this, deny the wage effect, or narrow it beyond what the passage says.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P1Q3",
@@ -48,7 +50,8 @@
           "question whether the results reflected the wage change rather than other regional trends"
         ],
         "answer": 4,
-        "exp": "The critics contend the comparisons were confounded, that the results might track other regional trends rather than the wage change itself. They neither endorse a model nor concede that employment fell."
+        "exp": "The critics contend the comparisons were confounded, that the results might track other regional trends rather than the wage change itself. They neither endorse a model nor concede that employment fell.",
+        "creator": "Claude Sonnet 5"
       }
     ]
   },
@@ -71,7 +74,8 @@
           "compare the printing press with the various communication technologies that emerged later"
         ],
         "answer": 1,
-        "exp": "The passage moves from the older view of print as a single sweeping cause to the revisionist position that its effects depended on the social conditions receiving it. It does not deny that print mattered, fix dates, or defend the older account."
+        "exp": "The passage moves from the older view of print as a single sweeping cause to the revisionist position that its effects depended on the social conditions receiving it. It does not deny that print mattered, fix dates, or defend the older account.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P2Q2",
@@ -86,7 +90,8 @@
           "Manuscript culture disappeared rapidly once printing was introduced across Europe."
         ],
         "answer": 0,
-        "exp": "The revisionist thesis the author develops is that a technology's effects are realized only through the social arrangements that receive it. The second option overshoots into denying that print mattered, which the author explicitly refuses; the third reverses the dependence on literacy; the fourth is the autonomous-force view that is rejected; and the last contradicts the passage's note that manuscript culture persisted."
+        "exp": "The revisionist thesis the author develops is that a technology's effects are realized only through the social arrangements that receive it. The second option overshoots into denying that print mattered, which the author explicitly refuses; the third reverses the dependence on literacy; the fourth is the autonomous-force view that is rejected; and the last contradicts the passage's note that manuscript culture persisted.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P2Q3",
@@ -101,7 +106,8 @@
           "criticize the spread of literacy in early modern Europe"
         ],
         "answer": 3,
-        "exp": "A press where there are no readers does nothing, which exemplifies the claim that print's effects required pre-existing conditions such as a literate audience. The remark neither praises manuscript culture nor assigns dates."
+        "exp": "A press where there are no readers does nothing, which exemplifies the claim that print's effects required pre-existing conditions such as a literate audience. The remark neither praises manuscript culture nor assigns dates.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P2Q4",
@@ -116,7 +122,8 @@
           "supply a technical definition of what the printing press actually was"
         ],
         "answer": 2,
-        "exp": "The closing inversion distills the revisionist reframing developed throughout the passage. It introduces no new example, concedes nothing to the older view, and proposes no research agenda."
+        "exp": "The closing inversion distills the revisionist reframing developed throughout the passage. It introduces no new example, concedes nothing to the older view, and proposes no research agenda.",
+        "creator": "Claude Sonnet 5"
       }
     ]
   },
@@ -139,7 +146,8 @@
           "describe in detail the process by which large supermarket chains decide where to open new stores"
         ],
         "answer": 2,
-        "exp": "The food-desert case is used to caution against treating a correlate, low access, as the operative cause, a mistake that misdirected policy. The passage explicitly allows that access still matters, so the no-effect and income-alone options overshoot."
+        "exp": "The food-desert case is used to caution against treating a correlate, low access, as the operative cause, a mistake that misdirected policy. The passage explicitly allows that access still matters, so the no-effect and income-alone options overshoot.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P3Q2",
@@ -154,7 +162,8 @@
           "newly opened stores reliably produce a sharp rise in residents' produce purchases"
         ],
         "answer": 3,
-        "exp": "If stores open where they expect demand, then weak local demand can explain the absence of a supermarket, reversing the assumed direction from access to diet. The other options invert the causation the wrong way, overstate access, or contradict the finding that new stores changed little."
+        "exp": "If stores open where they expect demand, then weak local demand can explain the absence of a supermarket, reversing the assumed direction from access to diet. The other options invert the causation the wrong way, overstate access, or contradict the finding that new stores changed little.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P3Q3",
@@ -169,7 +178,8 @@
           "introduce new statistical evidence about the diets of residents"
         ],
         "answer": 0,
-        "exp": "The closing line generalizes the food-desert episode into a recurring hazard in social policy: taking a feature that accompanies a problem for its cause. It neither recommends a policy nor offers new data."
+        "exp": "The closing line generalizes the food-desert episode into a recurring hazard in social policy: taking a feature that accompanies a problem for its cause. It neither recommends a policy nor offers new data.",
+        "creator": "Claude Sonnet 5"
       }
     ]
   },
@@ -192,7 +202,8 @@
           "recommend particular policies for conserving the world's coral reefs"
         ],
         "answer": 1,
-        "exp": "The passage lays out the symbiosis, explains bleaching, and shows how differences in coral-algae partnerships affect heat resilience. It does not claim uniform responses, equate bleaching with death, or recommend policy."
+        "exp": "The passage lays out the symbiosis, explains bleaching, and shows how differences in coral-algae partnerships affect heat resilience. It does not claim uniform responses, equate bleaching with death, or recommend policy.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P4Q2",
@@ -207,7 +218,8 @@
           "A bleached coral may recover if normal temperatures return before long."
         ],
         "answer": 4,
-        "exp": "The passage states that a bleached coral is not necessarily dead and that its algae may recolonize if normal temperatures return promptly. The other options contradict the passage with absolute or reversed claims."
+        "exp": "The passage states that a bleached coral is not necessarily dead and that its algae may recolonize if normal temperatures return promptly. The other options contradict the passage with absolute or reversed claims.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P4Q3",
@@ -222,7 +234,8 @@
           "offer a technical definition of the term photosynthesis"
         ],
         "answer": 1,
-        "exp": "The sentence calls the finding narrower but still significant, tempering the claim while affirming that a reef's survival depends on the particular partnerships its corals have formed. It does not dismiss the partnerships or deny warming."
+        "exp": "The sentence calls the finding narrower but still significant, tempering the claim while affirming that a reef's survival depends on the particular partnerships its corals have formed. It does not dismiss the partnerships or deny warming.",
+        "creator": "Claude Sonnet 5"
       }
     ]
   },
@@ -245,7 +258,8 @@
           "describe in detail the chemical composition of the asphalt used to pave cities"
         ],
         "answer": 2,
-        "exp": "The passage explains the two cooling mechanisms, shade and evapotranspiration, and builds to the claim that where trees are placed can matter as much as how many are planted. It does not deny cooling, isolate one mechanism, or prescribe a count."
+        "exp": "The passage explains the two cooling mechanisms, shade and evapotranspiration, and builds to the claim that where trees are placed can matter as much as how many are planted. It does not deny cooling, isolate one mechanism, or prescribe a count.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P5Q2",
@@ -260,7 +274,8 @@
           "a tree's shade falls evenly across all of the pavement around it"
         ],
         "answer": 1,
-        "exp": "Clustering creates pockets of cooler air that an individual tree, its effect quickly dissipated by surrounding heat, cannot sustain, which is why the same trees concentrated outperform the same trees scattered. The other options reverse or contradict the passage."
+        "exp": "Clustering creates pockets of cooler air that an individual tree, its effect quickly dissipated by surrounding heat, cannot sustain, which is why the same trees concentrated outperform the same trees scattered. The other options reverse or contradict the passage.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P5Q3",
@@ -275,7 +290,8 @@
           "give a technical definition of the term evapotranspiration"
         ],
         "answer": 0,
-        "exp": "The final sentence cautions that a count-only metric, by spreading trees out for uniformity, can give up much of the cooling that concentrating them would deliver. It does not endorse uniformity, deny the heat island, or define terms."
+        "exp": "The final sentence cautions that a count-only metric, by spreading trees out for uniformity, can give up much of the cooling that concentrating them would deliver. It does not endorse uniformity, deny the heat island, or define terms.",
+        "creator": "Claude Sonnet 5"
       }
     ]
   },
@@ -298,7 +314,8 @@
           "recommend new experimental methods for the laboratory study of animal play"
         ],
         "answer": 1,
-        "exp": "The passage sets out the rehearsal account, presents the findings that strain it, and describes the shift toward viewing play as building general flexibility — an account of a changing explanation. The first option overshoots into denying any function; the third contradicts the noted cases; the last two are not the passage's aim."
+        "exp": "The passage sets out the rehearsal account, presents the findings that strain it, and describes the shift toward viewing play as building general flexibility — an account of a changing explanation. The first option overshoots into denying any function; the third contradicts the noted cases; the last two are not the passage's aim.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P6Q2",
@@ -313,7 +330,8 @@
           "applicable to young predators but to no other kinds of animals"
         ],
         "answer": 2,
-        "exp": "The author calls the rehearsal view enduring and obviously appealing, then marshals findings that strain it — appealing but in tension with the evidence. The first overstates the rejection; the second mistakes surface resemblance for proof; the last two import limits the passage never asserts."
+        "exp": "The author calls the rehearsal view enduring and obviously appealing, then marshals findings that strain it — appealing but in tension with the evidence. The first overstates the rejection; the second mistakes surface resemblance for proof; the last two import limits the passage never asserts.",
+        "creator": "Claude Sonnet 5"
       },
       {
         "id": "V_P6Q3",
@@ -328,7 +346,8 @@
           "argue that juveniles of a species tend to play far more often than the adult members of that same species"
         ],
         "answer": 3,
-        "exp": "The costs are raised as a problem for the rehearsal view: a behavior existing only to rehearse skills would be expected to minimize wasted energy and danger, so their presence counts against that account. The remark proves nothing as sweeping as denying all adaptive value and supplies none of the specific figures the other options describe."
+        "exp": "The costs are raised as a problem for the rehearsal view: a behavior existing only to rehearse skills would be expected to minimize wasted energy and danger, so their presence counts against that account. The remark proves nothing as sweeping as denying all adaptive value and supplies none of the specific figures the other options describe.",
+        "creator": "Claude Sonnet 5"
       }
     ]
   }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
+import { getJSON, setJSON, remove } from "./storage";
 
 /* ============================================================
    GMAT Focus — Full-Length Timed Simulator (v1, fixed-form)
@@ -174,13 +175,17 @@ function sampleSection(pool, count, quotas) {
   return shuffle(picked).slice(0, count);
 }
 
+/* Deepseek-authored items are Daily Practice only — never drawn into a Full Test form. */
+const isDeepseek = (it) => typeof it.creator === "string" && it.creator.startsWith("Deepseek");
+const excludeDeepseek = (pool) => pool.filter((it) => !isDeepseek(it));
+
 /* Fixed-form build: a fresh difficulty-balanced form drawn each attempt. */
 function buildBank() {
   const pools = buildPools();
   return {
-    Q: sampleSection(pools.Q, SECTION_META.Q.count, { easy: 4, medium: 10, hard: 7 }),
-    V: sampleSection(pools.V, SECTION_META.V.count, { easy: 5, medium: 11, hard: 7 }),
-    DI: sampleSection(pools.DI, SECTION_META.DI.count, { easy: 5, medium: 9, hard: 6 }),
+    Q: sampleSection(excludeDeepseek(pools.Q), SECTION_META.Q.count, { easy: 4, medium: 10, hard: 7 }),
+    V: sampleSection(excludeDeepseek(pools.V), SECTION_META.V.count, { easy: 5, medium: 11, hard: 7 }),
+    DI: sampleSection(excludeDeepseek(pools.DI), SECTION_META.DI.count, { easy: 5, medium: 9, hard: 6 }),
   };
 }
 
@@ -444,7 +449,7 @@ function QuestionView({ item, resp, setResp, review }) {
 }
 
 /* ---------- screens ---------- */
-function Intro({ onStart, onHistory, attempts }) {
+function Intro({ onStart, onPractice, onHistory, attempts }) {
   return (
     <div className="gx-wrap">
       <p className="gx-eyebrow" style={{ marginTop: 28 }}>Timed full-length</p>
@@ -459,9 +464,8 @@ function Intro({ onStart, onHistory, attempts }) {
         These are original, uncalibrated practice items. The final score is a rough <b>estimate</b>, not a measurement, and difficulty is a fixed mix (not adaptive). Use the timing analytics and error log as the real signal.
       </div>
       <button className="gx-btn primary" style={{ marginTop: 8, width: "100%" }} onClick={onStart}>Choose section order</button>
-      {attempts && attempts.length > 0 && (
-        <button className="gx-btn" style={{ marginTop: 8, width: "100%" }} onClick={onHistory}>View history ({attempts.length})</button>
-      )}
+      <button className="gx-btn" style={{ marginTop: 8, width: "100%" }} onClick={onPractice}>Daily Practice — one question at a time</button>
+      <button className="gx-btn" style={{ marginTop: 8, width: "100%" }} onClick={onHistory}>View history{attempts && attempts.length > 0 ? ` (${attempts.length})` : ""}</button>
     </div>
   );
 }
@@ -490,6 +494,76 @@ function OrderPick({ onBegin }) {
         <button className="gx-btn" onClick={() => onBegin(["Q", "V", "DI"])}>Use default order</button>
         <button className="gx-btn primary" onClick={() => onBegin(order)} disabled={order.length !== 3}>Start exam</button>
       </div>
+    </div>
+  );
+}
+
+/* Endless one-at-a-time practice, no timer. Draws from the unfiltered pool
+   (including Deepseek-authored items — this mode is their only outlet). */
+function PracticeMode({ onBack, onLog }) {
+  const pools = useMemo(() => buildPools(), []);
+  const [filter, setFilter] = useState("ALL");
+  const combined = useMemo(() => {
+    if (filter === "ALL") return [...pools.Q, ...pools.V, ...pools.DI];
+    return pools[filter];
+  }, [pools, filter]);
+
+  const [item, setItem] = useState(null);
+  const [resp, setRespState] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  function drawNext(pool = combined, avoidId = item?.id) {
+    if (!pool.length) { setItem(null); return; }
+    let pick = pool[Math.floor(Math.random() * pool.length)];
+    if (pool.length > 1 && pick.id === avoidId) {
+      while (pick.id === avoidId) pick = pool[Math.floor(Math.random() * pool.length)];
+    }
+    setItem(pick); setRespState(null); setSubmitted(false);
+  }
+
+  useEffect(() => { drawNext(combined, null); /* eslint-disable-next-line */ }, [filter]);
+
+  const setResp = (_id, v) => setRespState(v);
+
+  function submit() {
+    if (!item || submitted) return;
+    setSubmitted(true);
+    onLog({
+      itemId: item.id, mode: "daily", section: item.section, topic: item.topic, diff: item.diff,
+      chosenResponse: resp ?? null, correct: isCorrect(item, resp), answered: isAnswered(item, resp),
+      timestamp: new Date().toISOString(),
+    });
+  }
+
+  return (
+    <div className="gx-wrap">
+      <p className="gx-eyebrow" style={{ marginTop: 28 }}>Daily practice</p>
+      <h1 className="gx-h1">One question at a time</h1>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "10px 0 16px" }}>
+        {["ALL", "Q", "V", "DI"].map((k) => (
+          <button key={k} className={"gx-btn" + (filter === k ? " primary" : "")} onClick={() => setFilter(k)}>
+            {k === "ALL" ? "All sections" : SECTION_META[k].short}
+          </button>
+        ))}
+      </div>
+
+      {!item ? (
+        <p className="gx-lead">No questions available for this filter.</p>
+      ) : (
+        <>
+          <span className="gx-pill">{SECTION_META[item.section]?.short}</span>
+          <span className="gx-pill">{item.topic}</span>
+          <span className="gx-pill">{item.diff}</span>
+          <QuestionView item={item} resp={resp} setResp={setResp} review={submitted} />
+          <div className="gx-foot">
+            <button className="gx-btn" onClick={onBack}>Back</button>
+            <div className="spacer" />
+            {!submitted
+              ? <button className="gx-btn primary" onClick={submit} disabled={!isAnswered(item, resp)}>Submit</button>
+              : <button className="gx-btn primary" onClick={() => drawNext()}>Next question</button>}
+          </div>
+        </>
+      )}
     </div>
   );
 }
@@ -595,9 +669,65 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-function History({ attempts, onBack, onClear }) {
+function QuestionLogEntry({ entry, item, onUpdateNote }) {
+  const [open, setOpen] = useState(false);
+  const [note, setNote] = useState(entry.note || "");
+  const when = new Date(entry.timestamp).toLocaleString();
+  return (
+    <div className="gx-card" style={{ marginBottom: 10, borderLeft: `3px solid ${entry.correct ? "var(--good)" : entry.answered ? "var(--bad)" : "var(--muted)"}` }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 6 }}>
+        <span>
+          <span className="gx-pill">{entry.mode === "full" ? "Full Test" : "Daily Practice"}</span>
+          <span className="gx-pill">{SECTION_META[entry.section]?.short}</span>
+          <span className="gx-pill">{entry.topic}</span>
+        </span>
+        <span className="gx-note">{when}</span>
+      </div>
+      <div className="gx-note" style={{ marginTop: 4 }}>{entry.correct ? "Correct" : entry.answered ? "Incorrect" : "Skipped"}</div>
+      <button className="gx-btn ghost" style={{ padding: "4px 0", marginTop: 6 }} onClick={() => setOpen(!open)}>
+        {open ? "▾ hide question" : "▸ show question"}
+      </button>
+      {open && (
+        <div style={{ marginTop: 4 }}>
+          {item ? (
+            <QuestionView item={item} resp={entry.chosenResponse} setResp={() => {}} review={true} />
+          ) : (
+            <p className="gx-note">Question no longer in the bank.</p>
+          )}
+          <label className="gx-note" style={{ display: "block", marginTop: 10, marginBottom: 4 }}>Your note</label>
+          <textarea
+            className="gx-sel" style={{ width: "100%", minHeight: 60, fontFamily: "var(--sans)" }}
+            value={note} onChange={(e) => setNote(e.target.value)}
+            onBlur={() => onUpdateNote(entry.id, note)}
+            placeholder="Why did I get this wrong? What to remember next time…"
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function History({ attempts, questionLog, onBack, onClear, onClearLog, onUpdateNote }) {
   const [open, setOpen] = useState(null);
   const list = [...attempts].reverse();
+
+  const bank = useMemo(() => {
+    const pools = buildPools();
+    const map = new Map();
+    [...pools.Q, ...pools.V, ...pools.DI].forEach((it) => map.set(it.id, it));
+    return map;
+  }, []);
+
+  const [modeFilter, setModeFilter] = useState("ALL");
+  const [correctFilter, setCorrectFilter] = useState("ALL");
+  const [sectionFilter, setSectionFilter] = useState("ALL");
+  const logList = [...(questionLog || [])].reverse().filter((e) => {
+    if (modeFilter !== "ALL" && e.mode !== modeFilter) return false;
+    if (correctFilter === "WRONG" && e.correct) return false;
+    if (sectionFilter !== "ALL" && e.section !== sectionFilter) return false;
+    return true;
+  });
+
   return (
     <div className="gx-wrap">
       <p className="gx-eyebrow" style={{ marginTop: 28 }}>Saved attempts</p>
@@ -630,10 +760,47 @@ function History({ attempts, onBack, onClear }) {
           );
         })
       )}
+      {list.length > 0 && (
+        <div className="gx-foot" style={{ marginBottom: 8 }}>
+          <div className="spacer" />
+          <button className="gx-btn" onClick={onClear}>Clear attempts</button>
+        </div>
+      )}
+
+      <h2 className="gx-h1" style={{ fontSize: 18, marginTop: 22 }}>Question log</h2>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "10px 0 14px" }}>
+        <select className="gx-sel" value={modeFilter} onChange={(e) => setModeFilter(e.target.value)}>
+          <option value="ALL">All modes</option>
+          <option value="full">Full Test</option>
+          <option value="daily">Daily Practice</option>
+        </select>
+        <select className="gx-sel" value={correctFilter} onChange={(e) => setCorrectFilter(e.target.value)}>
+          <option value="ALL">All answers</option>
+          <option value="WRONG">Wrong only</option>
+        </select>
+        <select className="gx-sel" value={sectionFilter} onChange={(e) => setSectionFilter(e.target.value)}>
+          <option value="ALL">All sections</option>
+          <option value="Q">Quant</option>
+          <option value="V">Verbal</option>
+          <option value="DI">Data Insights</option>
+        </select>
+      </div>
+      {logList.length === 0 ? (
+        <p className="gx-lead">No questions logged yet for this filter.</p>
+      ) : (
+        logList.map((e) => (
+          <QuestionLogEntry key={e.id} entry={e} item={bank.get(e.itemId)} onUpdateNote={onUpdateNote} />
+        ))
+      )}
+      {(questionLog || []).length > 0 && (
+        <div className="gx-foot" style={{ marginBottom: 8 }}>
+          <div className="spacer" />
+          <button className="gx-btn" onClick={onClearLog}>Clear question log</button>
+        </div>
+      )}
+
       <div className="gx-foot">
         <button className="gx-btn" onClick={onBack}>Back</button>
-        <div className="spacer" />
-        {list.length > 0 && <button className="gx-btn" onClick={onClear}>Clear history</button>}
       </div>
     </div>
   );
@@ -642,27 +809,40 @@ function History({ attempts, onBack, onClear }) {
 /* ---------- root ---------- */
 export default function App() {
   // a fresh randomized, difficulty-balanced form is drawn per attempt in begin()
-  const [phase, setPhase] = useState("intro"); // intro | order | exam | history | results
+  const [phase, setPhase] = useState("intro"); // intro | order | exam | history | results | practice
   const [sections, setSections] = useState([]);
   const [secIdx, setSecIdx] = useState(0);
   const [showCalc, setShowCalc] = useState(false);
   const [savedCount, setSavedCount] = useState(null);
-  const [attempts, setAttempts] = useState([]);
+  const [attempts, setAttempts] = useState(() => getJSON("gmat:attempts", []));
+  const [questionLog, setQuestionLog] = useState(() => getJSON("gmat:questionLog", []));
 
-  useEffect(() => {
-    (async () => {
-      try {
-        if (typeof window !== "undefined" && window.storage) {
-          const got = await window.storage.get("gmat:attempts");
-          if (got && got.value) { const arr = JSON.parse(got.value); setAttempts(arr); setSavedCount(arr.length); }
-        }
-      } catch (e) { /* storage unavailable; history is session-only */ }
-    })();
-  }, []);
+  useEffect(() => { setSavedCount(attempts.length); }, []);
 
-  async function clearHistory() {
+  function clearHistory() {
     setAttempts([]); setSavedCount(0);
-    try { if (typeof window !== "undefined" && window.storage) await window.storage.delete("gmat:attempts"); } catch (e) {}
+    remove("gmat:attempts");
+  }
+
+  function logQuestion(entry) {
+    setQuestionLog((prev) => {
+      const arr = [...prev, { id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`, note: "", ...entry }].slice(-500);
+      setJSON("gmat:questionLog", arr);
+      return arr;
+    });
+  }
+
+  function updateNote(entryId, note) {
+    setQuestionLog((prev) => {
+      const arr = prev.map((e) => (e.id === entryId ? { ...e, note } : e));
+      setJSON("gmat:questionLog", arr);
+      return arr;
+    });
+  }
+
+  function clearQuestionLog() {
+    setQuestionLog([]);
+    remove("gmat:questionLog");
   }
 
   function begin(order) {
@@ -722,6 +902,15 @@ export default function App() {
     const result = computeResult(s);
     const updated = sections.map((x, i) => i === secIdx ? { ...x, done: true, result } : x);
     setSections(updated);
+    const now = new Date().toISOString();
+    s.items.forEach((it) => {
+      const r = s.responses[it.id];
+      const q = result.perQ.find((x) => x.id === it.id);
+      logQuestion({
+        itemId: it.id, mode: "full", section: s.key, topic: it.topic, diff: it.diff,
+        chosenResponse: r ?? null, correct: q.correct, answered: q.answered, timestamp: now,
+      });
+    });
     if (secIdx + 1 < updated.length) {
       setSecIdx(secIdx + 1); setShowCalc(false);
     } else {
@@ -730,7 +919,7 @@ export default function App() {
     }
   }
 
-  async function saveAttempt(secs) {
+  function saveAttempt(secs) {
     const secScores = secs.map((s) => ({ S: s.result.score, seS: s.result.seS }));
     const tot = totalFromSections(secScores);
     const errorLog = {};
@@ -742,16 +931,12 @@ export default function App() {
       sections: secs.map((s) => ({ key: s.key, correct: s.result.correct, total: s.result.total, timeUsed: s.result.timeUsed, score: s.result.score })),
       total: tot.mid, band: [tot.lo, tot.hi], errorLog,
     };
-    setAttempts((prev) => [...prev, rec]); // keep it even if storage is unavailable
-    try {
-      if (typeof window !== "undefined" && window.storage) {
-        let arr = [];
-        try { const got = await window.storage.get("gmat:attempts"); if (got && got.value) arr = JSON.parse(got.value); } catch (e) {}
-        arr.push(rec); arr = arr.slice(-50);
-        await window.storage.set("gmat:attempts", JSON.stringify(arr));
-        setAttempts(arr); setSavedCount(arr.length);
-      }
-    } catch (e) { /* persistence unavailable; in-memory history still works this session */ }
+    setAttempts((prev) => {
+      const arr = [...prev, rec].slice(-50);
+      setJSON("gmat:attempts", arr);
+      setSavedCount(arr.length);
+      return arr;
+    });
   }
 
   function setResp(qid, val) {
@@ -779,11 +964,22 @@ export default function App() {
 
   let screen;
   if (phase === "intro") {
-    screen = <Intro onStart={() => setPhase("order")} onHistory={() => setPhase("history")} attempts={attempts} />;
+    screen = <Intro onStart={() => setPhase("order")} onPractice={() => setPhase("practice")} onHistory={() => setPhase("history")} attempts={attempts} />;
   } else if (phase === "order") {
     screen = <OrderPick onBegin={begin} />;
+  } else if (phase === "practice") {
+    screen = <PracticeMode onBack={() => setPhase("intro")} onLog={logQuestion} />;
   } else if (phase === "history") {
-    screen = <History attempts={attempts} onBack={() => setPhase("intro")} onClear={clearHistory} />;
+    screen = (
+      <History
+        attempts={attempts}
+        questionLog={questionLog}
+        onBack={() => setPhase("intro")}
+        onClear={clearHistory}
+        onClearLog={clearQuestionLog}
+        onUpdateNote={updateNote}
+      />
+    );
   } else if (phase === "results") {
     screen = <Results sections={sections} onRestart={goHome} savedCount={savedCount} />;
   } else {

@@ -30,10 +30,6 @@ function loadJson(file) {
 function saveJson(file, data) {
   writeFileSync(path.join(DATA_DIR, file), JSON.stringify(data, null, 2) + "\n");
 }
-function nextId(items, re, prefix) {
-  const max = Math.max(0, ...items.map((x) => { const m = x.id.match(re); return m ? +m[1] : 0; }));
-  return (n) => `${prefix}${n}`;
-}
 function norm(s) {
   return s.toLowerCase().replace(/\s+/g, " ").trim();
 }
@@ -61,7 +57,7 @@ async function callDeepseek(systemPrompt, userPrompt) {
   const data = await res.json();
   const content = data.choices?.[0]?.message?.content;
   if (!content) throw new Error("Deepseek response had no content");
-  return JSON.parse(content);
+  return { json: JSON.parse(content), model: data.model ?? "deepseek-chat" };
 }
 
 function isValidChoiceItem(item) {
@@ -89,35 +85,38 @@ function isValidDsItem(item) {
 
 async function genQuant(existing) {
   const existingPrompts = existing.map((x) => x.prompt).slice(-40);
-  const out = await callDeepseek(
+  const { json, model } = await callDeepseek(
     "You write original GMAT Focus Edition Quantitative Reasoning (Problem Solving) practice questions. Output strict JSON only.",
     `Generate ${COUNTS.quant} new PS questions as JSON: {"items":[{"topic":string,"diff":"easy"|"medium"|"hard","prompt":string,"choices":[5 strings],"answer":0-4 index of correct choice,"exp":string explaining the correct answer and briefly why the main distractor is tempting}]}.
 Cover a mix of topics (algebra, percents, ratios, statistics, number properties, geometry, rates, probability, counting). Mix difficulty. Do not duplicate any of these existing prompts (by topic or wording):
 ${existingPrompts.map((p) => "- " + p).join("\n")}`
   );
-  return (out.items ?? []).filter(isValidChoiceItem);
+  const creator = `Deepseek ${model}`;
+  return (json.items ?? []).filter(isValidChoiceItem).map((it) => ({ ...it, creator }));
 }
 
 async function genCr(existing) {
   const existingPrompts = existing.map((x) => x.prompt).slice(-40);
-  const out = await callDeepseek(
+  const { json, model } = await callDeepseek(
     "You write original GMAT Focus Edition Verbal Reasoning Critical Reasoning practice questions. Output strict JSON only.",
     `Generate ${COUNTS.cr} new CR questions as JSON: {"items":[{"topic":"CR: <subtype>" (e.g. "CR: Weaken","CR: Strengthen","CR: Assumption","CR: Flaw","CR: Inference","CR: Evaluate","CR: Paradox","CR: Boldface"),"diff":"easy"|"medium"|"hard","prompt":string (include the question stem),"choices":[5 strings],"answer":0-4 index of correct choice,"exp":string explaining why the correct choice works and briefly why at least one trap choice is tempting}]}.
 Mix subtypes and difficulty. Do not duplicate any of these existing prompts (by scenario or wording):
 ${existingPrompts.map((p) => "- " + p.replace(/\n/g, " ")).join("\n")}`
   );
-  return (out.items ?? []).filter(isValidChoiceItem);
+  const creator = `Deepseek ${model}`;
+  return (json.items ?? []).filter(isValidChoiceItem).map((it) => ({ ...it, creator }));
 }
 
 async function genDs(existing) {
   const existingPrompts = existing.filter((x) => x.type === "DS").map((x) => x.prompt).slice(-40);
-  const out = await callDeepseek(
+  const { json, model } = await callDeepseek(
     "You write original GMAT Focus Edition Data Insights Data Sufficiency practice questions. Output strict JSON only.",
     `Generate ${COUNTS.ds} new Data Sufficiency questions as JSON: {"items":[{"topic":"DS: <area>" (e.g. algebra, number properties, statistics, geometry reasoning, inequalities, word problem),"diff":"easy"|"medium"|"hard","prompt":string (the question, not the statements),"s1":string (statement 1),"s2":string (statement 2),"answer":0-4 where 0="statement 1 alone is sufficient, statement 2 is not",1="statement 2 alone is sufficient, statement 1 is not",2="both statements together are sufficient, neither alone is",3="each statement alone is sufficient",4="the statements together are not sufficient","exp":string explaining the sufficiency of each statement}]}.
 Verify the sufficiency logic carefully before answering — it must be mathematically correct. Do not duplicate any of these existing prompts:
 ${existingPrompts.map((p) => "- " + p).join("\n")}`
   );
-  return (out.items ?? []).filter(isValidDsItem);
+  const creator = `Deepseek ${model}`;
+  return (json.items ?? []).filter(isValidDsItem).map((it) => ({ ...it, creator }));
 }
 
 async function main() {

@@ -8,7 +8,8 @@
     "s1": "x + 3 = 7",
     "s2": "x² = 16 and x > 0",
     "answer": 3,
-    "exp": "(1) gives x = 4. (2) gives x = 4 (positive root). Each alone is sufficient → D."
+    "exp": "(1) gives x = 4. (2) gives x = 4 (positive root). Each alone is sufficient → D.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI2",
@@ -19,7 +20,8 @@
     "s1": "n is divisible by 12",
     "s2": "n is divisible by 3",
     "answer": 0,
-    "exp": "(1) Divisible by 12 ⇒ divisible by 6: sufficient. (2) Divisible by 3 could be 3 (no) or 6 (yes): not sufficient → A."
+    "exp": "(1) Divisible by 12 ⇒ divisible by 6: sufficient. (2) Divisible by 3 could be 3 (no) or 6 (yes): not sufficient → A.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI3",
@@ -30,7 +32,8 @@
     "s1": "The sum of the largest and smallest of the numbers is 20.",
     "s2": "The sum of all 5 numbers is 75.",
     "answer": 1,
-    "exp": "(2) average = 75/5 = 15: sufficient. (1) tells nothing about the total: not sufficient → B."
+    "exp": "(2) average = 75/5 = 15: sufficient. (1) tells nothing about the total: not sufficient → B.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI4",
@@ -41,7 +44,8 @@
     "s1": "ABCD is a rectangle.",
     "s2": "ABCD has two adjacent sides of equal length.",
     "answer": 2,
-    "exp": "Neither alone fixes a square. Together: a rectangle with two equal adjacent sides has all sides equal and right angles ⇒ square → C."
+    "exp": "Neither alone fixes a square. Together: a rectangle with two equal adjacent sides has all sides equal and right angles ⇒ square → C.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI5",
@@ -52,7 +56,8 @@
     "s1": "x is a prime number less than 10.",
     "s2": "x is odd.",
     "answer": 4,
-    "exp": "(1) x ∈ {2,3,5,7}. (2) odd. Together x ∈ {3,5,7}: still not unique → E."
+    "exp": "(1) x ∈ {2,3,5,7}. (2) odd. Together x ∈ {3,5,7}: still not unique → E.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI6",
@@ -63,7 +68,8 @@
     "s1": "The store's 2024 revenue was 12% higher than its 2023 revenue.",
     "s2": "The store sold more units in 2024 than in 2023.",
     "answer": 0,
-    "exp": "(1) 12% higher ⇒ increased: sufficient. (2) more units could pair with lower prices: not sufficient → A."
+    "exp": "(1) 12% higher ⇒ increased: sufficient. (2) more units could pair with lower prices: not sufficient → A.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI7",
@@ -86,7 +92,8 @@
       2,
       3
     ],
-    "exp": "2000 + 5u = 3500 ⇒ u = 300; 2000 + 5u = 4000 ⇒ u = 400."
+    "exp": "2000 + 5u = 3500 ⇒ u = 300; 2000 + 5u = 4000 ⇒ u = 400.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI8",
@@ -110,7 +117,8 @@
       4,
       2
     ],
-    "exp": "A + B = 150 and A = B + 30 ⇒ B = 60, A = 90."
+    "exp": "A + B = 150 and A = B + 30 ⇒ B = 60, A = 90.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI9",
@@ -134,7 +142,8 @@
       3,
       1
     ],
-    "exp": "x + y = 30 and 0.2x + 0.5y = 9 ⇒ y = 10, x = 20."
+    "exp": "x + y = 30 and 0.2x + 0.5y = 9 ⇒ y = 10, x = 20.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI10",
@@ -190,7 +199,8 @@
         "answer": "No"
       }
     ],
-    "exp": "East leads in both units (150) and revenue (30,000). South: 15,300/90 = 170 (not >180). East returns 12 of 28 total < 14."
+    "exp": "East leads in both units (150) and revenue (30,000). South: 15,300/90 = 170 (not >180). East returns 12 of 28 total < 14.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI11",
@@ -252,7 +262,8 @@
         "answer": "No"
       }
     ],
-    "exp": "Most years: Dan (8) earns 88k, but Ada earns 95k. Ada (95k) and Dan (88k) both exceed 80k. Cara (Eng, 2 yrs) has fewer years than Ben (Sales, 3) and Dan (8)."
+    "exp": "Most years: Dan (8) earns 88k, but Ada earns 95k. Ada (95k) and Dan (88k) both exceed 80k. Cara (Eng, 2 yrs) has fewer years than Ben (Sales, 3) and Dan (8).",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI12",
@@ -308,7 +319,8 @@
         "answer": "No"
       }
     ],
-    "exp": "Profits: P1=4,000; P2=3,000; P3=4,000; P4=4,800 (greatest). P2 (3,000) < P1 (4,000). Revenue P3 = 10,000 = P1 = 10,000 (equal, not exceeds)."
+    "exp": "Profits: P1=4,000; P2=3,000; P3=4,000; P4=4,800 (greatest). P2 (3,000) < P1 (4,000). Revenue P3 = 10,000 = P1 = 10,000 (equal, not exceeds).",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI13",
@@ -355,7 +367,8 @@
         "answer": 2
       }
     ],
-    "exp": "Increases: +15, −5, +20, −5; greatest is Mar→Apr. Mean = 280/5 = 56."
+    "exp": "Increases: +15, −5, +20, −5; greatest is Mar→Apr. Mean = 280/5 = 56.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI14",
@@ -399,7 +412,8 @@
         "answer": 2
       }
     ],
-    "exp": "80 / 20 = 4. Sorted {20,45,45,80}; median = (45+45)/2 = 45."
+    "exp": "80 / 20 = 4. Sorted {20,45,45,80}; median = (45+45)/2 = 45.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI15",
@@ -445,7 +459,8 @@
         "answer": 0
       }
     ],
-    "exp": "Sometimes+Often+Always = 30+25+15 = 70%. Often/Rarely = 25/20 = 1.25."
+    "exp": "Sometimes+Often+Always = 30+25+15 = 70%. Often/Rarely = 25/20 = 1.25.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI16",
@@ -475,7 +490,8 @@
       "All three vendors"
     ],
     "answer": 0,
-    "exp": "A: within budget, 3h, monthly — qualifies. B: 5h fails response. C: $125k exceeds the cap — disqualified. Only A."
+    "exp": "A: within budget, 3h, monthly — qualifies. B: 5h fails response. C: $125k exceeds the cap — disqualified. Only A.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI17",
@@ -511,7 +527,8 @@
         "answer": "Yes"
       }
     ],
-    "exp": "C ($125k) exceeds the cap and has the fastest response (2h). B's 5h fails the <4h rule. A's $110k ≤ $120k."
+    "exp": "C ($125k) exceeds the cap and has the fastest response (2h). B's 5h fails the <4h rule. A's $110k ≤ $120k.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI18",
@@ -541,7 +558,8 @@
       "All three vendors"
     ],
     "answer": 1,
-    "exp": "C ($125k) now fits the budget and already meets response (2h) and visits (monthly). A still qualifies. B still fails on response (5h). So A and C."
+    "exp": "C ($125k) now fits the budget and already meets response (2h) and visits (monthly). A still qualifies. B still fails on response (5h). So A and C.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI19",
@@ -571,7 +589,8 @@
       "vendor reputation"
     ],
     "answer": 1,
-    "exp": "Operations states response time is twice as important as visit frequency, so faster response outweighs more frequent visits."
+    "exp": "Operations states response time is twice as important as visit frequency, so faster response outweighs more frequent visits.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI20",
@@ -607,7 +626,8 @@
         "answer": "Yes"
       }
     ],
-    "exp": "Only A qualifies under the original cap. C (monthly) > B (quarterly) on visits. Ignoring response, B ($98k, quarterly) satisfies budget and visit rules."
+    "exp": "Only A qualifies under the original cap. C (monthly) > B (quarterly) on visits. Ignoring response, B ($98k, quarterly) satisfies budget and visit rules.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI21",
@@ -618,7 +638,8 @@
     "s1": "x > 3",
     "s2": "x² = 9",
     "answer": 0,
-    "exp": "(1) x > 3 ⇒ positive: sufficient. (2) x = 3 or −3: not sufficient → A."
+    "exp": "(1) x > 3 ⇒ positive: sufficient. (2) x = 3 or −3: not sufficient → A.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI22",
@@ -629,7 +650,8 @@
     "s1": "Three apples cost $1.50.",
     "s2": "Apples cost $0.50 each.",
     "answer": 3,
-    "exp": "(1) 1.50/3 = $0.50: sufficient. (2) states $0.50: sufficient. Each alone → D."
+    "exp": "(1) 1.50/3 = $0.50: sufficient. (2) states $0.50: sufficient. Each alone → D.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI23",
@@ -640,7 +662,8 @@
     "s1": "x = 4",
     "s2": "y = 7",
     "answer": 2,
-    "exp": "Neither alone gives the sum; together x + y = 11 → C."
+    "exp": "Neither alone gives the sum; together x + y = 11 → C.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI24",
@@ -651,7 +674,8 @@
     "s1": "x > 3",
     "s2": "x < 10",
     "answer": 4,
-    "exp": "Together 3 < x < 10; x could be 4 (no) or 7 (yes): not sufficient → E."
+    "exp": "Together 3 < x < 10; x could be 4 (no) or 7 (yes): not sufficient → E.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI25",
@@ -674,7 +698,8 @@
       2,
       2
     ],
-    "exp": "n + p = 10 and 4n + p = 25 ⇒ 3n = 15 ⇒ n = 5, p = 5."
+    "exp": "n + p = 10 and 4n + p = 25 ⇒ 3n = 15 ⇒ n = 5, p = 5.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI26",
@@ -730,7 +755,8 @@
         "answer": "No"
       }
     ],
-    "exp": "Delta's 600 is highest. Densities (per km²): Alpha 2.0, Beta 1.5, Gamma 2.0, Delta 3.0 — Delta, not Gamma, is highest. Beta has 8 parks vs Gamma's 20."
+    "exp": "Delta's 600 is highest. Densities (per km²): Alpha 2.0, Beta 1.5, Gamma 2.0, Delta 3.0 — Delta, not Gamma, is highest. Beta has 8 parks vs Gamma's 20.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI27",
@@ -774,7 +800,8 @@
         "answer": 3
       }
     ],
-    "exp": "12 + 18 + 15 + 25 = 70. The largest single bar is Q4 (25)."
+    "exp": "12 + 18 + 15 + 25 = 70. The largest single bar is Q4 (25).",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI28",
@@ -804,7 +831,8 @@
       "Vendor reputation"
     ],
     "answer": 2,
-    "exp": "Operations states response time is twice as important as visit frequency, so a faster guaranteed response is the decisive factor."
+    "exp": "Operations states response time is twice as important as visit frequency, so a faster guaranteed response is the decisive factor.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI29",
@@ -815,7 +843,8 @@
     "s1": "x³ > 0",
     "s2": "x² > 0",
     "answer": 0,
-    "exp": "(1) x³ > 0 only when x > 0: sufficient. (2) x² > 0 for any nonzero x, positive or negative: not sufficient → A."
+    "exp": "(1) x³ > 0 only when x > 0: sufficient. (2) x² > 0 for any nonzero x, positive or negative: not sufficient → A.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI30",
@@ -826,7 +855,8 @@
     "s1": "The shop sold 30 items in all.",
     "s2": "The shop sold twice as many pens as notebooks.",
     "answer": 2,
-    "exp": "(1) alone fixes only the total. (2) alone fixes only the ratio. Together, p + n = 30 and p = 2n give n = 10, p = 20 → C."
+    "exp": "(1) alone fixes only the total. (2) alone fixes only the ratio. Together, p + n = 30 and p = 2n give n = 10, p = 20 → C.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI31",
@@ -837,7 +867,8 @@
     "s1": "k² is odd.",
     "s2": "3k is odd.",
     "answer": 3,
-    "exp": "(1) k² odd ⇒ k odd: sufficient. (2) 3k odd ⇒ k odd (3 is odd): sufficient → D."
+    "exp": "(1) k² odd ⇒ k odd: sufficient. (2) 3k odd ⇒ k odd (3 is odd): sufficient → D.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI32",
@@ -860,7 +891,8 @@
       1,
       3
     ],
-    "exp": "200 + 15g = 500 ⇒ g = 20; 200 + 15g = 650 ⇒ g = 30."
+    "exp": "200 + 15g = 500 ⇒ g = 20; 200 + 15g = 650 ⇒ g = 30.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI33",
@@ -916,7 +948,8 @@
         "answer": "Yes"
       }
     ],
-    "exp": "Profits: A 20,000; B 25,000; C 20,000; D 10,000. Highest sales (B, 80,000) also has the highest profit (25,000). D: 10,000/9 ≈ 1,111 < C: 20,000/4 = 5,000. Three stores (A, B, C) exceed 19,000."
+    "exp": "Profits: A 20,000; B 25,000; C 20,000; D 10,000. Highest sales (B, 80,000) also has the highest profit (25,000). D: 10,000/9 ≈ 1,111 < C: 20,000/4 = 5,000. Three stores (A, B, C) exceed 19,000.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "DI34",
@@ -927,6 +960,7 @@
     "s1": "x + y is odd.",
     "s2": "x − y is even.",
     "answer": 0,
-    "exp": "(1) x + y odd ⇒ one of x, y is even and the other odd ⇒ xy is even: sufficient. (2) x − y even ⇒ x and y share parity ⇒ xy could be even (both even) or odd (both odd): not sufficient → A."
+    "exp": "(1) x + y odd ⇒ one of x, y is even and the other odd ⇒ xy is even: sufficient. (2) x − y even ⇒ x and y share parity ⇒ xy could be even (both even) or odd (both odd): not sufficient → A.",
+    "creator": "Claude Sonnet 5"
   }
 ]

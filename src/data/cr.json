@@ -12,7 +12,8 @@
       "In a survey, most local drivers said they had noticed the newly installed cameras at those intersections."
     ],
     "answer": 2,
-    "exp": "A citywide decline of the same magnitude, including where no cameras were installed, points to a general trend rather than the cameras as the cause. The timing detail in the first option would support the conclusion, not weaken it."
+    "exp": "A citywide decline of the same magnitude, including where no cameras were installed, points to a general trend rather than the cameras as the cause. The timing detail in the first option would support the conclusion, not weaken it.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR2",
@@ -27,7 +28,8 @@
       "A comparable placebo group showed no drop in cholesterol over the same three months."
     ],
     "answer": 4,
-    "exp": "If an untreated comparison group shows no decline over the same period, natural fluctuation and the passage of time are ruled out, leaving the drug as the cause. Added exercise would instead weaken the argument by supplying an alternative cause."
+    "exp": "If an untreated comparison group shows no decline over the same period, natural fluctuation and the passage of time are ruled out, leaving the drug as the cause. Added exercise would instead weaken the argument by supplying an alternative cause.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR3",
@@ -42,7 +44,8 @@
       "The clinic's attorneys are paid less than attorneys doing comparable work in private practice."
     ],
     "answer": 1,
-    "exp": "Negation test: if the clinic mainly accepts cases that are already easier to win, its high success rate reflects which cases it selects rather than how well it represents them, and the conclusion collapses, so the argument must assume otherwise. Client satisfaction or caseload volume would round out the story but are not required."
+    "exp": "Negation test: if the clinic mainly accepts cases that are already easier to win, its high success rate reflects which cases it selects rather than how well it represents them, and the conclusion collapses, so the argument must assume otherwise. Client satisfaction or caseload volume would round out the story but are not required.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR4",
@@ -57,7 +60,8 @@
       "fails to weigh the financial cost of running the program against the benefits it produces"
     ],
     "answer": 3,
-    "exp": "If the people already on track for promotion are the ones selected for the program, then completing it need not cause the promotions; the argument overlooks this self-selection. Sample size and cost sound like flaws but are not the error the reasoning actually commits."
+    "exp": "If the people already on track for promotion are the ones selected for the program, then completing it need not cause the promotions; the argument overlooks this self-selection. Sample size and cost sound like flaws but are not the error the reasoning actually commits.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR5",
@@ -72,7 +76,8 @@
       "Only senior analysts have completed the certification."
     ],
     "answer": 2,
-    "exp": "Senior analysts are all certified, and everyone certified has at least five years' experience; chaining the two forces the conclusion that every senior analyst has at least five years. The other options reverse the conditionals or add claims the premises do not support."
+    "exp": "Senior analysts are all certified, and everyone certified has at least five years' experience; chaining the two forces the conclusion that every senior analyst has at least five years. The other options reverse the conditionals or add claims the premises do not support.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR6",
@@ -87,7 +92,8 @@
       "Whether the rise in scores was larger in some grade levels than in others"
     ],
     "answer": 0,
-    "exp": "If comparable districts that kept textbooks saw the same rise, then something other than the tablets explains it, so that comparison directly tests whether the tablets were the cause. Training, cost, or preference may matter for other reasons but do not isolate the tablets' effect."
+    "exp": "If comparable districts that kept textbooks saw the same rise, then something other than the tablets explains it, so that comparison directly tests whether the tablets were the cause. Training, cost, or preference may matter for other reasons but do not isolate the tablets' effect.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR7",
@@ -102,7 +108,8 @@
       "In the year before, the company had spent comparatively little on advertising."
     ],
     "answer": 3,
-    "exp": "If rival firms increased their advertising just as much, the company's recognition could climb while its position relative to competitors, and therefore its sales, stayed flat. The other choices add detail about the ads or products but do not explain why higher recognition failed to lift sales."
+    "exp": "If rival firms increased their advertising just as much, the company's recognition could climb while its position relative to competitors, and therefore its sales, stayed flat. The other choices add detail about the ads or products but do not explain why higher recognition failed to lift sales.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR8",
@@ -117,7 +124,8 @@
       "(1) and (2) are both pieces of evidence supporting the economists' original position."
     ],
     "answer": 2,
-    "exp": "The author concedes (1), that tariffs can protect some jobs in the short run, then introduces (2) to qualify it and reach the guarded conclusion that the net effect is uncertain. So (1) is a granted point rather than a conclusion, and (2) qualifies rather than supports it."
+    "exp": "The author concedes (1), that tariffs can protect some jobs in the short run, then introduces (2) to qualify it and reach the guarded conclusion that the net effect is uncertain. So (1) is a granted point rather than a conclusion, and (2) qualifies rather than supports it.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR9",
@@ -132,7 +140,8 @@
       "Commuters will in fact use the new bridge instead of staying on their current routes."
     ],
     "answer": 4,
-    "exp": "Negation test: if commuters keep to their existing routes, the more direct bridge saves no one any time and the conclusion fails, so the argument must assume they will switch. Schedule, growth, and the number of commuters make the scenario feel complete but are not needed for the time-saving conclusion."
+    "exp": "Negation test: if commuters keep to their existing routes, the more direct bridge saves no one any time and the conclusion fails, so the argument must assume they will switch. Schedule, growth, and the number of commuters make the scenario feel complete but are not needed for the time-saving conclusion.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR10",
@@ -147,7 +156,8 @@
       "The comparison between walkers and non-walkers covered a span of only two weeks."
     ],
     "answer": 0,
-    "exp": "If the employees who choose to walk are already more energetic or driven, those traits rather than the walk may explain their productivity, so requiring everyone to walk need not reproduce the effect. Resentment, self-reporting, and the short window raise doubts but do not as directly sever the causal link."
+    "exp": "If the employees who choose to walk are already more energetic or driven, those traits rather than the walk may explain their productivity, so requiring everyone to walk need not reproduce the effect. Resentment, self-reporting, and the short window raise doubts but do not as directly sever the causal link.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR11",
@@ -162,7 +172,8 @@
       "Most of the store's customers actually drank the free coffee that was offered."
     ],
     "answer": 1,
-    "exp": "If something else that boosts sales, such as a promotion or a popular new release, changed at the same time, it rather than the coffee could account for the rise, so the argument must assume nothing else did. That most customers drank the coffee would help the story but is not what the causal conclusion strictly requires."
+    "exp": "If something else that boosts sales, such as a promotion or a popular new release, changed at the same time, it rather than the coffee could account for the rise, so the argument must assume nothing else did. That most customers drank the coffee would help the story but is not what the causal conclusion strictly requires.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR12",
@@ -177,7 +188,8 @@
       "Lifespan is difficult to measure with any real precision."
     ],
     "answer": 3,
-    "exp": "If habitual tea drinkers differ in other health-relevant habits, more exercise and less smoking, those differences rather than the tea may explain their longer lives, undercutting the recommendation. Antioxidant content or low price says nothing about whether the tea itself extends lifespan."
+    "exp": "If habitual tea drinkers differ in other health-relevant habits, more exercise and less smoking, those differences rather than the tea may explain their longer lives, undercutting the recommendation. Antioxidant content or low price says nothing about whether the tea itself extends lifespan.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR13",
@@ -192,7 +204,8 @@
       "The Riverside plant will be shut down as a result."
     ],
     "answer": 1,
-    "exp": "Since recalled products all came from Riverside and nothing from Lakeside was recalled, no recalled product could have been made at Lakeside. Claims about reliability, output share, or closing a plant go beyond what the two premises establish."
+    "exp": "Since recalled products all came from Riverside and nothing from Lakeside was recalled, no recalled product could have been made at Lakeside. Claims about reliability, output share, or closing a plant go beyond what the two premises establish.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR14",
@@ -207,7 +220,8 @@
       "Students taught with the method also scored higher on a test two months later."
     ],
     "answer": 4,
-    "exp": "Retention is about how well learning lasts, so stronger performance on a test two months later supports improved retention rather than a momentary boost. An experienced teacher would instead supply an alternative explanation, and enjoyment or test format does not bear on the durability of learning."
+    "exp": "Retention is about how well learning lasts, so stronger performance on a test two months later supports improved retention rather than a momentary boost. An experienced teacher would instead supply an alternative explanation, and enjoyment or test format does not bear on the durability of learning.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR15",
@@ -222,7 +236,8 @@
       "grants that unemployment did in fact rise after the policy took effect"
     ],
     "answer": 0,
-    "exp": "Showing that regions without the policy also worsened does not prove the policy had no effect; it may have softened the local increase relative to what would otherwise have occurred, a possibility the rebuttal ignores. Using neighbors as a comparison or conceding the rise are not themselves errors."
+    "exp": "Showing that regions without the policy also worsened does not prove the policy had no effect; it may have softened the local increase relative to what would otherwise have occurred, a possibility the rebuttal ignores. Using neighbors as a comparison or conceding the rise are not themselves errors.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR16",
@@ -237,7 +252,8 @@
       "The school's test scores had been roughly flat for several years before the program began."
     ],
     "answer": 2,
-    "exp": "If the school made other major changes at the same time—smaller classes, more tutoring—those could account for the score gains instead of the breakfast, undercutting the causal claim. The detail that scores were flat beforehand would, if anything, support the conclusion by ruling out a prior upward trend; the remaining options are consistent with the conclusion but establish no cause."
+    "exp": "If the school made other major changes at the same time—smaller classes, more tutoring—those could account for the score gains instead of the breakfast, undercutting the causal claim. The detail that scores were flat beforehand would, if anything, support the conclusion by ruling out a prior upward trend; the remaining options are consistent with the conclusion but establish no cause.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR17",
@@ -252,7 +268,8 @@
       "The magazine's existing readers are, on the whole, noticeably wealthier than the readers of its closest competitors."
     ],
     "answer": 3,
-    "exp": "Negation test: if the price increase drove copies sold down enough that revenue fell, the plan would fail, so it must assume the drop in copies is not that severe. Falling costs would affect profit rather than the revenue claim; matching competitors, new reader categories, and reader wealth are not required for a higher price to raise revenue."
+    "exp": "Negation test: if the price increase drove copies sold down enough that revenue fell, the plan would fail, so it must assume the drop in copies is not that severe. Falling costs would affect profit rather than the revenue claim; matching competitors, new reader categories, and reader wealth are not required for a higher price to raise revenue.",
+    "creator": "Claude Sonnet 5"
   },
   {
     "id": "V_CR18",
@@ -267,6 +284,7 @@
       "Most products in the store are discounted by at least 40 percent."
     ],
     "answer": 2,
-    "exp": "Clearance items are all discounted at least 40 percent, and nothing discounted at least 40 percent earns loyalty points, so no clearance item earns them—a valid chain. The claims about products outside the aisle, popularity, and store-wide discounting go beyond the premises, and the reversed conditional does not follow."
+    "exp": "Clearance items are all discounted at least 40 percent, and nothing discounted at least 40 percent earns loyalty points, so no clearance item earns them—a valid chain. The claims about products outside the aisle, popularity, and store-wide discounting go beyond the premises, and the reversed conditional does not follow.",
+    "creator": "Claude Sonnet 5"
   }
 ]
