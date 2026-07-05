@@ -1,0 +1,932 @@
+[
+  {
+    "id": "DI1",
+    "type": "DS",
+    "topic": "DS: Algebra",
+    "diff": "easy",
+    "prompt": "What is the value of the integer x?",
+    "s1": "x + 3 = 7",
+    "s2": "x² = 16 and x > 0",
+    "answer": 3,
+    "exp": "(1) gives x = 4. (2) gives x = 4 (positive root). Each alone is sufficient → D."
+  },
+  {
+    "id": "DI2",
+    "type": "DS",
+    "topic": "DS: Number properties",
+    "diff": "medium",
+    "prompt": "Is the positive integer n divisible by 6?",
+    "s1": "n is divisible by 12",
+    "s2": "n is divisible by 3",
+    "answer": 0,
+    "exp": "(1) Divisible by 12 ⇒ divisible by 6: sufficient. (2) Divisible by 3 could be 3 (no) or 6 (yes): not sufficient → A."
+  },
+  {
+    "id": "DI3",
+    "type": "DS",
+    "topic": "DS: Statistics",
+    "diff": "medium",
+    "prompt": "What is the average (arithmetic mean) of a set of 5 numbers?",
+    "s1": "The sum of the largest and smallest of the numbers is 20.",
+    "s2": "The sum of all 5 numbers is 75.",
+    "answer": 1,
+    "exp": "(2) average = 75/5 = 15: sufficient. (1) tells nothing about the total: not sufficient → B."
+  },
+  {
+    "id": "DI4",
+    "type": "DS",
+    "topic": "DS: Geometry reasoning",
+    "diff": "hard",
+    "prompt": "Is quadrilateral ABCD a square?",
+    "s1": "ABCD is a rectangle.",
+    "s2": "ABCD has two adjacent sides of equal length.",
+    "answer": 2,
+    "exp": "Neither alone fixes a square. Together: a rectangle with two equal adjacent sides has all sides equal and right angles ⇒ square → C."
+  },
+  {
+    "id": "DI5",
+    "type": "DS",
+    "topic": "DS: Number properties",
+    "diff": "hard",
+    "prompt": "What is the value of the integer x?",
+    "s1": "x is a prime number less than 10.",
+    "s2": "x is odd.",
+    "answer": 4,
+    "exp": "(1) x ∈ {2,3,5,7}. (2) odd. Together x ∈ {3,5,7}: still not unique → E."
+  },
+  {
+    "id": "DI6",
+    "type": "DS",
+    "topic": "DS: Word problem",
+    "diff": "medium",
+    "prompt": "Did the store's revenue increase from 2023 to 2024?",
+    "s1": "The store's 2024 revenue was 12% higher than its 2023 revenue.",
+    "s2": "The store sold more units in 2024 than in 2023.",
+    "answer": 0,
+    "exp": "(1) 12% higher ⇒ increased: sufficient. (2) more units could pair with lower prices: not sufficient → A."
+  },
+  {
+    "id": "DI7",
+    "type": "TPA",
+    "topic": "Two-Part: Linear cost",
+    "diff": "medium",
+    "prompt": "A factory's total monthly cost is a fixed $2,000 plus $5 for each unit produced. In the table, select the number of units that makes the total cost exactly $3,500, and the number that makes it exactly $4,000. Make only one selection in each column.",
+    "colLabels": [
+      "Cost = $3,500",
+      "Cost = $4,000"
+    ],
+    "options": [
+      "100",
+      "200",
+      "300",
+      "400",
+      "500"
+    ],
+    "answer": [
+      2,
+      3
+    ],
+    "exp": "2000 + 5u = 3500 ⇒ u = 300; 2000 + 5u = 4000 ⇒ u = 400."
+  },
+  {
+    "id": "DI8",
+    "type": "TPA",
+    "topic": "Two-Part: Rates",
+    "diff": "medium",
+    "prompt": "Two trains travel toward each other. The sum of their speeds is 150 km/h, and Train A travels 30 km/h faster than Train B. Select Train A's speed and Train B's speed.",
+    "colLabels": [
+      "Train A (km/h)",
+      "Train B (km/h)"
+    ],
+    "options": [
+      "30",
+      "45",
+      "60",
+      "75",
+      "90",
+      "120"
+    ],
+    "answer": [
+      4,
+      2
+    ],
+    "exp": "A + B = 150 and A = B + 30 ⇒ B = 60, A = 90."
+  },
+  {
+    "id": "DI9",
+    "type": "TPA",
+    "topic": "Two-Part: Mixtures",
+    "diff": "hard",
+    "prompt": "A 30-liter mixture that is 30% salt is made from Solution X (20% salt) and Solution Y (50% salt). Select the liters of Solution X and the liters of Solution Y used.",
+    "colLabels": [
+      "Liters of X",
+      "Liters of Y"
+    ],
+    "options": [
+      "5",
+      "10",
+      "15",
+      "20",
+      "25",
+      "30"
+    ],
+    "answer": [
+      3,
+      1
+    ],
+    "exp": "x + y = 30 and 0.2x + 0.5y = 9 ⇒ y = 10, x = 20."
+  },
+  {
+    "id": "DI10",
+    "type": "TA",
+    "topic": "Table Analysis: Sales",
+    "diff": "medium",
+    "prompt": "Review the table. For each statement, select Yes if it is true based on the data, or No if it is not. (Tap a column header to sort.)",
+    "table": {
+      "cols": [
+        "Region",
+        "Units",
+        "Revenue ($)",
+        "Returns"
+      ],
+      "rows": [
+        [
+          "North",
+          120,
+          24000,
+          8
+        ],
+        [
+          "South",
+          90,
+          15300,
+          5
+        ],
+        [
+          "East",
+          150,
+          30000,
+          12
+        ],
+        [
+          "West",
+          60,
+          9000,
+          3
+        ]
+      ]
+    },
+    "statements": [
+      {
+        "text": "The region with the most units sold also has the most revenue.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The South region's revenue per unit is greater than $180.",
+        "answer": "No"
+      },
+      {
+        "text": "More than half of all returns came from the East region.",
+        "answer": "No"
+      }
+    ],
+    "exp": "East leads in both units (150) and revenue (30,000). South: 15,300/90 = 170 (not >180). East returns 12 of 28 total < 14."
+  },
+  {
+    "id": "DI11",
+    "type": "TA",
+    "topic": "Table Analysis: Staff",
+    "diff": "hard",
+    "prompt": "Review the table. For each statement, select Yes if it is true based on the data, or No if it is not.",
+    "table": {
+      "cols": [
+        "Employee",
+        "Dept",
+        "Years",
+        "Salary ($)"
+      ],
+      "rows": [
+        [
+          "Ada",
+          "Eng",
+          6,
+          95000
+        ],
+        [
+          "Ben",
+          "Sales",
+          3,
+          62000
+        ],
+        [
+          "Cara",
+          "Eng",
+          2,
+          70000
+        ],
+        [
+          "Dan",
+          "Sales",
+          8,
+          88000
+        ],
+        [
+          "Eve",
+          "Ops",
+          5,
+          75000
+        ]
+      ]
+    },
+    "statements": [
+      {
+        "text": "The employee with the most years of service has the highest salary.",
+        "answer": "No"
+      },
+      {
+        "text": "At least two employees earn more than $80,000.",
+        "answer": "Yes"
+      },
+      {
+        "text": "Every Engineering employee has more years of service than every Sales employee.",
+        "answer": "No"
+      }
+    ],
+    "exp": "Most years: Dan (8) earns 88k, but Ada earns 95k. Ada (95k) and Dan (88k) both exceed 80k. Cara (Eng, 2 yrs) has fewer years than Ben (Sales, 3) and Dan (8)."
+  },
+  {
+    "id": "DI12",
+    "type": "TA",
+    "topic": "Table Analysis: Profit",
+    "diff": "hard",
+    "prompt": "Review the table. Profit on a product = (Price − Cost/unit) × Units sold. For each statement, select Yes or No.",
+    "table": {
+      "cols": [
+        "Product",
+        "Price ($)",
+        "Units sold",
+        "Cost/unit ($)"
+      ],
+      "rows": [
+        [
+          "P1",
+          20,
+          500,
+          12
+        ],
+        [
+          "P2",
+          35,
+          300,
+          25
+        ],
+        [
+          "P3",
+          50,
+          200,
+          30
+        ],
+        [
+          "P4",
+          15,
+          800,
+          9
+        ]
+      ]
+    },
+    "statements": [
+      {
+        "text": "P4 generated the greatest total profit of the four products.",
+        "answer": "Yes"
+      },
+      {
+        "text": "P2 generated more total profit than P1.",
+        "answer": "No"
+      },
+      {
+        "text": "Total revenue from P3 exceeds total revenue from P1.",
+        "answer": "No"
+      }
+    ],
+    "exp": "Profits: P1=4,000; P2=3,000; P3=4,000; P4=4,800 (greatest). P2 (3,000) < P1 (4,000). Revenue P3 = 10,000 = P1 = 10,000 (equal, not exceeds)."
+  },
+  {
+    "id": "DI13",
+    "type": "GI",
+    "topic": "Graphics: Trend",
+    "diff": "medium",
+    "prompt": "The bar chart shows monthly revenue. Use it to complete the statements.",
+    "chart": {
+      "labels": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May"
+      ],
+      "values": [
+        40,
+        55,
+        50,
+        70,
+        65
+      ],
+      "yLabel": "Revenue ($000s)"
+    },
+    "template": "The greatest month-over-month increase occurred from {0}. The mean monthly revenue over the five months is {1} thousand dollars.",
+    "blanks": [
+      {
+        "options": [
+          "Jan to Feb",
+          "Feb to Mar",
+          "Mar to Apr",
+          "Apr to May"
+        ],
+        "answer": 2
+      },
+      {
+        "options": [
+          "52",
+          "54",
+          "56",
+          "58",
+          "60"
+        ],
+        "answer": 2
+      }
+    ],
+    "exp": "Increases: +15, −5, +20, −5; greatest is Mar→Apr. Mean = 280/5 = 56."
+  },
+  {
+    "id": "DI14",
+    "type": "GI",
+    "topic": "Graphics: Ratios",
+    "diff": "medium",
+    "prompt": "The bar chart shows a score for four items. Use it to complete the statements.",
+    "chart": {
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "values": [
+        20,
+        45,
+        45,
+        80
+      ],
+      "yLabel": "Score"
+    },
+    "template": "The value for D is {0} times the value for A. The median of the four values is {1}.",
+    "blanks": [
+      {
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": 2
+      },
+      {
+        "options": [
+          "40",
+          "42.5",
+          "45",
+          "47.5"
+        ],
+        "answer": 2
+      }
+    ],
+    "exp": "80 / 20 = 4. Sorted {20,45,45,80}; median = (45+45)/2 = 45."
+  },
+  {
+    "id": "DI15",
+    "type": "GI",
+    "topic": "Graphics: Distribution",
+    "diff": "hard",
+    "prompt": "The bar chart shows how respondents answered a survey question. Use it to complete the statements.",
+    "chart": {
+      "labels": [
+        "Never",
+        "Rarely",
+        "Sometimes",
+        "Often",
+        "Always"
+      ],
+      "values": [
+        10,
+        20,
+        30,
+        25,
+        15
+      ],
+      "yLabel": "% of respondents"
+    },
+    "template": "Respondents answering 'Sometimes' or more frequently make up {0}% of the total. The ratio of 'Often' to 'Rarely' responses is {1}.",
+    "blanks": [
+      {
+        "options": [
+          "55",
+          "60",
+          "70",
+          "75"
+        ],
+        "answer": 2
+      },
+      {
+        "options": [
+          "1.25",
+          "1.5",
+          "2",
+          "0.8"
+        ],
+        "answer": 0
+      }
+    ],
+    "exp": "Sometimes+Often+Always = 30+25+15 = 70%. Often/Rarely = 25/20 = 1.25."
+  },
+  {
+    "id": "DI16",
+    "type": "MSR",
+    "topic": "MSR: Apply criteria",
+    "diff": "medium",
+    "sources": [
+      {
+        "tab": "Email",
+        "text": "From: Procurement Lead\n\nWe must choose exactly one vendor for the 12-month support contract. The budget cap is $120,000. The chosen vendor must guarantee a response time under 4 hours and provide on-site support at least quarterly."
+      },
+      {
+        "tab": "Proposals",
+        "text": "Vendor A — Price $110,000; guaranteed response 3 hours; on-site visits monthly.\nVendor B — Price $98,000; guaranteed response 5 hours; on-site visits quarterly.\nVendor C — Price $125,000; guaranteed response 2 hours; on-site visits monthly."
+      },
+      {
+        "tab": "Notes",
+        "text": "Finance: any proposal exceeding the budget cap is automatically disqualified, regardless of other merits.\nOperations: response time is twice as important to us as on-site visit frequency."
+      }
+    ],
+    "prompt": "Based on the sources, which vendor(s) meet ALL of the stated mandatory criteria (price ≤ $120,000, guaranteed response under 4 hours, on-site support at least quarterly)?",
+    "choices": [
+      "Vendor A only",
+      "Vendor B only",
+      "Vendors A and C",
+      "Vendors A and B",
+      "All three vendors"
+    ],
+    "answer": 0,
+    "exp": "A: within budget, 3h, monthly — qualifies. B: 5h fails response. C: $125k exceeds the cap — disqualified. Only A."
+  },
+  {
+    "id": "DI17",
+    "type": "YN",
+    "topic": "MSR: Determine truth",
+    "diff": "medium",
+    "sources": [
+      {
+        "tab": "Email",
+        "text": "From: Procurement Lead\n\nWe must choose exactly one vendor for the 12-month support contract. The budget cap is $120,000. The chosen vendor must guarantee a response time under 4 hours and provide on-site support at least quarterly."
+      },
+      {
+        "tab": "Proposals",
+        "text": "Vendor A — Price $110,000; guaranteed response 3 hours; on-site visits monthly.\nVendor B — Price $98,000; guaranteed response 5 hours; on-site visits quarterly.\nVendor C — Price $125,000; guaranteed response 2 hours; on-site visits monthly."
+      },
+      {
+        "tab": "Notes",
+        "text": "Finance: any proposal exceeding the budget cap is automatically disqualified, regardless of other merits.\nOperations: response time is twice as important to us as on-site visit frequency."
+      }
+    ],
+    "prompt": "For each statement, select Yes if it can be determined to be true from the sources, or No if it cannot.",
+    "statements": [
+      {
+        "text": "Vendor C is disqualified even though it has the fastest guaranteed response time.",
+        "answer": "Yes"
+      },
+      {
+        "text": "Vendor B meets the response-time requirement.",
+        "answer": "No"
+      },
+      {
+        "text": "Vendor A's price is within the budget cap.",
+        "answer": "Yes"
+      }
+    ],
+    "exp": "C ($125k) exceeds the cap and has the fastest response (2h). B's 5h fails the <4h rule. A's $110k ≤ $120k."
+  },
+  {
+    "id": "DI18",
+    "type": "MSR",
+    "topic": "MSR: Change a condition",
+    "diff": "hard",
+    "sources": [
+      {
+        "tab": "Email",
+        "text": "From: Procurement Lead\n\nWe must choose exactly one vendor for the 12-month support contract. The budget cap is $120,000. The chosen vendor must guarantee a response time under 4 hours and provide on-site support at least quarterly."
+      },
+      {
+        "tab": "Proposals",
+        "text": "Vendor A — Price $110,000; guaranteed response 3 hours; on-site visits monthly.\nVendor B — Price $98,000; guaranteed response 5 hours; on-site visits quarterly.\nVendor C — Price $125,000; guaranteed response 2 hours; on-site visits monthly."
+      },
+      {
+        "tab": "Notes",
+        "text": "Finance: any proposal exceeding the budget cap is automatically disqualified, regardless of other merits.\nOperations: response time is twice as important to us as on-site visit frequency."
+      }
+    ],
+    "prompt": "If the budget cap were raised to $130,000 but every other mandatory criterion stayed the same, which vendors would then meet all mandatory criteria?",
+    "choices": [
+      "Vendor A only",
+      "Vendors A and C",
+      "Vendors A and B",
+      "Vendors B and C",
+      "All three vendors"
+    ],
+    "answer": 1,
+    "exp": "C ($125k) now fits the budget and already meets response (2h) and visits (monthly). A still qualifies. B still fails on response (5h). So A and C."
+  },
+  {
+    "id": "DI19",
+    "type": "MSR",
+    "topic": "MSR: Interpret a note",
+    "diff": "medium",
+    "sources": [
+      {
+        "tab": "Email",
+        "text": "From: Procurement Lead\n\nWe must choose exactly one vendor for the 12-month support contract. The budget cap is $120,000. The chosen vendor must guarantee a response time under 4 hours and provide on-site support at least quarterly."
+      },
+      {
+        "tab": "Proposals",
+        "text": "Vendor A — Price $110,000; guaranteed response 3 hours; on-site visits monthly.\nVendor B — Price $98,000; guaranteed response 5 hours; on-site visits quarterly.\nVendor C — Price $125,000; guaranteed response 2 hours; on-site visits monthly."
+      },
+      {
+        "tab": "Notes",
+        "text": "Finance: any proposal exceeding the budget cap is automatically disqualified, regardless of other merits.\nOperations: response time is twice as important to us as on-site visit frequency."
+      }
+    ],
+    "prompt": "The Operations note implies that, when comparing two otherwise-qualifying vendors, Operations would give greater weight to",
+    "choices": [
+      "lower price above all else",
+      "faster guaranteed response time over more frequent on-site visits",
+      "more frequent on-site visits over faster response time",
+      "a longer contract term",
+      "vendor reputation"
+    ],
+    "answer": 1,
+    "exp": "Operations states response time is twice as important as visit frequency, so faster response outweighs more frequent visits."
+  },
+  {
+    "id": "DI20",
+    "type": "YN",
+    "topic": "MSR: Synthesize",
+    "diff": "hard",
+    "sources": [
+      {
+        "tab": "Email",
+        "text": "From: Procurement Lead\n\nWe must choose exactly one vendor for the 12-month support contract. The budget cap is $120,000. The chosen vendor must guarantee a response time under 4 hours and provide on-site support at least quarterly."
+      },
+      {
+        "tab": "Proposals",
+        "text": "Vendor A — Price $110,000; guaranteed response 3 hours; on-site visits monthly.\nVendor B — Price $98,000; guaranteed response 5 hours; on-site visits quarterly.\nVendor C — Price $125,000; guaranteed response 2 hours; on-site visits monthly."
+      },
+      {
+        "tab": "Notes",
+        "text": "Finance: any proposal exceeding the budget cap is automatically disqualified, regardless of other merits.\nOperations: response time is twice as important to us as on-site visit frequency."
+      }
+    ],
+    "prompt": "For each statement, select Yes if it is supported by the sources, or No if it is not.",
+    "statements": [
+      {
+        "text": "Under the original $120,000 cap, exactly one vendor meets all mandatory criteria.",
+        "answer": "Yes"
+      },
+      {
+        "text": "Vendor C offers more frequent on-site visits than Vendor B.",
+        "answer": "Yes"
+      },
+      {
+        "text": "If response time were ignored, Vendor B would meet all remaining mandatory criteria under the original cap.",
+        "answer": "Yes"
+      }
+    ],
+    "exp": "Only A qualifies under the original cap. C (monthly) > B (quarterly) on visits. Ignoring response, B ($98k, quarterly) satisfies budget and visit rules."
+  },
+  {
+    "id": "DI21",
+    "type": "DS",
+    "topic": "DS: Inequalities",
+    "diff": "easy",
+    "prompt": "Is x positive?",
+    "s1": "x > 3",
+    "s2": "x² = 9",
+    "answer": 0,
+    "exp": "(1) x > 3 ⇒ positive: sufficient. (2) x = 3 or −3: not sufficient → A."
+  },
+  {
+    "id": "DI22",
+    "type": "DS",
+    "topic": "DS: Word problem",
+    "diff": "medium",
+    "prompt": "What is the price of one apple?",
+    "s1": "Three apples cost $1.50.",
+    "s2": "Apples cost $0.50 each.",
+    "answer": 3,
+    "exp": "(1) 1.50/3 = $0.50: sufficient. (2) states $0.50: sufficient. Each alone → D."
+  },
+  {
+    "id": "DI23",
+    "type": "DS",
+    "topic": "DS: Algebra",
+    "diff": "medium",
+    "prompt": "What is the value of x + y?",
+    "s1": "x = 4",
+    "s2": "y = 7",
+    "answer": 2,
+    "exp": "Neither alone gives the sum; together x + y = 11 → C."
+  },
+  {
+    "id": "DI24",
+    "type": "DS",
+    "topic": "DS: Inequalities",
+    "diff": "hard",
+    "prompt": "Is x > 5?",
+    "s1": "x > 3",
+    "s2": "x < 10",
+    "answer": 4,
+    "exp": "Together 3 < x < 10; x could be 4 (no) or 7 (yes): not sufficient → E."
+  },
+  {
+    "id": "DI25",
+    "type": "TPA",
+    "topic": "Two-Part: System",
+    "diff": "medium",
+    "prompt": "A customer buys notebooks at $4 each and pens at $1 each, purchasing 10 items in total and spending exactly $25. Select the number of notebooks and the number of pens.",
+    "colLabels": [
+      "Notebooks",
+      "Pens"
+    ],
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answer": [
+      2,
+      2
+    ],
+    "exp": "n + p = 10 and 4n + p = 25 ⇒ 3n = 15 ⇒ n = 5, p = 5."
+  },
+  {
+    "id": "DI26",
+    "type": "TA",
+    "topic": "Table Analysis: Cities",
+    "diff": "medium",
+    "prompt": "Review the table. For each statement, select Yes if it is true based on the data, or No if it is not.",
+    "table": {
+      "cols": [
+        "City",
+        "Pop (000s)",
+        "Area (km²)",
+        "Parks"
+      ],
+      "rows": [
+        [
+          "Alpha",
+          300,
+          150,
+          12
+        ],
+        [
+          "Beta",
+          450,
+          300,
+          8
+        ],
+        [
+          "Gamma",
+          200,
+          100,
+          20
+        ],
+        [
+          "Delta",
+          600,
+          200,
+          5
+        ]
+      ]
+    },
+    "statements": [
+      {
+        "text": "Delta has the highest population of the four cities.",
+        "answer": "Yes"
+      },
+      {
+        "text": "Gamma has the highest population density (people per km²).",
+        "answer": "No"
+      },
+      {
+        "text": "Beta has more parks than Gamma.",
+        "answer": "No"
+      }
+    ],
+    "exp": "Delta's 600 is highest. Densities (per km²): Alpha 2.0, Beta 1.5, Gamma 2.0, Delta 3.0 — Delta, not Gamma, is highest. Beta has 8 parks vs Gamma's 20."
+  },
+  {
+    "id": "DI27",
+    "type": "GI",
+    "topic": "Graphics: Totals",
+    "diff": "medium",
+    "prompt": "The bar chart shows quarterly profit. Use it to complete the statements.",
+    "chart": {
+      "labels": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4"
+      ],
+      "values": [
+        12,
+        18,
+        15,
+        25
+      ],
+      "yLabel": "Profit ($M)"
+    },
+    "template": "The total annual profit shown is {0} million dollars. The quarter with the largest profit is {1}.",
+    "blanks": [
+      {
+        "options": [
+          "60",
+          "65",
+          "70",
+          "75"
+        ],
+        "answer": 2
+      },
+      {
+        "options": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "answer": 3
+      }
+    ],
+    "exp": "12 + 18 + 15 + 25 = 70. The largest single bar is Q4 (25)."
+  },
+  {
+    "id": "DI28",
+    "type": "MSR",
+    "topic": "MSR: Apply priority",
+    "diff": "hard",
+    "sources": [
+      {
+        "tab": "Email",
+        "text": "From: Procurement Lead\n\nWe must choose exactly one vendor for the 12-month support contract. The budget cap is $120,000. The chosen vendor must guarantee a response time under 4 hours and provide on-site support at least quarterly."
+      },
+      {
+        "tab": "Proposals",
+        "text": "Vendor A — Price $110,000; guaranteed response 3 hours; on-site visits monthly.\nVendor B — Price $98,000; guaranteed response 5 hours; on-site visits quarterly.\nVendor C — Price $125,000; guaranteed response 2 hours; on-site visits monthly."
+      },
+      {
+        "tab": "Notes",
+        "text": "Finance: any proposal exceeding the budget cap is automatically disqualified, regardless of other merits.\nOperations: response time is twice as important to us as on-site visit frequency."
+      }
+    ],
+    "prompt": "Suppose Operations must break a tie between two vendors that both meet every mandatory criterion. Based on the priority stated in the Notes, which factor would Operations weigh most heavily?",
+    "choices": [
+      "Lower price",
+      "On-site visit frequency",
+      "Guaranteed response time",
+      "Contract length",
+      "Vendor reputation"
+    ],
+    "answer": 2,
+    "exp": "Operations states response time is twice as important as visit frequency, so a faster guaranteed response is the decisive factor."
+  },
+  {
+    "id": "DI29",
+    "type": "DS",
+    "topic": "DS: Number properties",
+    "diff": "easy",
+    "prompt": "If x is a nonzero number, is x > 0?",
+    "s1": "x³ > 0",
+    "s2": "x² > 0",
+    "answer": 0,
+    "exp": "(1) x³ > 0 only when x > 0: sufficient. (2) x² > 0 for any nonzero x, positive or negative: not sufficient → A."
+  },
+  {
+    "id": "DI30",
+    "type": "DS",
+    "topic": "DS: Word problem",
+    "diff": "medium",
+    "prompt": "One day a shop sold only pens and notebooks. How many pens did it sell?",
+    "s1": "The shop sold 30 items in all.",
+    "s2": "The shop sold twice as many pens as notebooks.",
+    "answer": 2,
+    "exp": "(1) alone fixes only the total. (2) alone fixes only the ratio. Together, p + n = 30 and p = 2n give n = 10, p = 20 → C."
+  },
+  {
+    "id": "DI31",
+    "type": "DS",
+    "topic": "DS: Number properties",
+    "diff": "medium",
+    "prompt": "Is the integer k odd?",
+    "s1": "k² is odd.",
+    "s2": "3k is odd.",
+    "answer": 3,
+    "exp": "(1) k² odd ⇒ k odd: sufficient. (2) 3k odd ⇒ k odd (3 is odd): sufficient → D."
+  },
+  {
+    "id": "DI32",
+    "type": "TPA",
+    "topic": "Two-Part: Linear cost",
+    "diff": "medium",
+    "prompt": "A caterer charges a fixed $200 fee plus $15 for each guest. In the table, select the number of guests that makes the total exactly $500, and the number that makes it exactly $650. Make only one selection in each column.",
+    "colLabels": [
+      "Total = $500",
+      "Total = $650"
+    ],
+    "options": [
+      "10",
+      "20",
+      "25",
+      "30",
+      "40"
+    ],
+    "answer": [
+      1,
+      3
+    ],
+    "exp": "200 + 15g = 500 ⇒ g = 20; 200 + 15g = 650 ⇒ g = 30."
+  },
+  {
+    "id": "DI33",
+    "type": "TA",
+    "topic": "Table Analysis: Stores",
+    "diff": "medium",
+    "prompt": "Review the table; profit = Sales − Costs. For each statement, select Yes if it is true based on the data, or No if it is not. (Tap a column header to sort.)",
+    "table": {
+      "cols": [
+        "Store",
+        "Sales ($)",
+        "Costs ($)",
+        "Staff"
+      ],
+      "rows": [
+        [
+          "A",
+          50000,
+          30000,
+          5
+        ],
+        [
+          "B",
+          80000,
+          55000,
+          8
+        ],
+        [
+          "C",
+          40000,
+          20000,
+          4
+        ],
+        [
+          "D",
+          70000,
+          60000,
+          9
+        ]
+      ]
+    },
+    "statements": [
+      {
+        "text": "The store with the highest sales also has the highest profit.",
+        "answer": "Yes"
+      },
+      {
+        "text": "Store D earns a higher profit per staff member than Store C.",
+        "answer": "No"
+      },
+      {
+        "text": "Three of the four stores have a profit greater than $19,000.",
+        "answer": "Yes"
+      }
+    ],
+    "exp": "Profits: A 20,000; B 25,000; C 20,000; D 10,000. Highest sales (B, 80,000) also has the highest profit (25,000). D: 10,000/9 ≈ 1,111 < C: 20,000/4 = 5,000. Three stores (A, B, C) exceed 19,000."
+  },
+  {
+    "id": "DI34",
+    "type": "DS",
+    "topic": "DS: Number properties",
+    "diff": "hard",
+    "prompt": "If x and y are integers, is the product xy even?",
+    "s1": "x + y is odd.",
+    "s2": "x − y is even.",
+    "answer": 0,
+    "exp": "(1) x + y odd ⇒ one of x, y is even and the other odd ⇒ xy is even: sufficient. (2) x − y even ⇒ x and y share parity ⇒ xy could be even (both even) or odd (both odd): not sufficient → A."
+  }
+]

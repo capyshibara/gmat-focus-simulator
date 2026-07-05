@@ -1,0 +1,14 @@
+[
+  {
+    "tab": "Email",
+    "text": "From: Procurement Lead\n\nWe must choose exactly one vendor for the 12-month support contract. The budget cap is $120,000. The chosen vendor must guarantee a response time under 4 hours and provide on-site support at least quarterly."
+  },
+  {
+    "tab": "Proposals",
+    "text": "Vendor A — Price $110,000; guaranteed response 3 hours; on-site visits monthly.\nVendor B — Price $98,000; guaranteed response 5 hours; on-site visits quarterly.\nVendor C — Price $125,000; guaranteed response 2 hours; on-site visits monthly."
+  },
+  {
+    "tab": "Notes",
+    "text": "Finance: any proposal exceeding the budget cap is automatically disqualified, regardless of other merits.\nOperations: response time is twice as important to us as on-site visit frequency."
+  }
+]

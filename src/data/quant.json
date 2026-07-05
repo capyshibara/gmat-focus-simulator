@@ -1,0 +1,733 @@
+[
+  {
+    "id": "Q1",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Percents",
+    "diff": "easy",
+    "prompt": "After a 20% discount, a coat sells for $96. What was its original price?",
+    "choices": [
+      "$76.80",
+      "$80",
+      "$108",
+      "$115.20",
+      "$120"
+    ],
+    "answer": 4,
+    "exp": "0.8P = 96, so P = 96 / 0.8 = $120. ($80 divides by 1.2 as if 96 were a markup; $115.20 adds 20% to the sale price; $76.80 discounts again.)"
+  },
+  {
+    "id": "Q2",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Ratios",
+    "diff": "easy",
+    "prompt": "A bag holds red and blue chips in the ratio 3 : 5. There are 24 more blue chips than red. How many chips are there in total?",
+    "choices": [
+      "36",
+      "48",
+      "60",
+      "72",
+      "96"
+    ],
+    "answer": 4,
+    "exp": "The blue–red gap is 5 − 3 = 2 parts = 24, so 1 part = 12. Total = 8 parts = 96. (36 counts only the red chips, 60 only the blue; 48 treats 24 as a single doubled part.)"
+  },
+  {
+    "id": "Q3",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Proportions",
+    "diff": "easy",
+    "prompt": "A recipe that serves 4 people requires 6 eggs. At the same rate, how many eggs are needed to serve 10 people?",
+    "choices": [
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "answer": 3,
+    "exp": "Eggs per serving = 6/4 = 1.5; for 10 servings, 1.5 × 10 = 15. (12 scales by 2 instead of 2.5.)"
+  },
+  {
+    "id": "Q4",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Statistics",
+    "diff": "easy",
+    "prompt": "The average (arithmetic mean) of 5 numbers is 14. A sixth number, 26, is added to the set. What is the new average?",
+    "choices": [
+      "14",
+      "15",
+      "16",
+      "18",
+      "20"
+    ],
+    "answer": 2,
+    "exp": "Original sum = 5 × 14 = 70; new sum = 96 over 6 numbers → 96/6 = 16. (15 just averages 14 and 26 wrongly; 18 forgets to divide by 6.)"
+  },
+  {
+    "id": "Q5",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Algebra",
+    "diff": "easy",
+    "prompt": "If 4(x − 3) = 2x + 6, what is the value of x?",
+    "choices": [
+      "3",
+      "6",
+      "7",
+      "9",
+      "12"
+    ],
+    "answer": 3,
+    "exp": "4x − 12 = 2x + 6 → 2x = 18 → x = 9. (3 mishandles the distribution; 6 drops the −12.)"
+  },
+  {
+    "id": "Q6",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Number properties",
+    "diff": "easy",
+    "prompt": "What is the remainder when 1 + 2 + 3 + … + 10 is divided by 4?",
+    "choices": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "5"
+    ],
+    "answer": 3,
+    "exp": "The sum is 10·11/2 = 55, and 55 = 13·4 + 3, so the remainder is 3. (0 assumes the sum is a multiple of 4; 2 miscounts the sum.)"
+  },
+  {
+    "id": "Q7",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Speed & distance",
+    "diff": "medium",
+    "prompt": "A cyclist rides 60 miles out at 30 mph and returns over the same 60 miles at 60 mph. What is the average speed for the entire trip, in mph?",
+    "choices": [
+      "40",
+      "42",
+      "44",
+      "45",
+      "48"
+    ],
+    "answer": 0,
+    "exp": "Total distance 120 mi; time = 2 + 1 = 3 h; 120/3 = 40 mph. (45 is the trap (30+60)/2 — you cannot average the two speeds directly.)"
+  },
+  {
+    "id": "Q8",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Percents",
+    "diff": "medium",
+    "prompt": "A town's population rises 10% in one year and then falls 10% the next year. Compared with the start, the population has",
+    "choices": [
+      "increased by 1%",
+      "stayed the same",
+      "decreased by 1%",
+      "decreased by 2%",
+      "decreased by 10%"
+    ],
+    "answer": 2,
+    "exp": "1.10 × 0.90 = 0.99, a net 1% decrease. (\"Stayed the same\" assumes the two 10% changes cancel; the second 10% is taken on a larger base.)"
+  },
+  {
+    "id": "Q9",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Mixtures",
+    "diff": "medium",
+    "prompt": "A chemist has 12 liters of a solution that is 25% salt. How many liters of pure water must be added to dilute it to 15% salt?",
+    "choices": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "answer": 2,
+    "exp": "Salt stays fixed at 3 L. 3/(12 + x) = 0.15 → 12 + x = 20 → x = 8. (Adding salt instead of water, or solving for the new volume directly, gives the traps.)"
+  },
+  {
+    "id": "Q10",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Rates & work",
+    "diff": "medium",
+    "prompt": "Pump A can fill a tank in 10 hours and pump B can fill the same tank in 15 hours. Working together, how many hours do they take to fill it?",
+    "choices": [
+      "5",
+      "6",
+      "6.5",
+      "12.5",
+      "25"
+    ],
+    "answer": 1,
+    "exp": "Combined rate = 1/10 + 1/15 = 1/6 tank per hour, so 6 hours. (12.5 averages the two times; 25 adds them.)"
+  },
+  {
+    "id": "Q11",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Systems",
+    "diff": "medium",
+    "prompt": "A theater sells adult tickets for $12 and child tickets for $7. One evening it sold 20 tickets for a total of $185. How many child tickets were sold?",
+    "choices": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "answer": 4,
+    "exp": "With a adults and c children, a + c = 20 and 12a + 7c = 185. Substituting a = 20 − c gives 240 − 5c = 185 → c = 11. (9 solves for the adults instead.)"
+  },
+  {
+    "id": "Q12",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Geometry",
+    "diff": "medium",
+    "prompt": "A rectangle's length is 3 greater than its width, and its area is 70. What is its perimeter?",
+    "choices": [
+      "28",
+      "32",
+      "34",
+      "36",
+      "40"
+    ],
+    "answer": 2,
+    "exp": "w(w + 3) = 70 → w² + 3w − 70 = 0 → w = 7, length = 10. Perimeter = 2(7 + 10) = 34. (Using the wrong factor of 70, such as 5 × 14, gives the traps.)"
+  },
+  {
+    "id": "Q13",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Statistics",
+    "diff": "medium",
+    "prompt": "The five numbers 4, 7, x, 15, 22 are listed in increasing order and have an average of 12. What is their median?",
+    "choices": [
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    "answer": 1,
+    "exp": "Sum = 5 × 12 = 60; 4 + 7 + 15 + 22 = 48, so x = 12. The middle value of the ordered list is 12. (11 averages the two central given numbers 7 and 15.)"
+  },
+  {
+    "id": "Q14",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Exponents",
+    "diff": "medium",
+    "prompt": "If 2^(x + 3) = 64, what is the value of 2^x?",
+    "choices": [
+      "3",
+      "4",
+      "6",
+      "8",
+      "16"
+    ],
+    "answer": 3,
+    "exp": "64 = 2^6, so x + 3 = 6 and x = 3; then 2^x = 2^3 = 8. (3 stops at x; 16 uses x = 4.)"
+  },
+  {
+    "id": "Q15",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Probability",
+    "diff": "medium",
+    "prompt": "A committee of 2 people is chosen at random from a group of 4 men and 3 women. What is the probability that both chosen are women?",
+    "choices": [
+      "1/7",
+      "2/7",
+      "3/7",
+      "1/3",
+      "9/49"
+    ],
+    "answer": 0,
+    "exp": "Favorable = C(3,2) = 3; total = C(7,2) = 21; 3/21 = 1/7. (9/49 treats the draws as independent with replacement.)"
+  },
+  {
+    "id": "Q16",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Ratios",
+    "diff": "medium",
+    "prompt": "In a class the ratio of boys to girls is 4 : 5. If 9 more boys enroll, the ratio becomes 1 : 1. How many girls are in the class?",
+    "choices": [
+      "20",
+      "36",
+      "40",
+      "45",
+      "54"
+    ],
+    "answer": 3,
+    "exp": "Let boys = 4k, girls = 5k. Then 4k + 9 = 5k → k = 9, so girls = 5·9 = 45. (36 reports the boys; 40 uses k = 8.)"
+  },
+  {
+    "id": "Q17",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Sets",
+    "diff": "medium",
+    "prompt": "In a club, 60% of members play chess, 40% play go, and 25% play both. What percent of members play neither game?",
+    "choices": [
+      "15%",
+      "20%",
+      "25%",
+      "35%",
+      "40%"
+    ],
+    "answer": 2,
+    "exp": "Chess or go = 60 + 40 − 25 = 75%, so neither = 25%. (35% forgets to subtract the overlap, giving 100 − 65.)"
+  },
+  {
+    "id": "Q18",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Number properties",
+    "diff": "medium",
+    "prompt": "When a positive integer n is divided by 5 the remainder is 3, and when n is divided by 3 the remainder is 1. What is the least possible value of n?",
+    "choices": [
+      "7",
+      "8",
+      "11",
+      "12",
+      "13"
+    ],
+    "answer": 4,
+    "exp": "Values that leave remainder 3 mod 5 are 3, 8, 13, …; of these the smallest leaving remainder 1 mod 3 is 13 (13 = 4·3 + 1). (8 satisfies only the first condition.)"
+  },
+  {
+    "id": "Q19",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Sequences",
+    "diff": "medium",
+    "prompt": "In an arithmetic sequence, the 4th term is 17 and the 9th term is 37. What is the 1st term?",
+    "choices": [
+      "4",
+      "5",
+      "6",
+      "9",
+      "11"
+    ],
+    "answer": 1,
+    "exp": "Common difference = (37 − 17)/(9 − 4) = 4. The 1st term = 17 − 3·4 = 5. (6 divides by 4 terms instead of 5; 9 subtracts only 2 steps.)"
+  },
+  {
+    "id": "Q20",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Speed & distance",
+    "diff": "medium",
+    "prompt": "Two trains begin 300 miles apart and travel toward each other on the same track, one at 50 mph and the other at 100 mph. How many hours until they meet?",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": 0,
+    "exp": "They close the gap at 50 + 100 = 150 mph, so 300/150 = 2 hours. (6 uses only the slower train, 3 only the faster, 4 averages the two speeds.)"
+  },
+  {
+    "id": "Q21",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Percents",
+    "diff": "medium",
+    "prompt": "A merchant marks up an item 50% above cost and then sells it at a 20% discount off the marked price. The merchant's profit, as a percent of cost, is",
+    "choices": [
+      "10%",
+      "15%",
+      "20%",
+      "25%",
+      "30%"
+    ],
+    "answer": 2,
+    "exp": "Selling price = cost × 1.50 × 0.80 = 1.20 × cost, a 20% profit. (30% subtracts the percentages as 50 − 20.)"
+  },
+  {
+    "id": "Q22",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Algebra",
+    "diff": "medium",
+    "prompt": "If 1/a + 1/b = 1/3 and a = 4, what is the value of b?",
+    "choices": [
+      "7",
+      "9",
+      "12",
+      "15",
+      "24"
+    ],
+    "answer": 2,
+    "exp": "1/b = 1/3 − 1/4 = 1/12, so b = 12. (7 adds the denominators 3 + 4; 24 doubles 12.)"
+  },
+  {
+    "id": "Q23",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Counting",
+    "diff": "medium",
+    "prompt": "How many distinct arrangements can be made using all the letters of the word LEVEL?",
+    "choices": [
+      "20",
+      "30",
+      "60",
+      "120",
+      "240"
+    ],
+    "answer": 1,
+    "exp": "LEVEL has 5 letters with L and E each repeated twice: 5!/(2!·2!) = 120/4 = 30. (120 ignores the repeats; 60 divides by only one 2!.)"
+  },
+  {
+    "id": "Q24",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Factorials",
+    "diff": "hard",
+    "prompt": "The expression 10! + 11! + 12! is equal to which of the following?",
+    "choices": [
+      "10! · 24",
+      "10! · 144",
+      "10! · 133",
+      "10! · 143",
+      "12! · 3"
+    ],
+    "answer": 1,
+    "exp": "Factor out 10!: 10!(1 + 11 + 11·12) = 10!(1 + 11 + 132) = 144 · 10!. (143 drops the leading 1; 133 omits the 11! term; 24 treats 11! and 12! as 11·10! and 12·10!.)"
+  },
+  {
+    "id": "Q25",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Factorials",
+    "diff": "hard",
+    "prompt": "What is the greatest integer n for which 10^n is a divisor of 50! ?",
+    "choices": [
+      "6",
+      "10",
+      "11",
+      "12",
+      "25"
+    ],
+    "answer": 3,
+    "exp": "10 = 2·5, and factors of 5 are scarcer than factors of 2. Count 5s in 50!: ⌊50/5⌋ + ⌊50/25⌋ = 10 + 2 = 12, so n = 12. (10 forgets that 25 and 50 each add a second 5; 25 counts factors of 2.)"
+  },
+  {
+    "id": "Q26",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Functions",
+    "diff": "hard",
+    "prompt": "For all integers a and b, define a ⊗ b = a² − ab. What is the value of 3 ⊗ (2 ⊗ 4)?",
+    "choices": [
+      "−15",
+      "−3",
+      "9",
+      "21",
+      "33"
+    ],
+    "answer": 3,
+    "exp": "Inner: 2 ⊗ 4 = 4 − 8 = −4. Then 3 ⊗ (−4) = 9 − (3)(−4) = 9 + 12 = 21. (−3 drops the sign on the second product; 33 squares the inner result instead.)"
+  },
+  {
+    "id": "Q27",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Number properties",
+    "diff": "hard",
+    "prompt": "If n is a positive integer, the product n(n + 1)(n + 2)(n + 3) must be divisible by which of the following?",
+    "choices": [
+      "6",
+      "12",
+      "16",
+      "24",
+      "48"
+    ],
+    "answer": 3,
+    "exp": "Any 4 consecutive integers include two evens (one a multiple of 4) and a multiple of 3, so the product is always divisible by 4! = 24. Larger values such as 48 are not guaranteed (1·2·3·4 = 24)."
+  },
+  {
+    "id": "Q28",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Number properties",
+    "diff": "hard",
+    "prompt": "If p is a prime number greater than 5, what is the remainder when p² is divided by 24?",
+    "choices": [
+      "1",
+      "5",
+      "7",
+      "11",
+      "23"
+    ],
+    "answer": 0,
+    "exp": "For any prime p > 3, p² − 1 = (p − 1)(p + 1) is divisible by 24, so p² leaves remainder 1. (For example, 7² = 49 = 2·24 + 1.)"
+  },
+  {
+    "id": "Q29",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Number properties",
+    "diff": "hard",
+    "prompt": "If n is a positive integer and n² is divisible by 72, then n must be divisible by which of the following?",
+    "choices": [
+      "4",
+      "6",
+      "8",
+      "12",
+      "24"
+    ],
+    "answer": 3,
+    "exp": "72 = 2³ · 3². In n² the exponent of each prime is even, so to reach 2³ requires 2² in n, and to reach 3² requires 3¹ in n; thus n is divisible by 4·3 = 12 (but not necessarily 24: n = 12 gives n² = 144, divisible by 72). (6 undercounts the powers of 2.)"
+  },
+  {
+    "id": "Q30",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Absolute value",
+    "diff": "hard",
+    "prompt": "Which of the following expressions equals 0 for every x < 0 and equals x³ for every x ≥ 0?",
+    "choices": [
+      "(x³ + |x³|)/2",
+      "(x³ − |x³|)/2",
+      "(x + |x|)³ / 2",
+      "|x³|",
+      "x³ + |x³|"
+    ],
+    "answer": 0,
+    "exp": "For x ≥ 0, |x³| = x³, so (x³ + |x³|)/2 = x³; for x < 0, |x³| = −x³, so it equals 0. (The (x³ − |x³|)/2 form gives the opposite halves; (x+|x|)³/2 yields 4x³ for x ≥ 0; |x³| is never negative; x³ + |x³| doubles to 2x³ for x ≥ 0.)"
+  },
+  {
+    "id": "Q31",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Statistics",
+    "diff": "hard",
+    "prompt": "Five different positive integers have a sum of 30. What is the greatest possible value of the largest of these integers?",
+    "choices": [
+      "16",
+      "18",
+      "20",
+      "24",
+      "26"
+    ],
+    "answer": 2,
+    "exp": "To maximize the largest integer, minimize the other four distinct positive integers: 1 + 2 + 3 + 4 = 10, leaving 30 − 10 = 20. (26 wrongly allows the others to repeat as 1+1+1+1.)"
+  },
+  {
+    "id": "Q32",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Number properties",
+    "diff": "hard",
+    "prompt": "Which of the following CANNOT be expressed as the sum of two distinct prime numbers?",
+    "choices": [
+      "9",
+      "16",
+      "21",
+      "23",
+      "24"
+    ],
+    "answer": 3,
+    "exp": "23 is odd, so one prime would have to be 2, leaving 21 — which is not prime — so 23 cannot be written as the sum of two distinct primes. (9 = 2+7, 16 = 5+11, 21 = 2+19, 24 = 5+19.)"
+  },
+  {
+    "id": "Q33",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Functions",
+    "diff": "hard",
+    "prompt": "If f(x) = 2x − 1 and g(x) = x², what is the value of f(g(3)) − g(f(3))?",
+    "choices": [
+      "−8",
+      "−2",
+      "8",
+      "12",
+      "18"
+    ],
+    "answer": 0,
+    "exp": "g(3) = 9 so f(g(3)) = 2·9 − 1 = 17; f(3) = 5 so g(f(3)) = 5² = 25; 17 − 25 = −8. (8 reverses the order of the two compositions.)"
+  },
+  {
+    "id": "Q34",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Percents",
+    "diff": "hard",
+    "prompt": "The price of an item is first increased by p percent and then decreased by p percent. The final price is what fraction of the original price?",
+    "choices": [
+      "1",
+      "1 − p²/100",
+      "1 − p²/10000",
+      "1 + p²/10000",
+      "1 − 2p/100"
+    ],
+    "answer": 2,
+    "exp": "Final = original × (1 + p/100)(1 − p/100) = 1 − p²/10000. (\"1\" assumes the changes cancel; 1 − p²/100 uses the wrong denominator; 1 − 2p/100 treats the change as linear.)"
+  },
+  {
+    "id": "Q35",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Counting",
+    "diff": "hard",
+    "prompt": "A committee of 3 is to be selected from 5 men and 4 women and must include at least 1 woman. How many different committees are possible?",
+    "choices": [
+      "34",
+      "60",
+      "64",
+      "70",
+      "74"
+    ],
+    "answer": 4,
+    "exp": "Total committees = C(9,3) = 84; all-male committees = C(5,3) = 10; at least one woman = 84 − 10 = 74. (60 = 5·4·3 over-counts ordered picks; the larger near-values drop part of the subtraction.)"
+  },
+  {
+    "id": "Q36",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Percents",
+    "diff": "easy",
+    "prompt": "A shirt that normally costs $60 is on sale for $45. The sale price is what percent below the normal price?",
+    "choices": [
+      "25%",
+      "30%",
+      "33%",
+      "40%",
+      "50%"
+    ],
+    "answer": 0,
+    "exp": "The discount is $60 − $45 = $15, and 15/60 = 25%. (33% wrongly divides the $15 discount by the $45 sale price instead of the original price.)"
+  },
+  {
+    "id": "Q37",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Algebra",
+    "diff": "medium",
+    "prompt": "If x² − 5x + 6 = 0 and x > 2, what is the value of x?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "5",
+      "6"
+    ],
+    "answer": 2,
+    "exp": "Factoring gives (x − 2)(x − 3) = 0, so x = 2 or x = 3; since x > 2, x = 3. (2 is the rejected root; 5 is the sum of the roots and 6 their product.)"
+  },
+  {
+    "id": "Q38",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Rates & work",
+    "diff": "medium",
+    "prompt": "A train travels 240 kilometers in 3 hours. At the same constant speed, how many hours does it take to travel 560 kilometers?",
+    "choices": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "14"
+    ],
+    "answer": 0,
+    "exp": "Speed = 240/3 = 80 km/h, so 560/80 = 7 hours. (8 divides 560 by 70; 14 uses a speed of 40.)"
+  },
+  {
+    "id": "Q39",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Statistics",
+    "diff": "medium",
+    "prompt": "The average of 6 numbers is 15. When one number is removed, the average of the remaining 5 numbers is 13. What number was removed?",
+    "choices": [
+      "13",
+      "15",
+      "20",
+      "22",
+      "25"
+    ],
+    "answer": 4,
+    "exp": "Sum of the six = 90; sum of the five = 65; the removed number = 90 − 65 = 25. (15 merely reports the original average; 20 mishandles the totals.)"
+  },
+  {
+    "id": "Q40",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Number properties",
+    "diff": "medium",
+    "prompt": "How many positive integer divisors does 36 have?",
+    "choices": [
+      "4",
+      "6",
+      "8",
+      "9",
+      "12"
+    ],
+    "answer": 3,
+    "exp": "36 = 2² · 3², so the number of divisors is (2 + 1)(2 + 1) = 9. (6 counts only the divisors up to the square root; 12 double-counts a pairing.)"
+  },
+  {
+    "id": "Q41",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Probability",
+    "diff": "medium",
+    "prompt": "A fair coin is flipped 3 times. What is the probability of getting exactly two heads?",
+    "choices": [
+      "1/8",
+      "1/4",
+      "3/8",
+      "1/2",
+      "3/4"
+    ],
+    "answer": 2,
+    "exp": "Favorable outcomes = C(3,2) = 3 out of 2³ = 8 equally likely sequences, so 3/8. (1/2 treats 'two of three' as just over half; 1/4 forgets there are three arrangements.)"
+  },
+  {
+    "id": "Q42",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Number properties",
+    "diff": "hard",
+    "prompt": "What is the units digit of 7^45?",
+    "choices": [
+      "1",
+      "3",
+      "5",
+      "7",
+      "9"
+    ],
+    "answer": 3,
+    "exp": "Units digits of powers of 7 cycle 7, 9, 3, 1 with period 4. Since 45 = 4·11 + 1, the units digit equals that of 7¹, namely 7. (9 picks the second term of the cycle; 1 picks the fourth.)"
+  },
+  {
+    "id": "Q43",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Counting",
+    "diff": "hard",
+    "prompt": "How many integers from 100 to 999 inclusive are divisible by 7?",
+    "choices": [
+      "128",
+      "129",
+      "135",
+      "142",
+      "143"
+    ],
+    "answer": 0,
+    "exp": "Multiples of 7 up to 999 number ⌊999/7⌋ = 142, and up to 99 number ⌊99/7⌋ = 14, so 142 − 14 = 128. (142 forgets to exclude the multiples below 100; 129 is an off-by-one.)"
+  }
+]

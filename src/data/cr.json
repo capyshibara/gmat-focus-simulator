@@ -1,0 +1,272 @@
+[
+  {
+    "id": "V_CR1",
+    "topic": "CR: Weaken",
+    "diff": "medium",
+    "prompt": "A city installed cameras at several intersections, and over the following year the number of reported accidents at those intersections fell by 20%. The mayor concluded that the cameras made drivers more careful, thereby reducing accidents.\n\nWhich of the following, if true, most weakens the mayor's conclusion?",
+    "choices": [
+      "At the camera intersections, accidents dropped most sharply in the first weeks after the cameras were switched on.",
+      "The intersections selected for cameras were among the highest-traffic intersections anywhere in the city.",
+      "Citywide that year, including at intersections without cameras, reported accidents fell by roughly the same 20%.",
+      "Installing and maintaining the cameras cost the city less than the accidents they were projected to prevent.",
+      "In a survey, most local drivers said they had noticed the newly installed cameras at those intersections."
+    ],
+    "answer": 2,
+    "exp": "A citywide decline of the same magnitude, including where no cameras were installed, points to a general trend rather than the cameras as the cause. The timing detail in the first option would support the conclusion, not weaken it."
+  },
+  {
+    "id": "V_CR2",
+    "topic": "CR: Strengthen",
+    "diff": "easy",
+    "prompt": "In a three-month trial, patients taking a new drug had lower cholesterol at the end than at the start. The manufacturer concluded that the drug lowers cholesterol.\n\nWhich of the following, if true, most strengthens the conclusion?",
+    "choices": [
+      "Patients who took the drug reported feeling generally healthier by the end of the trial.",
+      "During the trial, the patients also began exercising considerably more than before it started.",
+      "The drug costs noticeably less than other cholesterol treatments now on the market.",
+      "Cholesterol levels are known to drift up and down somewhat from one month to the next.",
+      "A comparable placebo group showed no drop in cholesterol over the same three months."
+    ],
+    "answer": 4,
+    "exp": "If an untreated comparison group shows no decline over the same period, natural fluctuation and the passage of time are ruled out, leaving the drug as the cause. Added exercise would instead weaken the argument by supplying an alternative cause."
+  },
+  {
+    "id": "V_CR3",
+    "topic": "CR: Assumption (selection effect)",
+    "diff": "hard",
+    "prompt": "A legal-aid clinic represents tenants in eviction cases and reports that 80% of its clients avoid eviction—far above the citywide rate for tenants facing eviction. The clinic's director concludes that the clinic's representation is highly effective at preventing evictions.\n\nThe director's conclusion depends on assuming which of the following?",
+    "choices": [
+      "The clinic handles a substantially larger number of eviction cases each year than any other comparable organization in the city.",
+      "The cases the clinic takes on are not, as a group, easier to win than eviction cases citywide.",
+      "Tenants the clinic represents are generally satisfied with the quality of its service.",
+      "The citywide rate at which tenants facing eviction are removed has been rising in recent years.",
+      "The clinic's attorneys are paid less than attorneys doing comparable work in private practice."
+    ],
+    "answer": 1,
+    "exp": "Negation test: if the clinic mainly accepts cases that are already easier to win, its high success rate reflects which cases it selects rather than how well it represents them, and the conclusion collapses, so the argument must assume otherwise. Client satisfaction or caseload volume would round out the story but are not required."
+  },
+  {
+    "id": "V_CR4",
+    "topic": "CR: Flaw (selection / reverse causation)",
+    "diff": "hard",
+    "prompt": "Every employee who completed the company's leadership program was promoted within two years. The head of training concludes that completing the program causes employees to be promoted.\n\nThe reasoning is most vulnerable to the criticism that it",
+    "choices": [
+      "bases a broad causal claim on a sample of employees far too small to support any general conclusion",
+      "assumes that the employees in question actually regarded being promoted as desirable",
+      "treats a policy that is still relatively new as though its effects were already permanent",
+      "ignores that employees already likely to be promoted may be the ones admitted to the program",
+      "fails to weigh the financial cost of running the program against the benefits it produces"
+    ],
+    "answer": 3,
+    "exp": "If the people already on track for promotion are the ones selected for the program, then completing it need not cause the promotions; the argument overlooks this self-selection. Sample size and cost sound like flaws but are not the error the reasoning actually commits."
+  },
+  {
+    "id": "V_CR5",
+    "topic": "CR: Inference",
+    "diff": "easy",
+    "prompt": "All of the firm's senior analysts have completed the certification. No one who has completed the certification has fewer than five years of experience.\n\nIf the statements above are true, which of the following must also be true?",
+    "choices": [
+      "Anyone at the firm with five years of experience is a senior analyst.",
+      "Some of the firm's senior analysts have not completed the certification.",
+      "Every senior analyst has at least five years of experience.",
+      "No analyst below senior level has five years of experience.",
+      "Only senior analysts have completed the certification."
+    ],
+    "answer": 2,
+    "exp": "Senior analysts are all certified, and everyone certified has at least five years' experience; chaining the two forces the conclusion that every senior analyst has at least five years. The other options reverse the conditionals or add claims the premises do not support."
+  },
+  {
+    "id": "V_CR6",
+    "topic": "CR: Evaluate",
+    "diff": "medium",
+    "prompt": "A school district replaced printed textbooks with tablets, and the following year students' average test scores rose. A district official credits the switch to tablets.\n\nThe answer to which of the following would be most useful in evaluating the official's claim?",
+    "choices": [
+      "Whether comparable districts that kept printed textbooks saw a similar score rise that year",
+      "Whether students reported preferring the new tablets to the printed textbooks they had replaced",
+      "Whether the tablets ultimately cost the district more than the textbooks they replaced",
+      "Whether teachers received any formal training in how to use the new tablets",
+      "Whether the rise in scores was larger in some grade levels than in others"
+    ],
+    "answer": 0,
+    "exp": "If comparable districts that kept textbooks saw the same rise, then something other than the tablets explains it, so that comparison directly tests whether the tablets were the cause. Training, cost, or preference may matter for other reasons but do not isolate the tablets' effect."
+  },
+  {
+    "id": "V_CR7",
+    "topic": "CR: Paradox",
+    "diff": "medium",
+    "prompt": "After a company doubled its advertising budget, surveys showed that brand recognition among consumers rose substantially. Yet the company's sales over the same period remained essentially flat.\n\nWhich of the following, if true, best explains this result?",
+    "choices": [
+      "The new advertisements ran during television programs that consistently draw some of the largest audiences nationwide.",
+      "The company's products are widely regarded as well made and reliable.",
+      "Brand recognition was measured by surveying a sample of ordinary consumers.",
+      "Competitors raised their own advertising just as sharply over the same period, leaving relative share unchanged.",
+      "In the year before, the company had spent comparatively little on advertising."
+    ],
+    "answer": 3,
+    "exp": "If rival firms increased their advertising just as much, the company's recognition could climb while its position relative to competitors, and therefore its sales, stayed flat. The other choices add detail about the ads or products but do not explain why higher recognition failed to lift sales."
+  },
+  {
+    "id": "V_CR8",
+    "topic": "CR: Boldface",
+    "diff": "hard",
+    "prompt": "Some economists argue that raising tariffs protects domestic jobs. (1) It is true that tariffs can preserve employment in the protected industries in the short run. However, (2) tariffs also raise input costs for domestic manufacturers that depend on imported materials, which can eliminate jobs elsewhere. The overall effect on employment is therefore uncertain.\n\nIn the argument, the two portions marked (1) and (2) play which of the following roles?",
+    "choices": [
+      "(1) is the author's main conclusion, and (2) provides further support for that conclusion.",
+      "(1) and (2) are both claims that the author ultimately rejects as mistaken.",
+      "(1) is a claim the author grants, and (2) is a consideration used to qualify it.",
+      "(1) states the author's main conclusion, and (2) is evidence offered against it.",
+      "(1) and (2) are both pieces of evidence supporting the economists' original position."
+    ],
+    "answer": 2,
+    "exp": "The author concedes (1), that tariffs can protect some jobs in the short run, then introduces (2) to qualify it and reach the guarded conclusion that the net effect is uncertain. So (1) is a granted point rather than a conclusion, and (2) qualifies rather than supports it."
+  },
+  {
+    "id": "V_CR9",
+    "topic": "CR: Assumption (completes-the-story trap)",
+    "diff": "medium",
+    "prompt": "A new bridge will shorten commute times, the transit authority argues, because it provides a more direct route between the suburbs and the downtown business district.\n\nThe argument depends on assuming which of the following?",
+    "choices": [
+      "The new bridge is more visually appealing than the route commuters currently take.",
+      "The downtown business district is expected to keep expanding steadily over the next several years.",
+      "Construction of the new bridge was finished on or ahead of the planned schedule.",
+      "The suburbs the bridge connects contain a substantial number of daily commuters.",
+      "Commuters will in fact use the new bridge instead of staying on their current routes."
+    ],
+    "answer": 4,
+    "exp": "Negation test: if commuters keep to their existing routes, the more direct bridge saves no one any time and the conclusion fails, so the argument must assume they will switch. Schedule, growth, and the number of commuters make the scenario feel complete but are not needed for the time-saving conclusion."
+  },
+  {
+    "id": "V_CR10",
+    "topic": "CR: Weaken (self-selection)",
+    "diff": "hard",
+    "prompt": "Office workers who choose to take a short walk at midday report higher afternoon productivity than workers who do not. A manager concludes that requiring all employees to take a midday walk would raise overall productivity.\n\nWhich of the following, if true, most weakens the manager's conclusion?",
+    "choices": [
+      "Those who choose to walk may already be more energetic and motivated, which itself raises productivity.",
+      "A mandatory midday walk is something that a substantial number of the company's employees say they would actively resent.",
+      "Walking at midday carries health benefits that have little to do with productivity.",
+      "The higher afternoon productivity of the walkers was measured entirely by self-report.",
+      "The comparison between walkers and non-walkers covered a span of only two weeks."
+    ],
+    "answer": 0,
+    "exp": "If the employees who choose to walk are already more energetic or driven, those traits rather than the walk may explain their productivity, so requiring everyone to walk need not reproduce the effect. Resentment, self-reporting, and the short window raise doubts but do not as directly sever the causal link."
+  },
+  {
+    "id": "V_CR11",
+    "topic": "CR: Assumption",
+    "diff": "medium",
+    "prompt": "A bookstore began offering free coffee to customers, and its monthly sales rose. The owner concluded that the free coffee caused the increase.\n\nThe conclusion depends on assuming which of the following?",
+    "choices": [
+      "Customers who shop at the store generally prefer coffee to other free beverages such as tea.",
+      "No other change capable of lifting sales occurred at the same time the free coffee began.",
+      "Providing the free coffee was a significant ongoing expense for the store.",
+      "The store's monthly sales will continue to climb in the months ahead.",
+      "Most of the store's customers actually drank the free coffee that was offered."
+    ],
+    "answer": 1,
+    "exp": "If something else that boosts sales, such as a promotion or a popular new release, changed at the same time, it rather than the coffee could account for the rise, so the argument must assume nothing else did. That most customers drank the coffee would help the story but is not what the causal conclusion strictly requires."
+  },
+  {
+    "id": "V_CR12",
+    "topic": "CR: Weaken",
+    "diff": "medium",
+    "prompt": "A columnist notes that people who drink green tea daily tend to live longer than those who do not, and on that basis recommends green tea to extend lifespan.\n\nWhich of the following, if true, most weakens the recommendation?",
+    "choices": [
+      "Green tea is known to contain several antioxidant compounds also found in many vegetables.",
+      "A number of people find the taste of green tea quite unappealing.",
+      "Green tea is inexpensive and widely available in most grocery stores.",
+      "Daily tea drinkers also tend to exercise more and smoke less than non-drinkers.",
+      "Lifespan is difficult to measure with any real precision."
+    ],
+    "answer": 3,
+    "exp": "If habitual tea drinkers differ in other health-relevant habits, more exercise and less smoking, those differences rather than the tea may explain their longer lives, undercutting the recommendation. Antioxidant content or low price says nothing about whether the tea itself extends lifespan."
+  },
+  {
+    "id": "V_CR13",
+    "topic": "CR: Inference",
+    "diff": "easy",
+    "prompt": "Every product the company recalled last year was made at its Riverside plant. No product made at its Lakeside plant was recalled last year.\n\nIf the statements are true, which of the following must also be true?",
+    "choices": [
+      "Every product made at the Riverside plant was recalled last year.",
+      "No product recalled last year was made at the Lakeside plant.",
+      "Lakeside makes more reliable products than Riverside does.",
+      "Most of the company's products are manufactured at Lakeside.",
+      "The Riverside plant will be shut down as a result."
+    ],
+    "answer": 1,
+    "exp": "Since recalled products all came from Riverside and nothing from Lakeside was recalled, no recalled product could have been made at Lakeside. Claims about reliability, output share, or closing a plant go beyond what the two premises establish."
+  },
+  {
+    "id": "V_CR14",
+    "topic": "CR: Strengthen",
+    "diff": "medium",
+    "prompt": "A researcher claims a new teaching method improves retention, citing that students taught with it scored higher on a test given immediately after the lesson.\n\nWhich of the following, if true, most strengthens the claim that the method improves retention specifically?",
+    "choices": [
+      "Students reported that they enjoyed the lessons taught with the new method.",
+      "The new method allowed the same material to be covered in noticeably less class time.",
+      "The immediate test that the students took used a multiple-choice format.",
+      "The teacher who used the new method happened to be unusually experienced.",
+      "Students taught with the method also scored higher on a test two months later."
+    ],
+    "answer": 4,
+    "exp": "Retention is about how well learning lasts, so stronger performance on a test two months later supports improved retention rather than a momentary boost. An experienced teacher would instead supply an alternative explanation, and enjoyment or test format does not bear on the durability of learning."
+  },
+  {
+    "id": "V_CR15",
+    "topic": "CR: Flaw",
+    "diff": "hard",
+    "prompt": "Critics claim a new policy failed because unemployment rose after it took effect. But unemployment also rose in neighboring regions that never adopted the policy, so the critics are wrong to blame it.\n\nThe argument is most vulnerable to the criticism that it",
+    "choices": [
+      "overlooks that the policy may have limited a rise that would otherwise have been larger",
+      "depends entirely on the testimony of the very critics whose position it sets out to oppose",
+      "fails to settle on a precise definition of what should count as unemployment",
+      "relies on neighboring regions as the basis for its comparison",
+      "grants that unemployment did in fact rise after the policy took effect"
+    ],
+    "answer": 0,
+    "exp": "Showing that regions without the policy also worsened does not prove the policy had no effect; it may have softened the local increase relative to what would otherwise have occurred, a possibility the rebuttal ignores. Using neighbors as a comparison or conceding the rise are not themselves errors."
+  },
+  {
+    "id": "V_CR16",
+    "topic": "CR: Weaken",
+    "diff": "medium",
+    "prompt": "A school introduced a free breakfast program, and over the next year the school's average test scores rose. Administrators concluded that eating breakfast improved the students' academic performance.\n\nWhich of the following, if true, most weakens the administrators' conclusion?",
+    "choices": [
+      "The breakfast program proved popular with students and their families.",
+      "Students who ate the breakfast reported feeling more alert during morning classes.",
+      "In the same year, the school also reduced class sizes and hired additional tutors.",
+      "The food served in the program met national nutritional guidelines.",
+      "The school's test scores had been roughly flat for several years before the program began."
+    ],
+    "answer": 2,
+    "exp": "If the school made other major changes at the same time—smaller classes, more tutoring—those could account for the score gains instead of the breakfast, undercutting the causal claim. The detail that scores were flat beforehand would, if anything, support the conclusion by ruling out a prior upward trend; the remaining options are consistent with the conclusion but establish no cause."
+  },
+  {
+    "id": "V_CR17",
+    "topic": "CR: Assumption",
+    "diff": "medium",
+    "prompt": "A publisher plans to raise the cover price of its flagship magazine, expecting that the higher price per copy will increase the magazine's total revenue.\n\nThe publisher's plan depends on assuming which of the following?",
+    "choices": [
+      "The magazine's production costs will fall once the new price takes effect.",
+      "Competing magazines will raise their cover prices by the same amount.",
+      "The higher price will attract entirely new categories of readers.",
+      "Raising the price will not reduce the number of copies sold so sharply that total revenue falls.",
+      "The magazine's existing readers are, on the whole, noticeably wealthier than the readers of its closest competitors."
+    ],
+    "answer": 3,
+    "exp": "Negation test: if the price increase drove copies sold down enough that revenue fell, the plan would fail, so it must assume the drop in copies is not that severe. Falling costs would affect profit rather than the revenue claim; matching competitors, new reader categories, and reader wealth are not required for a higher price to raise revenue."
+  },
+  {
+    "id": "V_CR18",
+    "topic": "CR: Inference",
+    "diff": "easy",
+    "prompt": "Every product in the store's clearance aisle is discounted by at least 40 percent. No product discounted by 40 percent or more is eligible for the store's loyalty-points program.\n\nIf the statements above are true, which of the following must also be true?",
+    "choices": [
+      "Some products outside the clearance aisle are discounted by at least 40 percent.",
+      "Every product eligible for the loyalty-points program is located in the clearance aisle.",
+      "No product in the clearance aisle is eligible for the loyalty-points program.",
+      "The products in the clearance aisle are the store's most popular items.",
+      "Most products in the store are discounted by at least 40 percent."
+    ],
+    "answer": 2,
+    "exp": "Clearance items are all discounted at least 40 percent, and nothing discounted at least 40 percent earns loyalty points, so no clearance item earns them—a valid chain. The claims about products outside the aisle, popularity, and store-wide discounting go beyond the premises, and the reversed conditional does not follow."
+  }
+]

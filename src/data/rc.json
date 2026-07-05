@@ -1,0 +1,335 @@
+[
+  {
+    "pid": "P1",
+    "title": "Minimum wage and employment",
+    "diff": "medium",
+    "text": "Economists have long debated whether increases in the minimum wage reduce employment among low-wage workers. The standard competitive model, which treats labor like any other commodity subject to supply and demand, predicts that a wage floor set above the market-clearing level will reduce the quantity of labor employers demand. Yet a series of studies conducted in the early 1990s, comparing employment at fast-food restaurants in adjacent states after one state raised its minimum wage, found little or no decline in employment—and in some cases a modest increase. Critics of these studies, pointing to the difficulty of isolating the effect of a single policy change amid countless other economic shifts, argued that the comparisons were confounded by regional trends the researchers had not adequately controlled for. Defenders responded that the adjacent-state design was precisely intended to neutralize such trends, since neighboring areas tend to share economic conditions. A more recent line of reasoning, drawing on models of imperfect competition, suggests a resolution: where employers possess some power to set wages below the competitive level—so-called monopsony power—a modest minimum-wage increase can raise wages without reducing, and may even increase, employment. On this view, the empirical findings are not anomalies to be explained away but evidence that real labor markets depart from the simple competitive ideal. The debate has thus shifted from whether the early findings were credible to which model of the labor market best describes the conditions under which they were obtained.",
+    "questions": [
+      {
+        "id": "V_P1Q1",
+        "topic": "RC: Main idea",
+        "diff": "easy",
+        "prompt": "The primary purpose of the passage is to",
+        "choices": [
+          "argue that raising the minimum wage never reduces employment among low-wage workers",
+          "defend the adjacent-state study design against every objection raised against it",
+          "compare measured employment levels across a number of neighboring states",
+          "trace how a set of empirical findings reshaped a longstanding theoretical debate",
+          "establish that the competitive model of the labor market is fundamentally mistaken"
+        ],
+        "answer": 3,
+        "exp": "The passage follows the early findings as they shifted the debate from whether they were credible toward which model of the labor market fits, an account of a reshaped debate. The other options overstate the conclusion or seize on a single detail."
+      },
+      {
+        "id": "V_P1Q2",
+        "topic": "RC: Inference",
+        "diff": "medium",
+        "prompt": "The passage suggests that, under monopsony power, a modest minimum-wage increase",
+        "choices": [
+          "reduces employment by exactly the amount that the standard competitive model of the labor market predicts",
+          "leaves unchanged the wages that employers actually pay their workers",
+          "can raise wages without producing the employment loss the competitive model predicts",
+          "is dismissed by the defenders of the early 1990s employment studies",
+          "applies only to employment at fast-food restaurants and nowhere else"
+        ],
+        "answer": 2,
+        "exp": "The monopsony paragraph says that where employers can set wages below the competitive level, a modest increase can raise wages without cutting, and perhaps while raising, employment. The other options reverse this, deny the wage effect, or narrow it beyond what the passage says."
+      },
+      {
+        "id": "V_P1Q3",
+        "topic": "RC: Function",
+        "diff": "medium",
+        "prompt": "The critics' objection about isolating a single policy change functions primarily to",
+        "choices": [
+          "directly confirm the prediction made by the standard competitive model",
+          "lend further support to the monopsony explanation offered for the early empirical findings discussed",
+          "put forward an entirely new design for studying the question",
+          "concede that the wage floor did, after all, reduce employment",
+          "question whether the results reflected the wage change rather than other regional trends"
+        ],
+        "answer": 4,
+        "exp": "The critics contend the comparisons were confounded, that the results might track other regional trends rather than the wage change itself. They neither endorse a model nor concede that employment fell."
+      }
+    ]
+  },
+  {
+    "pid": "P2",
+    "title": "Historians and the printing press",
+    "diff": "hard",
+    "text": "For much of the twentieth century, historians treating the invention of the printing press in fifteenth-century Europe as a singular cause credited it with triggering the Reformation, the Scientific Revolution, and the rise of the modern nation-state. This narrative, compelling in its sweep and its apparent explanatory economy, located in a single technology the origin of transformations that unfolded over centuries. More recent scholarship has complicated the picture. Some historians, examining the uneven pace at which printing spread across regions and the persistence of manuscript culture well into the sixteenth century, have argued that print was less a sudden rupture than one element in a slow reorganization of how knowledge was produced and circulated. Others have emphasized that the effects attributed to print depended heavily on conditions print did not itself create: rising literacy, expanding commercial networks, and the prior accumulation of texts worth reproducing. A printing press in a society without readers, these scholars note, changes little. None of this denies that printing mattered. The revisionist claim is rather that technologies do not carry their consequences within them like seeds; their effects are realized only through the social arrangements that receive them. The older narrative, by treating the press as an autonomous force, obscured precisely the human choices—about what to print, for whom, and to what end—that determined which of the press's many possible effects were actually realized. To understand the press historically, the revisionists conclude, is to understand not what it did to society but what societies did with it.",
+    "questions": [
+      {
+        "id": "V_P2Q1",
+        "topic": "RC: Main idea",
+        "diff": "medium",
+        "prompt": "The primary purpose of the passage is to",
+        "choices": [
+          "argue that printing in fact played no part in bringing about the Reformation",
+          "trace a shift from print as a sole cause to print whose effects are socially conditioned",
+          "establish the exact dates at which printing reached each European region",
+          "defend the older single-cause narrative against the revisionist historians",
+          "compare the printing press with the various communication technologies that emerged later"
+        ],
+        "answer": 1,
+        "exp": "The passage moves from the older view of print as a single sweeping cause to the revisionist position that its effects depended on the social conditions receiving it. It does not deny that print mattered, fix dates, or defend the older account."
+      },
+      {
+        "id": "V_P2Q2",
+        "topic": "RC: Inference",
+        "diff": "hard",
+        "prompt": "With which of the following would the author most likely agree?",
+        "choices": [
+          "Which of a technology's possible effects are realized depends on the conditions that receive it.",
+          "Because its effects are socially determined, the printing press itself mattered little to history.",
+          "The spread of printing was the principal cause of the literacy on which its effects depended.",
+          "A technology's consequences follow from its design, largely apart from the society adopting it.",
+          "Manuscript culture disappeared rapidly once printing was introduced across Europe."
+        ],
+        "answer": 0,
+        "exp": "The revisionist thesis the author develops is that a technology's effects are realized only through the social arrangements that receive it. The second option overshoots into denying that print mattered, which the author explicitly refuses; the third reverses the dependence on literacy; the fourth is the autonomous-force view that is rejected; and the last contradicts the passage's note that manuscript culture persisted."
+      },
+      {
+        "id": "V_P2Q3",
+        "topic": "RC: Function",
+        "diff": "medium",
+        "prompt": "The remark that a printing press in a society without readers \"changes little\" serves to",
+        "choices": [
+          "show that printing, on its own, was enough to bring about the Reformation",
+          "argue that manuscript culture was in many respects superior to the printed books that displaced it",
+          "fix the date at which printing spread throughout Europe",
+          "illustrate that print's effects depend on conditions it does not itself create",
+          "criticize the spread of literacy in early modern Europe"
+        ],
+        "answer": 3,
+        "exp": "A press where there are no readers does nothing, which exemplifies the claim that print's effects required pre-existing conditions such as a literate audience. The remark neither praises manuscript culture nor assigns dates."
+      },
+      {
+        "id": "V_P2Q4",
+        "topic": "RC: Function",
+        "diff": "hard",
+        "prompt": "The final sentence (\"not what it did to society but what societies did with it\") primarily serves to",
+        "choices": [
+          "introduce a fresh counterexample not previously mentioned anywhere in the passage",
+          "concede that the older single-cause narrative was essentially right after all",
+          "compress into a phrase the revisionist reframing the passage has been building toward",
+          "lay out a specific program for the further historical research that scholars of printing should pursue",
+          "supply a technical definition of what the printing press actually was"
+        ],
+        "answer": 2,
+        "exp": "The closing inversion distills the revisionist reframing developed throughout the passage. It introduces no new example, concedes nothing to the older view, and proposes no research agenda."
+      }
+    ]
+  },
+  {
+    "pid": "P3",
+    "title": "Food deserts and diet",
+    "diff": "medium",
+    "text": "Researchers studying diet in low-income urban neighborhoods have documented a correlation between residing in a \"food desert\"—an area with few supermarkets selling fresh produce—and poorer dietary quality. An influential early interpretation held that limited access caused the poor diets: residents, unable to reach healthy food easily, ate what was available. Policymakers, persuaded by this account, funded the opening of supermarkets in underserved areas, expecting measurable improvements in residents' diets. The improvements largely failed to materialize. When new stores opened, residents' purchases of fresh produce rose only marginally, and overall diet quality changed little. Some researchers concluded that access, while real, had been overstated as a cause. Diets, they argued, are shaped by income, time, cooking facilities, and long-standing preferences—factors a nearby supermarket does not alter. A subtler point concerns how food deserts arise in the first place. If stores locate where they expect demand, then the absence of a supermarket may reflect, rather than cause, a neighborhood's existing consumption patterns. On this reading, the original correlation was partly an artifact: the same underlying conditions that produced low demand for fresh produce also discouraged supermarkets from opening. This does not imply that access is irrelevant, only that interventions targeting access alone address a symptom that may not be the operative cause. The episode illustrates a recurring hazard in social policy—mistaking a feature that accompanies a problem for the mechanism that produces it.",
+    "questions": [
+      {
+        "id": "V_P3Q1",
+        "topic": "RC: Main idea",
+        "diff": "medium",
+        "prompt": "The primary purpose of the passage is to",
+        "choices": [
+          "explain why opening supermarkets reliably improves the diets of nearby residents",
+          "show that food access has no bearing whatever on the quality of people's diets",
+          "warn that a correlate of poor diets was taken for their cause, misdirecting policy",
+          "argue that income is the single determinant of dietary quality in these areas",
+          "describe in detail the process by which large supermarket chains decide where to open new stores"
+        ],
+        "answer": 2,
+        "exp": "The food-desert case is used to caution against treating a correlate, low access, as the operative cause, a mistake that misdirected policy. The passage explicitly allows that access still matters, so the no-effect and income-alone options overshoot."
+      },
+      {
+        "id": "V_P3Q2",
+        "topic": "RC: Inference (selection effect)",
+        "diff": "hard",
+        "prompt": "The \"subtler point\" about how food deserts arise most directly suggests that",
+        "choices": [
+          "the mere presence of supermarkets is what causes these neighborhoods to develop a low demand for produce",
+          "limited access is the only real cause of the poor diets seen in these neighborhoods",
+          "policymakers had correctly identified the mechanism driving the poor diets",
+          "a neighborhood's existing demand can help explain why supermarkets are absent to begin with",
+          "newly opened stores reliably produce a sharp rise in residents' produce purchases"
+        ],
+        "answer": 3,
+        "exp": "If stores open where they expect demand, then weak local demand can explain the absence of a supermarket, reversing the assumed direction from access to diet. The other options invert the causation the wrong way, overstate access, or contradict the finding that new stores changed little."
+      },
+      {
+        "id": "V_P3Q3",
+        "topic": "RC: Function",
+        "diff": "medium",
+        "prompt": "The final sentence chiefly serves to",
+        "choices": [
+          "lift the specific case into a broader warning about mistaking a correlate for a cause",
+          "recommend one particular new policy that the government ought to adopt in order to address the problem",
+          "deny that food deserts exist as a real phenomenon at all",
+          "endorse the original access-based interpretation of the problem",
+          "introduce new statistical evidence about the diets of residents"
+        ],
+        "answer": 0,
+        "exp": "The closing line generalizes the food-desert episode into a recurring hazard in social policy: taking a feature that accompanies a problem for its cause. It neither recommends a policy nor offers new data."
+      }
+    ]
+  },
+  {
+    "pid": "P4",
+    "title": "Coral and its algae",
+    "diff": "medium",
+    "text": "Reef-building corals owe their existence to a partnership with single-celled algae that live within the corals' tissues. The algae, capturing sunlight through photosynthesis, supply the coral host with most of the energy it needs; the coral, in return, provides the algae with shelter and the nutrients its metabolism generates. When ocean temperatures rise even slightly above the local norm for a sustained period, this partnership can break down: stressed corals expel their algae, losing both their color and their principal energy source, an event known as bleaching. A bleached coral is not necessarily dead, and if normal temperatures return promptly the algae may recolonize the tissues. But prolonged or repeated bleaching, exhausting the coral's energy reserves before recovery can occur, frequently proves fatal. Recent research has complicated the assumption that all corals respond to heat identically. Some colonies, harboring strains of algae more tolerant of high temperatures, withstand conditions that bleach their neighbors, and a few coral species appear able to shift the composition of their algal partners toward such heat-tolerant strains after a stress event. Whether this flexibility can keep pace with the rate at which oceans are warming remains uncertain; the adjustment, even where it occurs, may simply be too slow. What the findings establish is narrower but still significant: the capacity of a reef to survive warming depends not only on the temperatures it experiences but on the particular partnerships its corals have formed.",
+    "questions": [
+      {
+        "id": "V_P4Q1",
+        "topic": "RC: Main idea",
+        "diff": "easy",
+        "prompt": "The primary purpose of the passage is to",
+        "choices": [
+          "argue that all corals everywhere respond to rising ocean temperatures in essentially the same way",
+          "explain the coral-algae partnership and how it bears on surviving ocean warming",
+          "demonstrate that a coral, once bleached, is invariably already dead",
+          "describe in full the life cycle of the single-celled algae",
+          "recommend particular policies for conserving the world's coral reefs"
+        ],
+        "answer": 1,
+        "exp": "The passage lays out the symbiosis, explains bleaching, and shows how differences in coral-algae partnerships affect heat resilience. It does not claim uniform responses, equate bleaching with death, or recommend policy."
+      },
+      {
+        "id": "V_P4Q2",
+        "topic": "RC: Detail",
+        "diff": "easy",
+        "prompt": "According to the passage, which of the following is true of a bleached coral?",
+        "choices": [
+          "Bleaching kills the coral immediately in every case.",
+          "Once expelled, the algae can never again recolonize the coral's tissue.",
+          "Warmer water tends to increase the coral's stored energy reserves.",
+          "Heat-tolerant strains of algae are the primary cause of bleaching.",
+          "A bleached coral may recover if normal temperatures return before long."
+        ],
+        "answer": 4,
+        "exp": "The passage states that a bleached coral is not necessarily dead and that its algae may recolonize if normal temperatures return promptly. The other options contradict the passage with absolute or reversed claims."
+      },
+      {
+        "id": "V_P4Q3",
+        "topic": "RC: Function",
+        "diff": "medium",
+        "prompt": "The final sentence primarily serves to",
+        "choices": [
+          "concede that the algal partnerships ultimately have no real bearing on whether a given reef survives",
+          "qualify the findings while affirming that the algal partnership shapes heat resilience",
+          "assert that the oceans are not in fact growing warmer at all",
+          "propose a particular new laboratory experiment to be carried out",
+          "offer a technical definition of the term photosynthesis"
+        ],
+        "answer": 1,
+        "exp": "The sentence calls the finding narrower but still significant, tempering the claim while affirming that a reef's survival depends on the particular partnerships its corals have formed. It does not dismiss the partnerships or deny warming."
+      }
+    ]
+  },
+  {
+    "pid": "P5",
+    "title": "Urban trees and heat",
+    "diff": "medium",
+    "text": "Cities are, on average, several degrees warmer than the surrounding countryside, a phenomenon known as the urban heat island. Dark surfaces such as asphalt and rooftops absorb solar radiation during the day and release it slowly at night, while the relative scarcity of vegetation reduces the cooling that plants provide through evapotranspiration—the process by which water drawn up through roots evaporates from leaves, carrying heat away. Planting trees has therefore been proposed as a remedy. Trees cool their surroundings in two ways: by shading surfaces that would otherwise absorb heat, and through evapotranspiration itself. Yet the cooling benefit of an urban tree is not fixed. A tree starved of water, as many street trees are, transpires little and provides correspondingly less cooling; and a tree's shade falls where its canopy happens to be, which may not coincide with the pavements and walls that most need it. Recent analyses suggest that scattered individual plantings yield smaller temperature reductions than the same number of trees clustered into contiguous canopy, because clustering creates pockets of cooler air that individual trees, their effects quickly dissipated by surrounding heat, cannot sustain. The implication for policy is that where trees are planted may matter as much as how many. A planting program judged solely by the count of trees added could, by dispersing them evenly for visual uniformity, forgo much of the cooling that the same trees, concentrated, would deliver.",
+    "questions": [
+      {
+        "id": "V_P5Q1",
+        "topic": "RC: Main idea",
+        "diff": "medium",
+        "prompt": "The primary purpose of the passage is to",
+        "choices": [
+          "argue that planting trees cannot lower urban temperatures at all",
+          "establish that evapotranspiration is the sole source of a tree's cooling",
+          "explain how trees cool cities and why placement, not just number, matters",
+          "recommend a specific number of trees to plant on each city block",
+          "describe in detail the chemical composition of the asphalt used to pave cities"
+        ],
+        "answer": 2,
+        "exp": "The passage explains the two cooling mechanisms, shade and evapotranspiration, and builds to the claim that where trees are placed can matter as much as how many are planted. It does not deny cooling, isolate one mechanism, or prescribe a count."
+      },
+      {
+        "id": "V_P5Q2",
+        "topic": "RC: Inference",
+        "diff": "hard",
+        "prompt": "The passage indicates that clustered trees can outperform scattered ones because",
+        "choices": [
+          "an isolated individual tree always delivers more cooling than that very same tree placed within a cluster",
+          "clustered trees sustain pockets of cooler air that an isolated tree cannot maintain",
+          "trees never provide any usefully cooling shade in dense city conditions",
+          "watering a tree tends to reduce the amount of cooling that it provides",
+          "a tree's shade falls evenly across all of the pavement around it"
+        ],
+        "answer": 1,
+        "exp": "Clustering creates pockets of cooler air that an individual tree, its effect quickly dissipated by surrounding heat, cannot sustain, which is why the same trees concentrated outperform the same trees scattered. The other options reverse or contradict the passage."
+      },
+      {
+        "id": "V_P5Q3",
+        "topic": "RC: Function",
+        "diff": "medium",
+        "prompt": "The final sentence chiefly serves to",
+        "choices": [
+          "warn that a count-only metric can forgo cooling that better placement would capture",
+          "claim that achieving visual uniformity is the main aim of any urban tree-planting program",
+          "deny that the urban heat island is a real effect at all",
+          "propose replacing the city's trees with additional asphalt",
+          "give a technical definition of the term evapotranspiration"
+        ],
+        "answer": 0,
+        "exp": "The final sentence cautions that a count-only metric, by spreading trees out for uniformity, can give up much of the cooling that concentrating them would deliver. It does not endorse uniformity, deny the heat island, or define terms."
+      }
+    ]
+  },
+  {
+    "pid": "P6",
+    "title": "The function of animal play",
+    "diff": "medium",
+    "text": "Among behaviors that seem to serve no immediate survival purpose, the play of young animals has long invited explanation. The most enduring account treats play as rehearsal: by chasing, wrestling, and pouncing, the young are thought to practice the very skills—hunting, fighting, escaping—they will need as adults. The appeal of this view is obvious, since the movements of play often resemble those of serious activity. Yet closer study has strained it. Some animals that play vigorously as juveniles show no matching advantage in the adult skills the play supposedly rehearses, and individuals kept from playing sometimes develop those skills anyway. Play is also costly: it burns energy and exposes the young to injury and predators—costs that a purely rehearsal-driven behavior would be expected to minimize. Such findings have pushed researchers toward a different emphasis. Perhaps the benefit of play lies less in practicing particular movements than in building a general capacity: to cope with the unexpected, to recover from sudden reversals, to regulate arousal under stress. On this account, what the young animal gains is not a catalog of rehearsed actions but a flexibility that no single skill could supply. The evidence remains incomplete, but the question has moved from what play rehearses to what it builds.",
+    "questions": [
+      {
+        "id": "V_P6Q1",
+        "topic": "RC: Main idea",
+        "diff": "medium",
+        "prompt": "The primary purpose of the passage is to",
+        "choices": [
+          "argue that the play of young animals serves no real biological function at all",
+          "trace how difficulties with a rehearsal account of play have shifted the emphasis of explanation",
+          "establish that animals prevented from playing in youth never go on to acquire the normal adult skills of their kind",
+          "describe in detail the specific movements that make up play in one particular species",
+          "recommend new experimental methods for the laboratory study of animal play"
+        ],
+        "answer": 1,
+        "exp": "The passage sets out the rehearsal account, presents the findings that strain it, and describes the shift toward viewing play as building general flexibility — an account of a changing explanation. The first option overshoots into denying any function; the third contradicts the noted cases; the last two are not the passage's aim."
+      },
+      {
+        "id": "V_P6Q2",
+        "topic": "RC: Inference",
+        "diff": "hard",
+        "prompt": "It can be inferred that the author regards the rehearsal account of play as",
+        "choices": [
+          "entirely without merit and long since abandoned by every researcher in the field",
+          "confirmed beyond dispute by the close resemblance between play and serious activity",
+          "intuitively appealing yet in tension with several later findings",
+          "concerned chiefly with the energy costs that play imposes on the young",
+          "applicable to young predators but to no other kinds of animals"
+        ],
+        "answer": 2,
+        "exp": "The author calls the rehearsal view enduring and obviously appealing, then marshals findings that strain it — appealing but in tension with the evidence. The first overstates the rejection; the second mistakes surface resemblance for proof; the last two import limits the passage never asserts."
+      },
+      {
+        "id": "V_P6Q3",
+        "topic": "RC: Function",
+        "diff": "medium",
+        "prompt": "The observation that play 'burns energy and exposes the young to injury and predators' serves primarily to",
+        "choices": [
+          "prove that play can never have had any adaptive value whatever",
+          "explain exactly how young animals come to avoid predators",
+          "establish the precise number of calories that play consumes",
+          "supply a difficulty for the view that play exists simply to rehearse adult skills",
+          "argue that juveniles of a species tend to play far more often than the adult members of that same species"
+        ],
+        "answer": 3,
+        "exp": "The costs are raised as a problem for the rehearsal view: a behavior existing only to rehearse skills would be expected to minimize wasted energy and danger, so their presence counts against that account. The remark proves nothing as sweeping as denying all adaptive value and supplies none of the specific figures the other options describe."
+      }
+    ]
+  }
+]
