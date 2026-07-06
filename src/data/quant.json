@@ -772,5 +772,95 @@
     "answer": 0,
     "exp": "Multiples of 7 up to 999 number ⌊999/7⌋ = 142, and up to 99 number ⌊99/7⌋ = 14, so 142 − 14 = 128. (142 forgets to exclude the multiples below 100; 129 is an off-by-one.)",
     "creator": "Claude Sonnet 5"
+  },
+  {
+    "id": "Q44",
+    "section": "Q",
+    "type": "PS",
+    "topic": "algebra",
+    "diff": "easy",
+    "prompt": "If 5x + 2 = 3x + 10, what is the value of x?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 1,
+    "exp": "Solving: 5x + 2 = 3x + 10 → 2x = 8 → x = 4. Common mistake: subtracting incorrectly gives x=2.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q45",
+    "section": "Q",
+    "type": "PS",
+    "topic": "percents",
+    "diff": "medium",
+    "prompt": "A store increased the price of a book by 20% and then later decreased it by 20%. The final price is what percent of the original price?",
+    "choices": [
+      "96%",
+      "100%",
+      "104%",
+      "80%",
+      "84%"
+    ],
+    "answer": 0,
+    "exp": "Let original = 100. After 20% increase → 120. After 20% decrease → 96. Final is 96% of original. Distractor 100% assumes no net change, but successive percent changes are not additive.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q46",
+    "section": "Q",
+    "type": "PS",
+    "topic": "ratios",
+    "diff": "hard",
+    "prompt": "In a mixture of milk and water, the ratio of milk to water is 5:3. If 10 liters of water are added, the ratio becomes 5:4. What was the original amount of milk?",
+    "choices": [
+      "40 L",
+      "50 L",
+      "60 L",
+      "30 L",
+      "45 L"
+    ],
+    "answer": 1,
+    "exp": "Let milk = 5x, water = 3x. After adding 10 L water, milk/water = 5x/(3x+10) = 5/4 → cross multiply: 20x = 15x+50 → 5x=50 → x=10. Milk=50 L. Distractor 60 L comes from solving 5x=60.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q47",
+    "section": "Q",
+    "type": "PS",
+    "topic": "statistics",
+    "diff": "easy",
+    "prompt": "The median of a set of seven test scores is 82. The lowest score is 68 and the highest score is 96. If the test scores are all integers, what is the smallest possible value of the mean?",
+    "choices": [
+      "76",
+      "78",
+      "80",
+      "82",
+      "84"
+    ],
+    "answer": 0,
+    "exp": "To minimize the mean, make the three scores below median as low as possible (68,68,68) and the three above median as low as possible (82,82,82). Sum = 68+68+68+82+82+82+96 = 546. Mean = 78. Actually check: 68+68+68+82+82+82+96 = 546, mean=78. Correct answer: 78. Distractor 76 incorrectly assumes median not included.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q48",
+    "section": "Q",
+    "type": "PS",
+    "topic": "geometry",
+    "diff": "medium",
+    "prompt": "In triangle ABC, angle A is 40° and angle B is 60°. What is the measure of angle C?",
+    "choices": [
+      "60°",
+      "70°",
+      "80°",
+      "90°",
+      "100°"
+    ],
+    "answer": 2,
+    "exp": "Sum of angles in triangle = 180°, so C = 180 - (40+60) = 80°. Distractor 100° comes from adding instead of subtracting.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]

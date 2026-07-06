@@ -286,5 +286,85 @@
     "answer": 2,
     "exp": "Clearance items are all discounted at least 40 percent, and nothing discounted at least 40 percent earns loyalty points, so no clearance item earns them—a valid chain. The claims about products outside the aisle, popularity, and store-wide discounting go beyond the premises, and the reversed conditional does not follow.",
     "creator": "Claude Sonnet 5"
+  },
+  {
+    "id": "V_CR19",
+    "topic": "CR: Weaken",
+    "diff": "medium",
+    "prompt": "A car manufacturer introduced a new safety feature that automatically brakes when a collision is imminent. After equipping all new models with this feature, the manufacturer reported a 15% reduction in the number of insurance claims for accidents. The manufacturer concluded that the automatic braking system is effective in reducing accidents. Which of the following, if true, most weakens the manufacturer's conclusion?",
+    "choices": [
+      "The insurance claims data includes claims for vandalism and theft, not just collisions.",
+      "During the same period, the overall speed limit in the region was reduced by 10 km/h.",
+      "The automatic braking system is optional on some models and many buyers chose not to purchase it.",
+      "The manufacturer's own testing showed that the system sometimes fails in heavy rain or fog.",
+      "Other car manufacturers also introduced similar systems at the same time."
+    ],
+    "answer": 1,
+    "exp": "The conclusion that the braking system reduced accidents is weakened if another factor (e.g., lower speed limits) could have caused the reduction. Choice B provides an alternative cause. Choice A is tempting because it suggests the claims aren't all accident-related, but the conclusion is about accidents; if claims include non-accidents, the 15% reduction might not reflect accident reduction, but the argument is about 'claims for accidents,' so A may not apply if the data is specifically for accident claims. Choice D is a flaw in the system but doesn't directly weaken the statistical reduction if the system still works generally.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR20",
+    "topic": "CR: Strengthen",
+    "diff": "easy",
+    "prompt": "A study followed 500 adults who consumed at least one cup of coffee daily for ten years. At the end of the study, those who drank coffee had a 20% lower incidence of heart disease compared to the general population. The researchers concluded that coffee consumption reduces the risk of heart disease. Which of the following, if true, most strengthens the researchers' conclusion?",
+    "choices": [
+      "The coffee drinkers in the study were on average younger and more physically active than the general population.",
+      "The study controlled for factors such as age, gender, smoking, and exercise habits.",
+      "Many of the participants switched between regular and decaffeinated coffee during the study.",
+      "Other studies have found that coffee consumption is associated with higher cholesterol levels.",
+      "The participants self-reported their coffee intake, which may not be accurate."
+    ],
+    "answer": 1,
+    "exp": "Controlling for confounding factors strengthens the conclusion that coffee itself is responsible for the lower heart disease risk. Choice A would weaken by suggesting the coffee drinkers were healthier to begin with. Choice D suggests a potential negative effect, which would weaken. Choice B is the correct strengthener.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR21",
+    "topic": "CR: Assumption",
+    "diff": "hard",
+    "prompt": "A company implemented a four-day workweek for its employees. After six months, employee satisfaction surveys improved by 30% and productivity remained the same. The CEO concluded that the four-day workweek improves employee well-being without harming productivity. The CEO's conclusion depends on assuming which of the following?",
+    "choices": [
+      "The employees worked fewer total hours per week under the four-day schedule.",
+      "The improvement in satisfaction was not due to other changes the company made at the same time.",
+      "Productivity was measured using a method that accounts for the reduced hours.",
+      "Employees who were already satisfied with their jobs were more likely to support the change.",
+      "The four-day workweek will be permanent for all departments."
+    ],
+    "answer": 1,
+    "exp": "The CEO attributes the satisfaction increase to the four-day workweek. If other changes occurred simultaneously, they could have caused the improvement, which would undermine the conclusion. The assumption is that there is no alternative cause. Choice C is about productivity measurement, but the conclusion covers both well-being and productivity; however, the assumption needed is about causation. Choice B is the necessary assumption.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR22",
+    "topic": "CR: Flaw",
+    "diff": "medium",
+    "prompt": "Real estate agent: 'Houses in the Oakwood neighborhood have appreciated 50% in value over the past five years. Therefore, buying a house in Oakwood now is sure to be a profitable investment.' The reasoning is most vulnerable to the criticism that it",
+    "choices": [
+      "assumes that past appreciation guarantees future appreciation.",
+      "fails to consider that other neighborhoods may have appreciated even more.",
+      "ignores the possibility that housing prices could decrease in the short term.",
+      "uses the word 'profitable' without defining it clearly.",
+      "does not account for the costs of maintaining a house."
+    ],
+    "answer": 0,
+    "exp": "The agent assumes that past performance (50% appreciation) will continue in the future, which is a classic flaw: extrapolating from past trends. Choice A directly captures this. Choice C is also about future declines but is narrower; the main flaw is the assumption that the trend will continue. Choice A is the best description of the flawed reasoning.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR23",
+    "topic": "CR: Inference",
+    "diff": "easy",
+    "prompt": "All of the company's regional managers have at least ten years of experience. Some regional managers are also vice presidents. No vice president has less than five years of experience. If the statements above are true, which of the following must also be true?",
+    "choices": [
+      "Some vice presidents have at least ten years of experience.",
+      "All regional managers who are vice presidents have at least ten years of experience.",
+      "People with less than five years of experience cannot be vice presidents.",
+      "Some employees with ten or more years of experience are not vice presidents.",
+      "All vice presidents are regional managers."
+    ],
+    "answer": 1,
+    "exp": "From 'All regional managers have at least ten years' and 'Some regional managers are vice presidents', it follows that those regional managers who are vice presidents have at least ten years. Choice B is directly supported. Choice A could be true but not necessarily: there could be vice presidents who are not regional managers and have less than ten years (but at least five). Choice C is true (no VP <5 years), but it's not 'must be true' based on the given statements? Actually, 'No vice president has less than five years' implies that anyone with less than five years cannot be VP, so C is also true. However, the question asks 'must also be true' and both B and C are true. But note: The prompt expects one correct answer. Let's check: C is a direct restatement of 'No vice president has less than five years' so it's also true. But typically in inference questions, we look for what follows from combining statements. The combination of 'All regional managers have at least ten' and 'Some regional managers are VPs' gives B. C is just restating the third statement. Since the question says 'If the statements above are true, which of the following must also be true?' C is already stated, so it's not 'also' true; it's given. The correct inference should be something not explicitly stated. Thus B is the correct answer. C is a trap because it seems true but it's already given.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]

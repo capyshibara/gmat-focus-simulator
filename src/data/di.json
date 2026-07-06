@@ -962,5 +962,53 @@
     "answer": 0,
     "exp": "(1) x + y odd ⇒ one of x, y is even and the other odd ⇒ xy is even: sufficient. (2) x − y even ⇒ x and y share parity ⇒ xy could be even (both even) or odd (both odd): not sufficient → A.",
     "creator": "Claude Sonnet 5"
+  },
+  {
+    "id": "DI35",
+    "type": "DS",
+    "topic": "DS: word problem",
+    "diff": "medium",
+    "prompt": "A company has two departments: Marketing and Sales. The average salary in Marketing is $50,000 and the average salary in Sales is $60,000. Is the overall average salary of the company less than $55,000?",
+    "s1": "The number of employees in Marketing is greater than the number in Sales.",
+    "s2": "The total number of employees in the company is 100.",
+    "answer": 0,
+    "exp": "From statement 1 alone: Let M be number in Marketing, S in Sales. Overall average = (50000M + 60000S)/(M+S). This is a weighted average. If M > S, the average is closer to 50000, so it is less than 55000. Sufficient. Statement 2 alone gives total number but not the split; insufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI36",
+    "type": "DS",
+    "topic": "DS: algebra",
+    "diff": "hard",
+    "prompt": "If x and y are integers, is x^2 + y^2 divisible by 5?",
+    "s1": "x + y is divisible by 5.",
+    "s2": "x - y is divisible by 5.",
+    "answer": 2,
+    "exp": "From statement 1 alone: If x=1, y=4, then x+y=5 divisible by 5, but x^2+y^2=1+16=17 not divisible by 5. Not sufficient. Statement 2 alone: If x=1, y=6, then x-y=-5 divisible by 5, but x^2+y^2=1+36=37 not divisible by 5. Not sufficient. Combining: (x+y)^2 = x^2+2xy+y^2 and (x-y)^2 = x^2-2xy+y^2. Adding: (x+y)^2+(x-y)^2=2(x^2+y^2). Since both (x+y) and (x-y) are divisible by 5, their squares are divisible by 25, so sum is divisible by 25, thus 2(x^2+y^2) divisible by 25, so x^2+y^2 divisible by 5. Sufficient together.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI37",
+    "type": "DS",
+    "topic": "DS: number properties",
+    "diff": "easy",
+    "prompt": "If n is a positive integer, is n composite?",
+    "s1": "n has exactly 4 positive divisors.",
+    "s2": "n = a*b where a and b are integers greater than 1.",
+    "answer": 3,
+    "exp": "Statement 1 alone: A number with exactly 4 divisors can be either a product of two distinct primes or a cube of a prime. In either case, it is composite (since prime numbers have exactly 2 divisors). Sufficient. Statement 2 alone: If n = a*b with a,b >1, then n has divisors other than 1 and itself (a and b), so n is composite. Sufficient. So each alone is sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI38",
+    "type": "DS",
+    "topic": "DS: geometry reasoning",
+    "diff": "medium",
+    "prompt": "Triangle ABC has side lengths AB = 5, BC = 7, and AC = x. Is triangle ABC acute?",
+    "s1": "x = 6",
+    "s2": "x^2 < 74",
+    "answer": 0,
+    "exp": "A triangle is acute if the square of the longest side is less than the sum of squares of the other two sides. The longest side is either 7 or x. Statement 1: x=6, then longest side is 7. Check: 7^2=49, 5^2+6^2=25+36=61, 49<61, so acute. Sufficient. Statement 2: x^2 < 74, but x must be between 2 and 12 (triangle inequality). If x is close to 7, say x=8, then 8^2=64, 5^2+7^2=74, 64<74 so acute; but if x is very small, say x=3, then longest side is 7, check 49 vs 25+9=34, 49>34 so obtuse. Not sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]
