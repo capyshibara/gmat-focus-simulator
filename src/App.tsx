@@ -453,32 +453,35 @@ function QuestionView({ item, resp, setResp, review }) {
 }
 
 /* ---------- screens ---------- */
-function AuthBar({ user, cloudStatus, onSignIn, onSignOut }) {
+function AuthBar({ user, cloudStatus, authError, onSignIn, onSignOut }) {
   const statusText = { local: "Local only", connecting: "Connecting…", synced: "Cloud synced", error: "Sync error" }[cloudStatus] || "Local only";
   return (
-    <div className="gx-card" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 10, margin: "16px 0" }}>
-      {user ? (
-        <>
-          {user.photoURL && <img src={user.photoURL} alt="" style={{ width: 28, height: 28, borderRadius: "50%", flexShrink: 0 }} />}
-          <span style={{ flex: "1 1 160px", fontSize: 14 }}>{user.displayName || user.email}<br /><span className="gx-note">{statusText}</span></span>
-          <button className="gx-btn" onClick={onSignOut}>Sign out</button>
-        </>
-      ) : (
-        <>
-          <span style={{ flex: "1 1 160px", fontSize: 14 }}>Sync your history across devices<br /><span className="gx-note">{statusText}</span></span>
-          <button className="gx-btn primary" onClick={onSignIn}>Sign in with Google</button>
-        </>
-      )}
+    <div className="gx-card" style={{ margin: "16px 0" }}>
+      <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+        {user ? (
+          <>
+            {user.photoURL && <img src={user.photoURL} alt="" style={{ width: 28, height: 28, borderRadius: "50%", flexShrink: 0 }} />}
+            <span style={{ flex: "1 1 160px", fontSize: 14 }}>{user.displayName || user.email}<br /><span className="gx-note">{statusText}</span></span>
+            <button className="gx-btn" onClick={onSignOut}>Sign out</button>
+          </>
+        ) : (
+          <>
+            <span style={{ flex: "1 1 160px", fontSize: 14 }}>Sync your history across devices<br /><span className="gx-note">{statusText}</span></span>
+            <button className="gx-btn primary" onClick={onSignIn}>Sign in with Google</button>
+          </>
+        )}
+      </div>
+      {authError && <div className="gx-note" style={{ color: "var(--bad)", marginTop: 8 }}>{authError}</div>}
     </div>
   );
 }
 
-function Intro({ onStart, onPractice, onHistory, attempts, user, cloudStatus, onSignIn, onSignOut }) {
+function Intro({ onStart, onPractice, onHistory, attempts, user, cloudStatus, authError, onSignIn, onSignOut }) {
   return (
     <div className="gx-wrap">
       <p className="gx-eyebrow" style={{ marginTop: 28 }}>Timed full-length</p>
       <h1 className="gx-h1">GMAT Focus — Practice Simulator</h1>
-      <AuthBar user={user} cloudStatus={cloudStatus} onSignIn={onSignIn} onSignOut={onSignOut} />
+      <AuthBar user={user} cloudStatus={cloudStatus} authError={authError} onSignIn={onSignIn} onSignOut={onSignOut} />
       <p className="gx-lead">Three sections, 45 minutes each, 64 questions total. You choose the order. Bookmark questions and change up to three answers per section in Review &amp; Edit, exactly as on the real exam.</p>
       <div className="gx-card">
         <div className="gx-stat"><span>Quantitative Reasoning</span><b>21 Q · 45:00</b></div>
@@ -856,8 +859,23 @@ export default function App() {
   const [questionLog, setQuestionLog] = useState(() => getJSON("gmat:questionLog", []));
   const [user, setUser] = useState(null);
   const [cloudStatus, setCloudStatus] = useState("local"); // local | connecting | synced
+  const [authError, setAuthError] = useState(null);
   const skipPush = useRef({ attempts: false, questionLog: false });
   const cloudUnsub = useRef(null);
+
+  async function handleSignIn() {
+    setAuthError(null);
+    try {
+      await signInWithGoogle();
+    } catch (err) {
+      const msg = err?.code === "auth/configuration-not-found" || err?.message?.includes("CONFIGURATION_NOT_FOUND")
+        ? "Google sign-in isn't turned on for this app yet (Firebase Console → Authentication)."
+        : err?.code === "auth/popup-closed-by-user"
+        ? null // user closed it themselves, not an error worth surfacing
+        : "Sign-in failed. Please try again.";
+      if (msg) setAuthError(msg);
+    }
+  }
 
   useEffect(() => { setSavedCount(attempts.length); }, []);
 
@@ -1055,7 +1073,7 @@ export default function App() {
     screen = (
       <Intro
         onStart={() => setPhase("order")} onPractice={() => setPhase("practice")} onHistory={() => setPhase("history")}
-        attempts={attempts} user={user} cloudStatus={cloudStatus} onSignIn={signInWithGoogle} onSignOut={signOutUser}
+        attempts={attempts} user={user} cloudStatus={cloudStatus} authError={authError} onSignIn={handleSignIn} onSignOut={signOutUser}
       />
     );
   } else if (phase === "order") {
