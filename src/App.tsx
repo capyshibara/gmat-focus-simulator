@@ -529,7 +529,12 @@ function OrderPick({ onBegin }) {
 /* Endless one-at-a-time practice, no timer. Draws from the unfiltered pool
    (including Deepseek-authored items — this mode is their only outlet). */
 function PracticeMode({ onBack, onLog }) {
-  const pools = useMemo(() => buildPools(), []);
+  // Strict split: Full Test draws Claude-authored items only (see buildBank);
+  // Daily Practice draws Deepseek-authored items only, so the two pools never overlap.
+  const pools = useMemo(() => {
+    const p = buildPools();
+    return { Q: p.Q.filter(isDeepseek), V: p.V.filter(isDeepseek), DI: p.DI.filter(isDeepseek) };
+  }, []);
   const [filter, setFilter] = useState("ALL");
   const combined = useMemo(() => {
     if (filter === "ALL") return [...pools.Q, ...pools.V, ...pools.DI];
