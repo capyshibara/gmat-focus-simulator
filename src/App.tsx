@@ -868,11 +868,13 @@ export default function App() {
     try {
       await signInWithGoogle();
     } catch (err) {
-      const msg = err?.code === "auth/configuration-not-found" || err?.message?.includes("CONFIGURATION_NOT_FOUND")
-        ? "Google sign-in isn't turned on for this app yet (Firebase Console → Authentication)."
-        : err?.code === "auth/popup-closed-by-user"
-        ? null // user closed it themselves, not an error worth surfacing
-        : "Sign-in failed. Please try again.";
+      const code = err?.code || "";
+      const known = {
+        "auth/configuration-not-found": "Google sign-in isn't turned on for this app yet (Firebase Console → Authentication).",
+        "auth/unauthorized-domain": "This site's domain isn't on the Firebase auth allow-list yet (Firebase Console → Authentication → Settings → Authorized domains).",
+        "auth/popup-closed-by-user": null, // user closed it themselves, not an error worth surfacing
+      };
+      const msg = code in known ? known[code] : `Sign-in failed${code ? ` (${code})` : ""}. Please try again.`;
       if (msg) setAuthError(msg);
     }
   }
