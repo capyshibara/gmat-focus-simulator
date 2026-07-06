@@ -456,17 +456,17 @@ function QuestionView({ item, resp, setResp, review }) {
 function AuthBar({ user, cloudStatus, onSignIn, onSignOut }) {
   const statusText = { local: "Local only", connecting: "Connecting…", synced: "Cloud synced", error: "Sync error" }[cloudStatus] || "Local only";
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 12 }}>
+    <div className="gx-card" style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 10, margin: "16px 0" }}>
       {user ? (
         <>
-          {user.photoURL && <img src={user.photoURL} alt="" style={{ width: 24, height: 24, borderRadius: "50%" }} />}
-          <span className="gx-note" style={{ flex: 1 }}>{user.displayName || user.email} · {statusText}</span>
-          <button className="gx-btn ghost" style={{ padding: "4px 8px" }} onClick={onSignOut}>Sign out</button>
+          {user.photoURL && <img src={user.photoURL} alt="" style={{ width: 28, height: 28, borderRadius: "50%", flexShrink: 0 }} />}
+          <span style={{ flex: "1 1 160px", fontSize: 14 }}>{user.displayName || user.email}<br /><span className="gx-note">{statusText}</span></span>
+          <button className="gx-btn" onClick={onSignOut}>Sign out</button>
         </>
       ) : (
         <>
-          <span className="gx-note" style={{ flex: 1 }}>{statusText} — sign in to sync history across devices</span>
-          <button className="gx-btn ghost" style={{ padding: "4px 8px" }} onClick={onSignIn}>Sign in with Google</button>
+          <span style={{ flex: "1 1 160px", fontSize: 14 }}>Sync your history across devices<br /><span className="gx-note">{statusText}</span></span>
+          <button className="gx-btn primary" onClick={onSignIn}>Sign in with Google</button>
         </>
       )}
     </div>
