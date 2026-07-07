@@ -366,5 +366,85 @@
     "answer": 1,
     "exp": "From 'All regional managers have at least ten years' and 'Some regional managers are vice presidents', it follows that those regional managers who are vice presidents have at least ten years. Choice B is directly supported. Choice A could be true but not necessarily: there could be vice presidents who are not regional managers and have less than ten years (but at least five). Choice C is true (no VP <5 years), but it's not 'must be true' based on the given statements? Actually, 'No vice president has less than five years' implies that anyone with less than five years cannot be VP, so C is also true. However, the question asks 'must also be true' and both B and C are true. But note: The prompt expects one correct answer. Let's check: C is a direct restatement of 'No vice president has less than five years' so it's also true. But typically in inference questions, we look for what follows from combining statements. The combination of 'All regional managers have at least ten' and 'Some regional managers are VPs' gives B. C is just restating the third statement. Since the question says 'If the statements above are true, which of the following must also be true?' C is already stated, so it's not 'also' true; it's given. The correct inference should be something not explicitly stated. Thus B is the correct answer. C is a trap because it seems true but it's already given.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR24",
+    "topic": "CR: Weaken",
+    "diff": "hard",
+    "prompt": "A pharmaceutical company developed a new drug for lowering blood pressure. In a clinical trial, patients who took the drug for six months showed an average reduction in systolic blood pressure of 10 mmHg compared to a placebo group. The company's researchers concluded that the drug is effective at reducing blood pressure. Which of the following, if true, most weakens the researchers' conclusion?",
+    "choices": [
+      "The placebo group showed an average reduction of 1 mmHg in systolic blood pressure.",
+      "The patients in the drug group also made significant lifestyle changes, such as diet and exercise, during the trial.",
+      "The drug group had a higher dropout rate than the placebo group due to side effects.",
+      "Blood pressure was measured only at the beginning and end of the trial, not at regular intervals.",
+      "The drug is known to interact with common heart medications, potentially causing dangerous side effects."
+    ],
+    "answer": 1,
+    "exp": "The conclusion that the drug caused the blood pressure reduction is weakened if the drug group also made lifestyle changes known to lower blood pressure, because those changes could account for the difference. The placebo group's small reduction (choice A) actually strengthens the drug's effectiveness. Choice B is the correct weakener. Choice C introduces side effects but does not directly challenge causality. Choice D is a measurement issue but not as directly damning as an alternative cause. Choice E is about safety, not efficacy.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR25",
+    "topic": "CR: Strengthen",
+    "diff": "easy",
+    "prompt": "A recent study found that children who play a musical instrument for at least two years score higher on average in mathematics tests than children who do not play any instrument. The researchers concluded that learning to play a musical instrument improves mathematical ability. Which of the following, if true, most strengthens the researchers' conclusion?",
+    "choices": [
+      "Children who play musical instruments tend to have parents who are more involved in their education.",
+      "The study controlled for factors such as socioeconomic status and overall academic performance.",
+      "Many children who play instruments also receive tutoring in mathematics.",
+      "The difference in math scores was small, though statistically significant.",
+      "The study was conducted over a single year, and the children's math scores were measured only once."
+    ],
+    "answer": 1,
+    "exp": "Controlling for variables like socioeconomic status and overall academic performance rules out alternative explanations for the higher math scores, strengthening the causal link. Choice A and C provide alternative explanations, weakening the conclusion. Choice D does not strengthen the causal claim. Choice E is a weakness, not a strength.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR26",
+    "topic": "CR: Assumption",
+    "diff": "medium",
+    "prompt": "A marketing firm advised a client to increase its social media advertising budget. The firm pointed out that last quarter, the client's competitors who increased their social media ad spending saw an average 20% increase in website traffic. The marketing firm concluded that increasing the client's social media ad spending would similarly boost website traffic. The conclusion depends on assuming which of the following?",
+    "choices": [
+      "The client's website traffic is currently lower than that of its competitors.",
+      "The client's products are comparable to those of its competitors in terms of quality and price.",
+      "The competitors' increase in website traffic was caused by their increased social media ad spending.",
+      "The client's social media advertising strategy is similar to that of its competitors.",
+      "The competitors will not further increase their social media ad spending in the upcoming quarter."
+    ],
+    "answer": 2,
+    "exp": "The conclusion that increasing ad spending will cause traffic increase relies on the assumption that the competitors' traffic increase was caused by their ad spending (and not by other factors). Without that causal link, the analogy is weak. Choice C correctly identifies this assumption. Choice D is tempting but less critical: even if strategies differ, the general principle might still hold. But the core assumption is that the observed correlation is causal.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR27",
+    "topic": "CR: Inference",
+    "diff": "medium",
+    "prompt": "All employees who have been with the company for more than five years are eligible for the management training program. Some employees in the marketing department are eligible for the management training program. No employee in the marketing department has been with the company for fewer than three years. If the statements above are true, which of the following must also be true?",
+    "choices": [
+      "Some employees in the marketing department have been with the company for more than five years.",
+      "All employees in the marketing department are eligible for the management training program.",
+      "Some employees who have been with the company for more than five years are not in the marketing department.",
+      "No employee who has been with the company for fewer than three years is in the marketing department.",
+      "All employees eligible for the management training program have been with the company for more than five years."
+    ],
+    "answer": 3,
+    "exp": "The statements say no one in marketing has fewer than three years, so it must be true that no employee with fewer than three years is in marketing. Choice A is tempting but not necessarily true: the second statement says 'some' marketing employees are eligible, meaning at least one has >5 years, but it doesn't guarantee that any marketing employee has >5 years? Actually, eligibility requires >5 years, so 'some marketing employees are eligible' implies at least one marketing employee has >5 years. Wait, that would make A also must be true? Let's check carefully: 'All employees who have been with the company for more than five years are eligible' — so >5 years implies eligible. But the converse is not stated: eligible does not necessarily imply >5 years? Actually the first sentence: 'All employees who have been with the company for more than five years are eligible' means if >5 years then eligible. But it does not say that only those with >5 years are eligible. So it's possible that eligibility also extends to others? The statement is one-way. So 'Some marketing employees are eligible' does not necessarily mean they have >5 years; they could be eligible for some other reason. But wait, the statement says 'All employees who have been with the company for more than five years are eligible for the management training program.' It doesn't say that eligibility is exclusively for those with >5 years. So there could be other criteria. Therefore we cannot infer that some marketing employees have >5 years. So A is not necessarily true. Choice D is directly stated: 'No employee in the marketing department has been with the company for fewer than three years' means all marketing employees have at least 3 years, so any employee with <3 years cannot be in marketing. That is a logical contrapositive: if in marketing then not <3 years. So D must be true. Choice C is likely true but not necessarily: it's possible all >5-year employees are in marketing? If all >5-year employees are in marketing, then C would be false. But we don't know. So D is the only one guaranteed.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR28",
+    "topic": "CR: Flaw",
+    "diff": "hard",
+    "prompt": "Manager: 'Our company recently implemented a new remote work policy. Since then, employee productivity has increased by 15% according to our metrics. Therefore, the remote work policy is the direct cause of the productivity increase.' The reasoning is most vulnerable to the criticism that it",
+    "choices": [
+      "Assumes that a correlation between two events implies a causal relationship.",
+      "Relies on a sample that may not be representative of the entire company.",
+      "Fails to consider that productivity might have increased due to seasonal factors.",
+      "Ignores the possibility that employees may have been working longer hours at home.",
+      "Confuses the cause of an increase with its effect."
+    ],
+    "answer": 0,
+    "exp": "The manager sees a correlation (remote work policy implemented and then productivity increased) and concludes causation, which is a classic flaw. Choice A correctly identifies this. Choice B is not supported; there's no mention of a sample. Choice C is a specific alternative explanation, but the flaw is the general logical leap from correlation to causation. Choice D is also an alternative explanation but less direct. Choice E is vague. A is the best description of the logical flaw.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]

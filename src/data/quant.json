@@ -862,5 +862,95 @@
     "answer": 2,
     "exp": "Sum of angles in triangle = 180°, so C = 180 - (40+60) = 80°. Distractor 100° comes from adding instead of subtracting.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q49",
+    "section": "Q",
+    "type": "PS",
+    "topic": "algebra",
+    "diff": "easy",
+    "prompt": "If 3x - 7 = 2x + 5, what is the value of x?",
+    "choices": [
+      "2",
+      "6",
+      "12",
+      "14",
+      "18"
+    ],
+    "answer": 2,
+    "exp": "Solving: 3x - 7 = 2x + 5 => x = 12. The main distractor 6 might come from incorrectly subtracting 7 from 5.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q50",
+    "section": "Q",
+    "type": "PS",
+    "topic": "percents",
+    "diff": "medium",
+    "prompt": "A store buys a lamp for $40 and sells it for $70. What is the percent increase?",
+    "choices": [
+      "30%",
+      "42.86%",
+      "57.14%",
+      "75%",
+      "175%"
+    ],
+    "answer": 3,
+    "exp": "Increase = $30, percent increase = (30/40)*100% = 75%. Distractor 175% is the selling price as a percent of cost.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q51",
+    "section": "Q",
+    "type": "PS",
+    "topic": "statistics",
+    "diff": "medium",
+    "prompt": "Set A has a mean of 10 and a standard deviation of 2. If 10 is added to each element in set A, what is the new standard deviation?",
+    "choices": [
+      "0",
+      "2",
+      "4",
+      "10",
+      "12"
+    ],
+    "answer": 1,
+    "exp": "Adding a constant shifts all values but does not change spread; standard deviation remains 2. Distractor 0 might be chosen if one incorrectly thinks all values become equal.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q52",
+    "section": "Q",
+    "type": "PS",
+    "topic": "probability",
+    "diff": "hard",
+    "prompt": "A bag contains 3 red marbles, 4 blue marbles, and 5 green marbles. If two marbles are drawn at random without replacement, what is the probability that both are red?",
+    "choices": [
+      "1/22",
+      "1/12",
+      "3/12",
+      "1/4",
+      "3/44"
+    ],
+    "answer": 0,
+    "exp": "P(first red)=3/12=1/4; P(second red)=2/11; product=1/4*2/11=2/44=1/22. Distractor 1/12 might be from using replacement incorrectly.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q53",
+    "section": "Q",
+    "type": "PS",
+    "topic": "geometry",
+    "diff": "hard",
+    "prompt": "In a triangle, the lengths of the sides are 5, 12, and 13. What is the area of the triangle?",
+    "choices": [
+      "30",
+      "60",
+      "32.5",
+      "65",
+      "25"
+    ],
+    "answer": 0,
+    "exp": "5-12-13 is a right triangle (since 5^2+12^2=13^2). Area = (1/2)*5*12 = 30. Distractor 60 might be from forgetting the 1/2.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]
