@@ -446,5 +446,85 @@
     "answer": 0,
     "exp": "The manager sees a correlation (remote work policy implemented and then productivity increased) and concludes causation, which is a classic flaw. Choice A correctly identifies this. Choice B is not supported; there's no mention of a sample. Choice C is a specific alternative explanation, but the flaw is the general logical leap from correlation to causation. Choice D is also an alternative explanation but less direct. Choice E is vague. A is the best description of the logical flaw.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR29",
+    "topic": "CR: Weaken",
+    "diff": "hard",
+    "prompt": "A state government funded a program to provide free job training to unemployed workers. After the program's first year, the unemployment rate in the state fell by 2%. Government officials concluded that the job training program caused the decrease in unemployment. Which of the following, if true, most weakens the officials' conclusion?",
+    "choices": [
+      "The unemployment rate in neighboring states without similar programs also fell by 2% during the same period.",
+      "The job training program was only available to workers in industries that were already experiencing rapid growth.",
+      "Most participants in the program found jobs within three months of completing the training.",
+      "The cost of the program was significantly higher than initially budgeted.",
+      "A survey found that 80% of program participants felt the training was useful."
+    ],
+    "answer": 0,
+    "exp": "The officials attribute the unemployment drop to the program. If unemployment also fell in states without the program, then that suggests a regional trend (e.g., economic recovery) caused the drop, not the program. This weakens the causal claim. Choice B might suggest the program targeted growing industries, which could actually strengthen the argument that the program helped, not weaken it. Others are irrelevant or supportive.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR30",
+    "topic": "CR: Strengthen",
+    "diff": "medium",
+    "prompt": "A recent study found that employees who sit for more than six hours per day have a 30% higher risk of developing heart disease than those who sit for less than three hours. The researchers concluded that prolonged sitting increases the risk of heart disease. Which of the following, if true, most strengthens the researchers' conclusion?",
+    "choices": [
+      "The study controlled for other factors such as diet, exercise, and smoking.",
+      "Many participants who sat for long hours also reported high levels of stress.",
+      "The study was conducted over a period of 10 years with a large sample size.",
+      "Participants who reduced their sitting time during the study showed a corresponding decrease in heart disease risk markers.",
+      "Heart disease is one of the leading causes of death worldwide."
+    ],
+    "answer": 3,
+    "exp": "Choice 3 provides direct evidence of a dose-response relationship: reducing sitting time lowers heart disease risk, which strongly supports the causal link. Choice A controls for confounders, which strengthens but is weaker than direct reversal evidence. Choice B introduces a potential confound (stress) that actually weakens. C and E are not directly strengthening the causal claim.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR31",
+    "topic": "CR: Assumption",
+    "diff": "hard",
+    "prompt": "A company plans to reduce its carbon emissions by 50% over the next decade by replacing all of its gasoline-powered delivery trucks with electric vehicles. The company estimates that this switch will cost $10 million, but it expects to save $12 million in fuel costs over the same period. The company concludes that the switch will be financially beneficial. The company's conclusion depends on assuming which of the following?",
+    "choices": [
+      "The electric vehicles will not require costly maintenance or battery replacements during the decade.",
+      "The price of gasoline will not decrease significantly over the next decade.",
+      "The company's delivery routes will not change significantly over the next decade.",
+      "The electric vehicles will be able to carry the same load as the gasoline-powered trucks.",
+      "The company will be able to sell its gasoline-powered trucks for a reasonable price."
+    ],
+    "answer": 1,
+    "exp": "The conclusion that savings ($12M) exceed cost ($10M) depends on fuel cost savings being realized. If gasoline prices drop, fuel savings might be less than expected, undermining the financial benefit. A is too strong; the argument assumes no unforeseen major costs, but minor maintenance is acceptable. C, D, and E are not necessary: route changes could affect fuel use but the savings estimate is based on current routes, and load capacity is not directly relevant to fuel savings.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR32",
+    "topic": "CR: Flaw",
+    "diff": "easy",
+    "prompt": "A study of 1,000 adults found that those who drank red wine daily had a 15% lower risk of heart disease than those who never drank red wine. The lead researcher concluded that drinking red wine daily reduces the risk of heart disease. The reasoning is most vulnerable to the criticism that it",
+    "choices": [
+      "assumes that correlation implies causation without considering other factors.",
+      "relies on a sample that is too small to draw a general conclusion.",
+      "overlooks the possibility that red wine drinkers may have healthier lifestyles in general.",
+      "fails to define what constitutes a 'daily' serving of red wine.",
+      "ignores the potential negative health effects of alcohol consumption."
+    ],
+    "answer": 2,
+    "exp": "The study shows a correlation but does not account for confounding variables such as diet, exercise, or socioeconomic status. Red wine drinkers might engage in other healthy behaviors that actually reduce heart disease risk. This is a classic post hoc ergo propter hoc flaw. Choice A is a general statement that is true but less specific than C. The sample size (1000) is not too small. D and E are potential issues but not the primary flaw.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR33",
+    "topic": "CR: Evaluate",
+    "diff": "medium",
+    "prompt": "A city council is considering a ban on plastic shopping bags to reduce litter. Supporters of the ban point to a neighboring city that implemented a similar ban and saw a 40% reduction in plastic bag litter within one year. The answer to which of the following questions would be most useful in evaluating whether the ban is likely to have a similar effect in the council's city?",
+    "choices": [
+      "Did the neighboring city also impose fees on paper bags?",
+      "What was the level of plastic bag litter in the council's city before the ban?",
+      "Did the neighboring city experience an increase in litter from other materials after the ban?",
+      "Are the demographics of the two cities similar?",
+      "How much plastic bag litter is generated by businesses versus households?"
+    ],
+    "answer": 2,
+    "exp": "To evaluate whether the ban will reduce overall litter, we need to know if the reduction in plastic bag litter was offset by increases in other types of litter (e.g., paper bags, reusable bags). If so, the net benefit might be smaller. Choice A is relevant but less direct because fees could affect behavior. B is about the baseline, but doesn't assess the ban's effectiveness. D and E are less critical than the substitution effect.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]
