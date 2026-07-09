@@ -1042,5 +1042,95 @@
     "answer": 0,
     "exp": "P(different) = P(red then blue) + P(blue then red) = (5/8)*(3/7) + (3/8)*(5/7) = 15/56 + 15/56 = 30/56 = 15/28. Distractor 15/56 is only one of the two cases.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q59",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Algebra",
+    "diff": "easy",
+    "prompt": "If 2x + 5 = 13, what is the value of x?",
+    "choices": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answer": 1,
+    "exp": "Subtract 5 from both sides: 2x = 8; then divide by 2: x = 4. Choice 3 is tempting if one forgets to divide by 2.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q60",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Percents",
+    "diff": "medium",
+    "prompt": "A store sells a shirt for $48 after a 20% discount. What was the original price?",
+    "choices": [
+      "$56",
+      "$57.60",
+      "$60",
+      "$68",
+      "$72"
+    ],
+    "answer": 2,
+    "exp": "Let original price be p. Then p * 0.8 = 48, so p = 48 / 0.8 = 60. Choice $57.60 is tempting if one mistakenly subtracts 20% of 48 from 48.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q61",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Ratios",
+    "diff": "medium",
+    "prompt": "In a class, the ratio of boys to girls is 3:2. If there are 15 boys, how many students are in the class?",
+    "choices": [
+      "20",
+      "25",
+      "30",
+      "35",
+      "40"
+    ],
+    "answer": 1,
+    "exp": "Boys correspond to 3 parts: 3 parts = 15, so 1 part = 5. Total students = 5 parts = 25. Choice 20 is tempting if one forgets to include both boys and girls.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q62",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Statistics",
+    "diff": "hard",
+    "prompt": "The average of 5 numbers is 20. After adding two numbers, the average of all 7 numbers is 25. What is the average of the two new numbers?",
+    "choices": [
+      "30",
+      "35",
+      "37.5",
+      "40",
+      "45"
+    ],
+    "answer": 2,
+    "exp": "Sum of first 5 = 100; sum of all 7 = 175; sum of two new = 75; average = 75/2 = 37.5. Choice 30 is tempting if one thinks average increase of 5 per number.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q63",
+    "section": "Q",
+    "type": "PS",
+    "topic": "Number Properties",
+    "diff": "easy",
+    "prompt": "If n is an even integer, which of the following must be odd?",
+    "choices": [
+      "n + 1",
+      "2n",
+      "n + 2",
+      "n^2",
+      "n/2"
+    ],
+    "answer": 0,
+    "exp": "Even + 1 is always odd. 2n is even; n+2 is even; n^2 is even; n/2 may not be integer. Choice n+2 is tempting because it's close but still even.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]

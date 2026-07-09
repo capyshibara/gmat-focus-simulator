@@ -526,5 +526,85 @@
     "answer": 2,
     "exp": "To evaluate whether the ban will reduce overall litter, we need to know if the reduction in plastic bag litter was offset by increases in other types of litter (e.g., paper bags, reusable bags). If so, the net benefit might be smaller. Choice A is relevant but less direct because fees could affect behavior. B is about the baseline, but doesn't assess the ban's effectiveness. D and E are less critical than the substitution effect.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR34",
+    "topic": "CR: Weaken",
+    "diff": "hard",
+    "prompt": "A recent study found that employees who work in offices with plants report 15% higher job satisfaction than those in offices without plants. The researchers concluded that adding plants to offices improves employee morale. Which of the following, if true, most weakens the researchers' conclusion?",
+    "choices": [
+      "The offices with plants were also the ones with better natural lighting and modern furniture.",
+      "The study surveyed employees at only one company.",
+      "Job satisfaction was measured via a self-report questionnaire.",
+      "Some offices without plants had employees who brought their own plants.",
+      "The study did not measure productivity or absenteeism."
+    ],
+    "answer": 0,
+    "exp": "The correct answer weakens by providing an alternative explanation: the offices with plants also had better lighting and furniture, which could be the true cause of higher job satisfaction. The other choices are either irrelevant or do not directly undermine the causal link; for example, choice B (single company) might raise generalizability concerns but does not weaken the causal claim within that company.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR35",
+    "topic": "CR: Strengthen",
+    "diff": "medium",
+    "prompt": "A company introduced a wellness program that includes free gym memberships. After one year, participants in the program had 20% fewer sick days than non-participants. The company concluded that the wellness program reduces absenteeism. Which of the following, if true, most strengthens the conclusion?",
+    "choices": [
+      "Participants in the program were required to use the gym at least three times per week.",
+      "Employees who chose to participate in the program were generally healthier than those who did not.",
+      "The company also offered healthy snacks in the break room during the same period.",
+      "The reduction in sick days was observed only among participants who used the gym regularly.",
+      "Non-participants reported higher stress levels than participants."
+    ],
+    "answer": 3,
+    "exp": "The correct answer strengthens the causal link by showing a dose-response relationship: those who used the gym regularly had fewer sick days. This makes it more likely that the program itself caused the reduction. Choice B is a trap because it suggests the participants were already healthier, which would undermine the conclusion that the program caused the difference. Choice A is not necessarily strengthening; it just describes the program. Choices C and E introduce potential confounders or differences that could weaken or are irrelevant.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR36",
+    "topic": "CR: Assumption",
+    "diff": "hard",
+    "prompt": "A company plans to increase its profits by raising the price of its best-selling product. The marketing department argues that because demand for this product is highly inelastic, the price increase will lead to higher total revenue. The argument depends on assuming which of the following?",
+    "choices": [
+      "The cost of producing the product will not increase significantly in the near future.",
+      "No competitor will lower its prices in response to the price increase.",
+      "The price increase will not cause a significant drop in the number of units sold.",
+      "The product's brand loyalty will remain unchanged after the price increase.",
+      "The company's other products will not be affected by the price increase."
+    ],
+    "answer": 2,
+    "exp": "The argument assumes that the quantity demanded will not decrease too much; inelastic demand means that the percentage drop in quantity is smaller than the percentage price increase, so revenue rises. But the assumption is that the demand is indeed inelastic, i.e., the drop in units sold is not so large as to offset the price increase. Choice C directly states this assumption. Choices A, B, D, and E are not necessary for the revenue increase to occur; they may be relevant to overall profit but not directly to the revenue effect of the price change.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR37",
+    "topic": "CR: Inference",
+    "diff": "easy",
+    "prompt": "All of the company's managers have at least a bachelor's degree. Some managers are also project leaders. Every project leader has completed the company's leadership training program. If the statements above are true, which of the following must also be true?",
+    "choices": [
+      "All project leaders have at least a bachelor's degree.",
+      "Some employees with a bachelor's degree are not managers.",
+      "Some project leaders are not managers.",
+      "All managers have completed the leadership training program.",
+      "Some managers have completed the leadership training program."
+    ],
+    "answer": 4,
+    "exp": "From the statements: All managers have bachelor's degrees. Some managers are project leaders. All project leaders have completed leadership training. Therefore, those managers who are project leaders have completed leadership training, so at least some managers have completed it. Choice A is not necessarily true because project leaders who are not managers may not have degrees (though all managers have degrees, not all project leaders are managers). Choice B is not inferable. Choice C is not necessarily true; the statements allow that all project leaders could be managers. Choice D is too strong; only some managers are project leaders, so not all managers necessarily completed training.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR38",
+    "topic": "CR: Paradox",
+    "diff": "medium",
+    "prompt": "A car manufacturer noticed that its new model received excellent safety ratings from independent testers. Yet, in the first year after launch, the insurance claims for accidents involving this model were higher than for its predecessor, which had a lower safety rating. Which of the following, if true, best explains this apparent discrepancy?",
+    "choices": [
+      "The new model is much more popular among young, inexperienced drivers who tend to have more accidents.",
+      "The predecessor model had a higher repair cost, so owners were less likely to file claims for minor damages.",
+      "The independent safety tests only measure crashworthiness, not the likelihood of avoiding accidents.",
+      "Insurance premiums for the new model are lower than for the predecessor model.",
+      "The new model is equipped with advanced driver-assistance systems that reduce the severity of accidents."
+    ],
+    "answer": 0,
+    "exp": "The paradox is that a safer car has more claims. The correct answer resolves this by explaining that the new model attracts riskier drivers, so despite being safer, the driver pool is more accident-prone. Choice A provides this explanation. Choice B is a trap that suggests the predecessor had fewer claims because owners didn't file for minor damages, which could also explain the discrepancy, but it is less direct; however, the paradox is about the number of claims, not the cost. Choice C might imply the safety rating doesn't reflect accident avoidance, but doesn't explain why claims are higher. Choices D and E are irrelevant or would reduce claims, not increase them.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]

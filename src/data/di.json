@@ -1058,5 +1058,53 @@
     "answer": 0,
     "exp": "Statement 1 gives the exact list (in some order), so median is 6 (the middle value when sorted). Sufficient. Statement 2 alone: average 6 does not determine median; e.g., list {1,2,3,10,14} has mean 6 and median 3, but also {2,4,6,8,10} has mean 6 and median 6. Not unique, so not sufficient.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI43",
+    "type": "DS",
+    "topic": "DS: algebra",
+    "diff": "medium",
+    "prompt": "If x and y are integers, is x + y > 0?",
+    "s1": "x > 0",
+    "s2": "y > 0",
+    "answer": 1,
+    "exp": "Statement 1 alone: x > 0 but y could be negative large, so sum may be negative. Not sufficient. Statement 2 alone: y > 0 but x could be negative large, so sum may be negative. Not sufficient. Together: x > 0 and y > 0 implies sum > 0. Sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI44",
+    "type": "DS",
+    "topic": "DS: number properties",
+    "diff": "hard",
+    "prompt": "Is the integer n a perfect square?",
+    "s1": "n has exactly 3 positive divisors",
+    "s2": "n is odd",
+    "answer": 0,
+    "exp": "Statement 1 alone: A number with exactly 3 positive divisors must be a square of a prime, hence a perfect square. Sufficient. Statement 2 alone: odd numbers can be non-squares (e.g., 3) or squares (e.g., 9). Not sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI45",
+    "type": "DS",
+    "topic": "DS: statistics",
+    "diff": "easy",
+    "prompt": "What is the range of a set of 5 distinct integers?",
+    "s1": "The median is 10",
+    "s2": "The smallest number is 2",
+    "answer": 4,
+    "exp": "Statement 1 alone: median 10 gives no info about extremes. Not sufficient. Statement 2 alone: smallest is 2 gives no info about largest. Not sufficient. Together: still no info about largest. Not sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI46",
+    "type": "DS",
+    "topic": "DS: inequalities",
+    "diff": "medium",
+    "prompt": "If x and y are positive integers, is x < y?",
+    "s1": "x^2 < y^2",
+    "s2": "x/y < 1",
+    "answer": 3,
+    "exp": "For positive integers, x^2 < y^2 implies x < y. Statement 1 alone sufficient. x/y < 1 implies x < y (since y>0). Statement 2 alone sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]
