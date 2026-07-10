@@ -1132,5 +1132,95 @@
     "answer": 0,
     "exp": "Even + 1 is always odd. 2n is even; n+2 is even; n^2 is even; n/2 may not be integer. Choice n+2 is tempting because it's close but still even.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q64",
+    "section": "Q",
+    "type": "PS",
+    "topic": "algebra",
+    "diff": "medium",
+    "prompt": "If x + 1/x = 5, what is the value of x^3 + 1/x^3?",
+    "choices": [
+      "110",
+      "115",
+      "120",
+      "125",
+      "130"
+    ],
+    "answer": 0,
+    "exp": "We know (x + 1/x)^3 = x^3 + 3x + 3/x + 1/x^3 = x^3 + 1/x^3 + 3(x + 1/x). Given x + 1/x = 5, so 125 = x^3 + 1/x^3 + 15, thus x^3 + 1/x^3 = 110. Distractor 125 is tempting because it's (x+1/x)^3 without subtracting the 3(x+1/x) term.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q65",
+    "section": "Q",
+    "type": "PS",
+    "topic": "percents",
+    "diff": "easy",
+    "prompt": "If a number is increased by 30% and then decreased by 30%, what is the net percent change?",
+    "choices": [
+      "0% decrease",
+      "9% decrease",
+      "9% increase",
+      "10% decrease",
+      "10% increase"
+    ],
+    "answer": 1,
+    "exp": "Assume original = 100. After 30% increase: 130. Then 30% decrease: 130 * 0.7 = 91. Net change = (91-100)/100 = -9%, so 9% decrease. Distractor 0% is tempting because increase and decrease by same percent seem to cancel, but they don't.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q66",
+    "section": "Q",
+    "type": "PS",
+    "topic": "ratios",
+    "diff": "hard",
+    "prompt": "In a mixture of milk and water, the ratio of milk to water is 3:2. If 10 liters of water are added, the ratio becomes 1:1. What is the original amount of milk?",
+    "choices": [
+      "20 liters",
+      "25 liters",
+      "30 liters",
+      "35 liters",
+      "40 liters"
+    ],
+    "answer": 2,
+    "exp": "Let milk = 3x, water = 2x. After adding 10L water: milk = 3x, water = 2x+10. New ratio 3x/(2x+10)=1 => 3x=2x+10 => x=10. So milk = 30L. Distractor 20 is tempting because it's the original water amount.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q67",
+    "section": "Q",
+    "type": "PS",
+    "topic": "statistics",
+    "diff": "medium",
+    "prompt": "The average (arithmetic mean) of six numbers is 20. After removing one number, the average of the remaining five numbers is 18. What number was removed?",
+    "choices": [
+      "24",
+      "26",
+      "28",
+      "30",
+      "32"
+    ],
+    "answer": 2,
+    "exp": "Sum of six numbers = 6*20 = 120. Sum of five numbers = 5*18 = 90. Removed number = 120-90 = 30. Distractor 28 is tempting if one miscalculates difference.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q68",
+    "section": "Q",
+    "type": "PS",
+    "topic": "geometry",
+    "diff": "easy",
+    "prompt": "In a right triangle, one leg is 5 and the hypotenuse is 13. What is the area of the triangle?",
+    "choices": [
+      "30",
+      "32.5",
+      "60",
+      "65",
+      "156"
+    ],
+    "answer": 0,
+    "exp": "Using Pythagoras: other leg = sqrt(13^2 - 5^2) = sqrt(169-25)=sqrt(144)=12. Area = (1/2)*5*12 = 30. Distractor 60 is tempting (forgetting to halve the product).",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]

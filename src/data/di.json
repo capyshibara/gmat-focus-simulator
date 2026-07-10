@@ -1106,5 +1106,53 @@
     "answer": 3,
     "exp": "For positive integers, x^2 < y^2 implies x < y. Statement 1 alone sufficient. x/y < 1 implies x < y (since y>0). Statement 2 alone sufficient.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI47",
+    "type": "DS",
+    "topic": "DS: number properties",
+    "diff": "medium",
+    "prompt": "If m and n are positive integers, is m^n a perfect square?",
+    "s1": "m is a perfect square.",
+    "s2": "n is even.",
+    "answer": 2,
+    "exp": "Statement 1: If m is a perfect square, say m = a^2, then m^n = (a^2)^n = a^(2n), which is a perfect square. Sufficient. Statement 2: If n is even, say n = 2k, then m^n = m^(2k) = (m^k)^2, which is a perfect square. Sufficient. Thus each alone is sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI48",
+    "type": "DS",
+    "topic": "DS: inequalities",
+    "diff": "medium",
+    "prompt": "Is x^2 > x?",
+    "s1": "x > 1",
+    "s2": "x < 0",
+    "answer": 3,
+    "exp": "x^2 > x simplifies to x(x-1)>0, so x<0 or x>1. Statement 1: x>1 satisfies the condition. Sufficient. Statement 2: x<0 also satisfies the condition. Sufficient. Thus each alone is sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI49",
+    "type": "DS",
+    "topic": "DS: statistics",
+    "diff": "hard",
+    "prompt": "A set of 5 distinct integers has a median of 10. What is the sum of the five integers?",
+    "s1": "The average (arithmetic mean) of the five integers is 12.",
+    "s2": "The range of the five integers is 15.",
+    "answer": 0,
+    "exp": "Statement 1: With median 10 and 5 numbers, the sum = average * 5 = 12*5 = 60. The median alone doesn't affect the sum calculation; sum is determined. Sufficient. Statement 2: Range = 15 gives no info about the sum. Not sufficient. Thus only statement 1 alone is sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI50",
+    "type": "DS",
+    "topic": "DS: algebra",
+    "diff": "easy",
+    "prompt": "If x and y are integers, what is the value of x + y?",
+    "s1": "x = y - 5",
+    "s2": "xy = 14",
+    "answer": 4,
+    "exp": "Statement 1: x = y-5 gives x+y = 2y-5, not a fixed number. Not sufficient. Statement 2: xy=14 gives possible pairs (1,14),(2,7),(-1,-14),(-2,-7) etc., x+y varies. Not sufficient. Together: substitute x = y-5 into xy=14 gives y(y-5)=14 => y^2-5y-14=0 => (y-7)(y+2)=0 => y=7 or y=-2. Then x=2 or x=-7. So x+y = 9 or -9, not unique. Not sufficient. Thus statements together are not sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]
