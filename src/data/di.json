@@ -1154,5 +1154,41 @@
     "answer": 4,
     "exp": "Statement 1: x = y-5 gives x+y = 2y-5, not a fixed number. Not sufficient. Statement 2: xy=14 gives possible pairs (1,14),(2,7),(-1,-14),(-2,-7) etc., x+y varies. Not sufficient. Together: substitute x = y-5 into xy=14 gives y(y-5)=14 => y^2-5y-14=0 => (y-7)(y+2)=0 => y=7 or y=-2. Then x=2 or x=-7. So x+y = 9 or -9, not unique. Not sufficient. Thus statements together are not sufficient.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI51",
+    "type": "DS",
+    "topic": "DS: number properties",
+    "diff": "medium",
+    "prompt": "Is the integer n divisible by 12?",
+    "s1": "n is divisible by 3.",
+    "s2": "n is divisible by 4.",
+    "answer": 2,
+    "exp": "Statement 1: n divisible by 3 is not sufficient because n could be 3, which is not divisible by 12. Statement 2: n divisible by 4 is not sufficient because n could be 4, which is not divisible by 12. Together: n divisible by both 3 and 4 implies n divisible by LCM(3,4)=12, so sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI52",
+    "type": "DS",
+    "topic": "DS: word problem",
+    "diff": "hard",
+    "prompt": "A certain jar contains only red and blue marbles. How many red marbles are in the jar?",
+    "s1": "The probability of drawing a red marble is 2/5.",
+    "s2": "If 2 red marbles are added, the probability of drawing a red marble becomes 1/2.",
+    "answer": 2,
+    "exp": "Statement 1: Let r be red, b be blue. r/(r+b)=2/5 => 5r=2r+2b => 3r=2b. Multiple possibilities (r=2, b=3; r=4,b=6; etc). Not sufficient. Statement 2: (r+2)/(r+b+2)=1/2 => 2r+4=r+b+2 => r+2=b. Not sufficient alone. Together: 3r=2b and b=r+2 => 3r=2(r+2)=2r+4 => r=4. Sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "DI53",
+    "type": "DS",
+    "topic": "DS: statistics",
+    "diff": "medium",
+    "prompt": "The average (arithmetic mean) of a set of 3 integers is 10. What is the median of the set?",
+    "s1": "The range of the set is 6.",
+    "s2": "The smallest number is 7.",
+    "answer": 2,
+    "exp": "Let numbers be a≤b≤c. Given a+b+c=30. Statement 1: c-a=6. Not sufficient (e.g., a=7,b=10,c=13 median 10; a=8,b=9,c=14 median 9). Statement 2: a=7. Then 7+b+c=30 => b+c=23. Not sufficient (e.g., b=10,c=13 median 10; b=11,c=12 median 11). Together: a=7, c-a=6 => c=13. Then 7+b+13=30 => b=10. Median is 10. Sufficient.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]

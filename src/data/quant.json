@@ -1222,5 +1222,95 @@
     "answer": 0,
     "exp": "Using Pythagoras: other leg = sqrt(13^2 - 5^2) = sqrt(169-25)=sqrt(144)=12. Area = (1/2)*5*12 = 30. Distractor 60 is tempting (forgetting to halve the product).",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q69",
+    "section": "Q",
+    "type": "PS",
+    "topic": "algebra",
+    "diff": "easy",
+    "prompt": "If 4x - 3 = 13, what is the value of x?",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": 2,
+    "exp": "Solving 4x - 3 = 13 gives 4x = 16, x = 4. The main distractor is x = 3 if one mistakenly adds 3 to 13 to get 16 but then divides by 4 incorrectly.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q70",
+    "section": "Q",
+    "type": "PS",
+    "topic": "percents",
+    "diff": "medium",
+    "prompt": "A store increased the price of a jacket by 25% and later sold it at a 25% discount off the increased price. The final price is what percent of the original price?",
+    "choices": [
+      "93.75%",
+      "100%",
+      "75%",
+      "87.5%",
+      "106.25%"
+    ],
+    "answer": 0,
+    "exp": "If original price is P, after 25% increase it becomes 1.25P. Then a 25% discount gives 0.75 * 1.25P = 0.9375P, which is 93.75% of original. The tempting distractor is 100% if one thinks the two cancels.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q71",
+    "section": "Q",
+    "type": "PS",
+    "topic": "ratios",
+    "diff": "medium",
+    "prompt": "In a certain class, the ratio of boys to girls is 5:3. If there are 40 students in total, how many boys are there?",
+    "choices": [
+      "15",
+      "20",
+      "24",
+      "25",
+      "30"
+    ],
+    "answer": 4,
+    "exp": "Total parts = 5+3 = 8. Each part = 40/8 = 5. Boys = 5 parts = 25. The main distractor is 24 if one uses 3 parts for boys erroneously.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q72",
+    "section": "Q",
+    "type": "PS",
+    "topic": "statistics",
+    "diff": "hard",
+    "prompt": "The average (arithmetic mean) of five numbers is 30. After two numbers are added, the average of all seven numbers is 25. What is the sum of the two added numbers?",
+    "choices": [
+      "10",
+      "15",
+      "20",
+      "25",
+      "30"
+    ],
+    "answer": 2,
+    "exp": "Sum of first five = 150. Sum of all seven = 175. Sum of added = 175 - 150 = 25. The tempting distractor is 20 if one incorrectly calculates average difference.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q73",
+    "section": "Q",
+    "type": "PS",
+    "topic": "geometry",
+    "diff": "easy",
+    "prompt": "In triangle ABC, angle A is 50 degrees and angle B is 70 degrees. What is the measure of angle C?",
+    "choices": [
+      "40°",
+      "50°",
+      "60°",
+      "70°",
+      "80°"
+    ],
+    "answer": 2,
+    "exp": "Sum of angles in triangle = 180°. So angle C = 180 - (50+70) = 60°. The tempting distractor is 70° if one assumes angles are equal to given.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]
