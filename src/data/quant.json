@@ -1312,5 +1312,95 @@
     "answer": 2,
     "exp": "Sum of angles in triangle = 180°. So angle C = 180 - (50+70) = 60°. The tempting distractor is 70° if one assumes angles are equal to given.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q74",
+    "section": "Q",
+    "type": "PS",
+    "topic": "algebra",
+    "diff": "easy",
+    "prompt": "If 3x - 4 = 2x + 7, what is the value of x?",
+    "choices": [
+      "10",
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "answer": 1,
+    "exp": "Subtract 2x from both sides: x - 4 = 7; add 4: x = 11. A common mistake is to add 4 incorrectly, leading to 12.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q75",
+    "section": "Q",
+    "type": "PS",
+    "topic": "percents",
+    "diff": "medium",
+    "prompt": "If a number is increased by 25% and then decreased by 25%, the result is 90. What was the original number?",
+    "choices": [
+      "96",
+      "100",
+      "108",
+      "120",
+      "144"
+    ],
+    "answer": 0,
+    "exp": "Let original be x. x * 1.25 * 0.75 = 0.9375x = 90, so x = 90/0.9375 = 96. A common mistake is to assume the net change is 0% and guess 90.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q76",
+    "section": "Q",
+    "type": "PS",
+    "topic": "ratios",
+    "diff": "hard",
+    "prompt": "In a mixture of juice and water, the ratio of juice to water is 4:1. If 10 liters of water are added, the ratio becomes 4:3. How many liters of juice are in the mixture?",
+    "choices": [
+      "8",
+      "10",
+      "12",
+      "16",
+      "20"
+    ],
+    "answer": 4,
+    "exp": "Let juice = 4x, water = x. After adding 10L water: water = x+10, juice = 4x. Ratio 4x/(x+10)=4/3 => cross multiply: 12x = 4x+40 => 8x=40 => x=5. Juice = 4*5=20. A common mistake is to set up ratio incorrectly, e.g., 4x/(x+10)=3/4.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q77",
+    "section": "Q",
+    "type": "PS",
+    "topic": "statistics",
+    "diff": "medium",
+    "prompt": "The average (arithmetic mean) of seven numbers is 30. After removing two numbers, the average of the remaining five numbers is 28. What is the average of the two removed numbers?",
+    "choices": [
+      "32",
+      "34",
+      "35",
+      "36",
+      "38"
+    ],
+    "answer": 2,
+    "exp": "Sum of all seven = 7*30=210. Sum of five = 5*28=140. Sum of two removed = 210-140=70. Average = 70/2=35. A common mistake is to simply average the averages: (30+28)/2=29, which is wrong.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "Q78",
+    "section": "Q",
+    "type": "PS",
+    "topic": "number properties",
+    "diff": "hard",
+    "prompt": "How many positive integers less than 100 are divisible by neither 3 nor 5?",
+    "choices": [
+      "40",
+      "53",
+      "60",
+      "67",
+      "73"
+    ],
+    "answer": 1,
+    "exp": "Numbers divisible by 3: floor(99/3)=33. By 5: floor(99/5)=19. By both (LCM 15): floor(99/15)=6. Divisible by 3 or 5: 33+19-6=46. Total numbers 1-99: 99. Neither: 99-46=53. A common mistake is to forget to subtract the overlap, giving 99-52=47.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]

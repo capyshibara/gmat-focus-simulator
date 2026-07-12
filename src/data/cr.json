@@ -606,5 +606,85 @@
     "answer": 0,
     "exp": "The paradox is that a safer car has more claims. The correct answer resolves this by explaining that the new model attracts riskier drivers, so despite being safer, the driver pool is more accident-prone. Choice A provides this explanation. Choice B is a trap that suggests the predecessor had fewer claims because owners didn't file for minor damages, which could also explain the discrepancy, but it is less direct; however, the paradox is about the number of claims, not the cost. Choice C might imply the safety rating doesn't reflect accident avoidance, but doesn't explain why claims are higher. Choices D and E are irrelevant or would reduce claims, not increase them.",
     "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR39",
+    "topic": "CR: Flaw",
+    "diff": "medium",
+    "prompt": "A study found that people who eat breakfast daily are less likely to be overweight than those who skip breakfast. The study's authors concluded that eating breakfast helps prevent weight gain. Which of the following is a flaw in the reasoning?",
+    "choices": [
+      "The study did not control for the total daily caloric intake of participants.",
+      "The study defined 'overweight' using body mass index, which may not be accurate for all body types.",
+      "The study relied on self-reported breakfast consumption, which may be inaccurate.",
+      "The study did not measure the participants' physical activity levels.",
+      "The study did not consider genetic factors that influence weight."
+    ],
+    "answer": 0,
+    "exp": "The conclusion assumes that eating breakfast causes lower weight, but it is possible that people who eat breakfast have healthier overall habits. The failure to control for total caloric intake is a classic omitted variable flaw. Other choices are potential limitations but do not directly address the causal assumption.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR40",
+    "topic": "CR: Strengthen",
+    "diff": "hard",
+    "prompt": "A company introduced a four-day workweek and found that employee productivity increased by 20%. The CEO claims that the four-day workweek is the cause. Which of the following, if true, most strengthens the CEO's claim?",
+    "choices": [
+      "The company also introduced flexible hours at the same time.",
+      "Several other companies that switched to a four-day workweek reported similar productivity increases.",
+      "Employees reported higher job satisfaction after the change.",
+      "The productivity increase was measured using a new tracking system that was also introduced at the same time.",
+      "The company had been planning the switch for years."
+    ],
+    "answer": 1,
+    "exp": "Consistent results across multiple companies strengthen the causal claim by showing a pattern. Choice A and D introduce other changes that could be alternative causes, weakening the CEO's claim. Job satisfaction (C) is correlated but does not directly strengthen causality. Planning (E) is irrelevant.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR41",
+    "topic": "CR: Evaluate",
+    "diff": "medium",
+    "prompt": "A city is considering a ban on single-use plastic bags to reduce waste. Supporters point to a neighboring city that implemented such a ban and saw a 30% reduction in plastic bag waste. Which of the following would be most useful in evaluating whether the ban will have a similar effect in the city?",
+    "choices": [
+      "Whether the neighboring city also banned other types of plastic products.",
+      "Whether the reduction in plastic bag waste in the neighboring city was offset by an increase in paper bag waste.",
+      "Whether the city's residents currently use plastic bags at a similar rate to the neighboring city's residents before its ban.",
+      "Whether the ban would be enforced strictly.",
+      "Whether the city has a recycling program for plastic bags."
+    ],
+    "answer": 2,
+    "exp": "To evaluate whether the ban will have a similar effect, we need to know if the starting conditions are comparable. If the city's residents use plastic bags at a vastly different rate, the impact may differ. Other choices are relevant but secondary; the baseline usage is key to extrapolation.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR42",
+    "topic": "CR: Paradox",
+    "diff": "easy",
+    "prompt": "A new smartphone model received excellent reviews from tech experts, yet its sales were significantly lower than those of its predecessor, which received only average reviews. Which of the following, if true, best explains this apparent discrepancy?",
+    "choices": [
+      "The new model was released at a higher price point than the predecessor.",
+      "The predecessor was heavily discounted shortly after the new model's release.",
+      "Tech experts' reviews have little influence on consumer purchasing decisions.",
+      "The new model had a significantly shorter battery life than the predecessor.",
+      "The advertising campaign for the new model was less extensive than that for the predecessor."
+    ],
+    "answer": 1,
+    "exp": "The paradox is that excellent reviews did not lead to high sales. If the predecessor was heavily discounted, consumers might have bought it instead, explaining low sales for the new model despite good reviews. Other choices could contribute but do not directly explain the contrast with the predecessor's sales.",
+    "creator": "Deepseek deepseek-v4-flash"
+  },
+  {
+    "id": "V_CR43",
+    "topic": "CR: Assumption",
+    "diff": "hard",
+    "prompt": "A company plans to increase its profits by raising the price of its best-selling product. The marketing department argues that because demand for this product is highly inelastic, the price increase will lead to higher total revenue. Which of the following is an assumption on which the argument depends?",
+    "choices": [
+      "The cost of producing the product will not increase significantly.",
+      "Competitors will not lower their prices in response.",
+      "The price increase will not lead to a decrease in sales volume that offsets the price increase.",
+      "Customers will not switch to substitute products.",
+      "The product's demand elasticity will remain constant after the price increase."
+    ],
+    "answer": 2,
+    "exp": "Even with inelastic demand, a price increase can reduce quantity demanded. The argument assumes that the percentage decrease in quantity is less than the percentage increase in price, so total revenue rises. That is the assumption about offsetting volume decreases. Other choices are not necessarily required for the revenue conclusion.",
+    "creator": "Deepseek deepseek-v4-flash"
   }
 ]
