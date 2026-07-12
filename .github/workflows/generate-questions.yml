@@ -1,8 +1,7 @@
 name: Generate new questions
 
 on:
-  schedule:
-    - cron: "0 3 * * *"
+  # Daily cron paused -- trigger manually from the Actions tab when new questions are wanted.
   workflow_dispatch:
 
 permissions:
