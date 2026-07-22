@@ -452,6 +452,78 @@ function QuestionView({ item, resp, setResp, review }) {
   );
 }
 
+/* Plain-text rendering of a question + the user's answer + the correct
+   answer + explanation, for pasting into an LLM chat. Shared by every
+   place a question is shown in review (log, practice, results) so the
+   format only needs to be right once. */
+function formatItemForCopy(item, resp) {
+  const lines = [];
+  if (item.type === "RC" && item.passage) lines.push("Passage:", item.passage, "");
+  if ((item.type === "MSR" || item.type === "YN") && item.sources) {
+    item.sources.forEach((s) => lines.push(`Source (${s.tab}):`, s.text, ""));
+  }
+  if (item.table) {
+    lines.push("Table:", item.table.cols.join(" | "));
+    item.table.rows.forEach((r) => lines.push(r.join(" | ")));
+    lines.push("");
+  }
+  lines.push("Question:", item.prompt, "");
+
+  switch (item.type) {
+    case "DS":
+      lines.push(`(1) ${item.s1}`, `(2) ${item.s2}`, "");
+      DS_CHOICES.forEach((c, i) => lines.push(
+        `${LETTERS[i]}. ${c}${i === item.answer ? "  [correct]" : ""}${i === resp ? "  [your answer]" : ""}`
+      ));
+      break;
+    case "TPA":
+      lines.push(item.colLabels.join(" | "));
+      item.options.forEach((opt, oi) => {
+        const tags = item.colLabels
+          .map((label, ci) => {
+            const t = [];
+            if (item.answer[ci] === oi) t.push("correct");
+            if (resp && resp[ci] === oi) t.push("your answer");
+            return t.length ? `${label}: ${t.join("/")}` : null;
+          })
+          .filter(Boolean);
+        lines.push(`${opt}${tags.length ? "  [" + tags.join(", ") + "]" : ""}`);
+      });
+      break;
+    case "TA":
+    case "YN":
+      item.statements.forEach((s, i) => {
+        const yours = resp ? resp[i] : null;
+        lines.push(`- ${s.text}  [correct: ${s.answer}${yours != null ? `, your answer: ${yours}` : ""}]`);
+      });
+      break;
+    case "GI":
+      lines.push(item.template);
+      item.blanks.forEach((b, i) => {
+        const yours = resp && resp[i] != null ? b.options[resp[i]] : null;
+        lines.push(`Blank ${i + 1}: correct = ${b.options[b.answer]}${yours != null ? `, your answer = ${yours}` : ""}`);
+      });
+      break;
+    default:
+      item.choices.forEach((c, i) => lines.push(
+        `${LETTERS[i]}. ${c}${i === item.answer ? "  [correct]" : ""}${i === resp ? "  [your answer]" : ""}`
+      ));
+  }
+  if (item.exp) lines.push("", "Explanation:", item.exp);
+  return lines.join("\n");
+}
+function CopyForAIButton({ item, resp }) {
+  const [copied, setCopied] = useState(false);
+  const onClick = async () => {
+    try {
+      await navigator.clipboard.writeText(formatItemForCopy(item, resp));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {}
+  };
+  return <button className="gx-btn ghost" style={{ padding: "4px 10px" }} onClick={onClick}>{copied ? "Copied ✓" : "Copy for AI"}</button>;
+}
+
 /* ---------- screens ---------- */
 function AuthBar({ user, cloudStatus, authError, onSignIn, onSignOut }) {
   const statusText = { local: "Local only", connecting: "Connecting…", synced: "Cloud synced", error: "Sync error" }[cloudStatus] || "Local only";
@@ -527,8 +599,10 @@ function OrderPick({ onBegin }) {
 }
 
 /* Endless one-at-a-time practice, no timer. Draws from the unfiltered pool
-   (including Deepseek-authored items — this mode is their only outlet). */
-function PracticeMode({ onBack, onLog }) {
+   (including Deepseek-authored items — this mode is their only outlet).
+   With a seedQueue (from History's "Retry"), works through those specific
+   items in order first, then falls back to the normal random draw. */
+function PracticeMode({ onBack, onLog, seedQueue }) {
   // Strict split: Full Test draws Claude-authored items only (see buildBank);
   // Daily Practice draws Deepseek-authored items only, so the two pools never overlap.
   const pools = useMemo(() => {
@@ -541,17 +615,28 @@ function PracticeMode({ onBack, onLog }) {
     return pools[filter];
   }, [pools, filter]);
 
+  const retryTotal = seedQueue ? seedQueue.length : 0;
+  const [queue, setQueue] = useState(() => (seedQueue ? [...seedQueue] : []));
+  const [retryDone, setRetryDone] = useState(0);
   const [item, setItem] = useState(null);
   const [resp, setRespState] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
   function drawNext(pool = combined, avoidId = item?.id) {
-    if (!pool.length) { setItem(null); return; }
-    let pick = pool[Math.floor(Math.random() * pool.length)];
-    if (pool.length > 1 && pick.id === avoidId) {
-      while (pick.id === avoidId) pick = pool[Math.floor(Math.random() * pool.length)];
-    }
-    setItem(pick); setRespState(null); setSubmitted(false);
+    setQueue((q) => {
+      if (q.length) {
+        setItem(q[0]); setRespState(null); setSubmitted(false);
+        setRetryDone((n) => n + 1);
+        return q.slice(1);
+      }
+      if (!pool.length) { setItem(null); return q; }
+      let pick = pool[Math.floor(Math.random() * pool.length)];
+      if (pool.length > 1 && pick.id === avoidId) {
+        while (pick.id === avoidId) pick = pool[Math.floor(Math.random() * pool.length)];
+      }
+      setItem(pick); setRespState(null); setSubmitted(false);
+      return q;
+    });
   }
 
   useEffect(() => { drawNext(combined, null); /* eslint-disable-next-line */ }, [filter]);
@@ -568,10 +653,23 @@ function PracticeMode({ onBack, onLog }) {
     });
   }
 
+  function skip() {
+    if (!item || submitted) return;
+    onLog({
+      itemId: item.id, mode: "daily", section: item.section, topic: item.topic, diff: item.diff,
+      chosenResponse: null, correct: false, answered: false,
+      timestamp: new Date().toISOString(),
+    });
+    drawNext();
+  }
+
   return (
     <div className="gx-wrap">
       <p className="gx-eyebrow" style={{ marginTop: 28 }}>Daily practice</p>
       <h1 className="gx-h1">One question at a time</h1>
+      {retryDone > 0 && retryDone <= retryTotal && (
+        <div className="gx-banner">Retrying missed/skipped questions from your history — {retryDone} of {retryTotal}.</div>
+      )}
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "10px 0 16px" }}>
         {["ALL", "Q", "V", "DI"].map((k) => (
           <button key={k} className={"gx-btn" + (filter === k ? " primary" : "")} onClick={() => setFilter(k)}>
@@ -588,11 +686,15 @@ function PracticeMode({ onBack, onLog }) {
           <span className="gx-pill">{item.topic}</span>
           <span className="gx-pill">{item.diff}</span>
           <QuestionView item={item} resp={resp} setResp={setResp} review={submitted} />
+          {submitted && <div style={{ marginTop: 10 }}><CopyForAIButton item={item} resp={resp} /></div>}
           <div className="gx-foot">
             <button className="gx-btn" onClick={onBack}>Back</button>
             <div className="spacer" />
             {!submitted
-              ? <button className="gx-btn primary" onClick={submit} disabled={!isAnswered(item, resp)}>Submit</button>
+              ? <>
+                  <button className="gx-btn" onClick={skip}>Skip</button>
+                  <button className="gx-btn primary" onClick={submit} disabled={!isAnswered(item, resp)}>Submit</button>
+                </>
               : <button className="gx-btn primary" onClick={() => drawNext()}>Next question</button>}
           </div>
         </>
@@ -665,6 +767,7 @@ function Results({ sections, onRestart, savedCount }) {
                   <div key={it.id} className="gx-card" style={{ marginBottom: 10, borderLeft: `3px solid ${q.correct ? "var(--good)" : q.answered ? "var(--bad)" : "var(--muted)"}` }}>
                     <div className="gx-eyebrow">{SECTION_META[s.key].short} · Q{i + 1} · {q.correct ? "Correct" : q.answered ? "Incorrect" : "Skipped"}</div>
                     <QuestionView item={it} resp={s.responses[it.id]} setResp={() => {}} review={true} />
+                    <div style={{ marginTop: 10 }}><CopyForAIButton item={it} resp={s.responses[it.id]} /></div>
                   </div>
                 );
               })}
@@ -702,7 +805,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-function QuestionLogEntry({ entry, item, onUpdateNote }) {
+function QuestionLogEntry({ entry, item, onUpdateNote, onRetry }) {
   const [open, setOpen] = useState(false);
   const [note, setNote] = useState(entry.note || "");
   const when = new Date(entry.timestamp).toLocaleString();
@@ -717,13 +820,21 @@ function QuestionLogEntry({ entry, item, onUpdateNote }) {
         <span className="gx-note">{when}</span>
       </div>
       <div className="gx-note" style={{ marginTop: 4 }}>{entry.correct ? "Correct" : entry.answered ? "Incorrect" : "Skipped"}</div>
-      <button className="gx-btn ghost" style={{ padding: "4px 0", marginTop: 6 }} onClick={() => setOpen(!open)}>
-        {open ? "▾ hide question" : "▸ show question"}
-      </button>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 6 }}>
+        <button className="gx-btn ghost" style={{ padding: "4px 0" }} onClick={() => setOpen(!open)}>
+          {open ? "▾ hide question" : "▸ show question"}
+        </button>
+        {item && onRetry && (
+          <button className="gx-btn ghost" style={{ padding: "4px 10px" }} onClick={() => onRetry([item])}>Retry</button>
+        )}
+      </div>
       {open && (
         <div style={{ marginTop: 4 }}>
           {item ? (
-            <QuestionView item={item} resp={entry.chosenResponse} setResp={() => {}} review={true} />
+            <>
+              <QuestionView item={item} resp={entry.chosenResponse} setResp={() => {}} review={true} />
+              <div style={{ marginTop: 10 }}><CopyForAIButton item={item} resp={entry.chosenResponse} /></div>
+            </>
           ) : (
             <p className="gx-note">Question no longer in the bank.</p>
           )}
@@ -740,7 +851,7 @@ function QuestionLogEntry({ entry, item, onUpdateNote }) {
   );
 }
 
-function History({ attempts, questionLog, onBack, onClear, onClearLog, onUpdateNote }) {
+function History({ attempts, questionLog, onBack, onClear, onClearLog, onUpdateNote, onRetry }) {
   const [open, setOpen] = useState(null);
   const list = [...attempts].reverse();
 
@@ -756,10 +867,12 @@ function History({ attempts, questionLog, onBack, onClear, onClearLog, onUpdateN
   const [sectionFilter, setSectionFilter] = useState("ALL");
   const logList = [...(questionLog || [])].reverse().filter((e) => {
     if (modeFilter !== "ALL" && e.mode !== modeFilter) return false;
-    if (correctFilter === "WRONG" && e.correct) return false;
+    if (correctFilter === "WRONG" && (e.correct || !e.answered)) return false;
+    if (correctFilter === "SKIPPED" && e.answered) return false;
     if (sectionFilter !== "ALL" && e.section !== sectionFilter) return false;
     return true;
   });
+  const retryableFiltered = logList.map((e) => bank.get(e.itemId)).filter(Boolean);
 
   return (
     <div className="gx-wrap">
@@ -810,6 +923,7 @@ function History({ attempts, questionLog, onBack, onClear, onClearLog, onUpdateN
         <select className="gx-sel" value={correctFilter} onChange={(e) => setCorrectFilter(e.target.value)}>
           <option value="ALL">All answers</option>
           <option value="WRONG">Wrong only</option>
+          <option value="SKIPPED">Skipped only</option>
         </select>
         <select className="gx-sel" value={sectionFilter} onChange={(e) => setSectionFilter(e.target.value)}>
           <option value="ALL">All sections</option>
@@ -821,9 +935,17 @@ function History({ attempts, questionLog, onBack, onClear, onClearLog, onUpdateN
       {logList.length === 0 ? (
         <p className="gx-lead">No questions logged yet for this filter.</p>
       ) : (
-        logList.map((e) => (
-          <QuestionLogEntry key={e.id} entry={e} item={bank.get(e.itemId)} onUpdateNote={onUpdateNote} />
-        ))
+        <>
+          {onRetry && retryableFiltered.length > 0 && (
+            <div className="gx-foot" style={{ marginTop: 0, marginBottom: 12 }}>
+              <div className="spacer" />
+              <button className="gx-btn" onClick={() => onRetry(retryableFiltered)}>Retry all filtered ({retryableFiltered.length})</button>
+            </div>
+          )}
+          {logList.map((e) => (
+            <QuestionLogEntry key={e.id} entry={e} item={bank.get(e.itemId)} onUpdateNote={onUpdateNote} onRetry={onRetry} />
+          ))}
+        </>
       )}
       {(questionLog || []).length > 0 && (
         <div className="gx-foot" style={{ marginBottom: 8 }}>
@@ -856,6 +978,7 @@ const mergeQuestionLog = (local, remote) =>
 export default function App() {
   // a fresh randomized, difficulty-balanced form is drawn per attempt in begin()
   const [phase, setPhase] = useState("intro"); // intro | order | exam | history | results | practice
+  const [practiceSeed, setPracticeSeed] = useState(null);
   const [sections, setSections] = useState([]);
   const [secIdx, setSecIdx] = useState(0);
   const [showCalc, setShowCalc] = useState(false);
@@ -1075,6 +1198,11 @@ export default function App() {
 
   const goHome = () => { setPhase("intro"); setSections([]); };
 
+  function startRetry(items) {
+    setPracticeSeed(items);
+    setPhase("practice");
+  }
+
   let screen;
   if (phase === "intro") {
     screen = (
@@ -1086,7 +1214,13 @@ export default function App() {
   } else if (phase === "order") {
     screen = <OrderPick onBegin={begin} />;
   } else if (phase === "practice") {
-    screen = <PracticeMode onBack={() => setPhase("intro")} onLog={logQuestion} />;
+    screen = (
+      <PracticeMode
+        onBack={() => { setPhase("intro"); setPracticeSeed(null); }}
+        onLog={logQuestion}
+        seedQueue={practiceSeed}
+      />
+    );
   } else if (phase === "history") {
     screen = (
       <History
@@ -1096,6 +1230,7 @@ export default function App() {
         onClear={clearHistory}
         onClearLog={clearQuestionLog}
         onUpdateNote={updateNote}
+        onRetry={startRetry}
       />
     );
   } else if (phase === "results") {

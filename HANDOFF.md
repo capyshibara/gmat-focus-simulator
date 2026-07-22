@@ -117,56 +117,32 @@ similarity check if the bank gets much bigger.
 
 ## Next up — three features requested for this round
 
-### 1. Copy question + answer + explanation, for asking an LLM to go deeper
+~~### 1. Copy question + answer + explanation, for asking an LLM to go deeper~~
+Done. `formatItemForCopy(item, resp)` (next to `QuestionView`) is the single
+shared plain-text formatter; `CopyForAIButton` wraps it with
+`navigator.clipboard.writeText` + a transient "Copied ✓" label flip (no
+toast system added). Wired into `QuestionLogEntry`, `PracticeMode`'s
+post-submit state, and each per-question card in `Results`.
 
-Add a "Copy for AI" (or similar) button wherever a question is shown in
-review mode — natural homes are `QuestionLogEntry` (History), the
-post-submit state in `PracticeMode`, and the per-question review blocks in
-`Results`. Rather than duplicating formatting logic three places, write one
-shared formatter, e.g. `formatItemForCopy(item, resp)` near `QuestionView`,
-that produces a plain-text block: prompt (+ passage/table/sources if
-present), the choices with the user's answer and the correct answer marked,
-and the stored `exp`. Wire it to `navigator.clipboard.writeText(...)` behind
-a button, with a brief "Copied" toast/state flip (there's no toast system in
-this app yet — a transient `useState` + `setTimeout` on the button label,
-matching how little else here uses global UI chrome, is enough; don't build
-a toast system for one button).
+~~### 2. Skip question~~
+Done, Daily-Practice-only per the interpretation above. `PracticeMode` has a
+`skip()` alongside `submit()` that logs `answered:false, correct:false,
+chosenResponse:null, mode:"daily"` and immediately draws the next question
+(no reveal step). Full Test's implicit skip-by-leaving-blank behavior was
+left as-is, untouched.
 
-### 2. Skip question
+~~### 3. Review/retry failed or skipped questions~~
+Done. `History`'s `correctFilter` gained a `"SKIPPED"` option (alongside
+`"WRONG"`, which now correctly excludes skipped rows via
+`!e.answered`-aware filtering). `PracticeMode` takes an optional `seedQueue`
+prop — an array of items to work through in order (tracked via
+`retryTotal`/`retryDone` for the "Retrying N of M" banner) before falling
+back to the normal random draw once exhausted. `History` passes an `onRetry`
+callback down to both a per-entry "Retry" button (`QuestionLogEntry`) and a
+"Retry all filtered" bulk button; `App()` holds it in `practiceSeed` state
+and clears it when leaving Daily Practice. Retried answers log as new
+`questionLog` entries as intended — nothing overwrites the original record.
 
-Currently `PracticeMode`'s only paths out of a question are "Submit" (does
-count as answered/logged) — there's no way to move on without answering.
-Add a "Skip" button alongside Submit, calling a variant of `submit()` that
-logs `answered: false, correct: false, chosenResponse: null` (matches what
-`isAnswered`/`isCorrect` already treat a `null` response as) to
-`questionLog` with `mode: "daily"`, then draws the next question immediately
-(no reveal step, since there's nothing to reveal). Full Test already has
-Skip-equivalent behavior implicitly (leave a question blank, it's marked
-wrong at section end) — decide whether "skip" should mean something
-different there (e.g. jump to next unanswered without marking a response at
-all — check `goTo`/`s.curIdx` navigation in `App()`) or whether the request
-is Daily-Practice-only. Ask if unclear from how the feature request reads
-in the new conversation.
-
-### 3. Review/retry failed or skipped questions
-
-Natural extension of the existing `History` filters (`modeFilter`/
-`correctFilter`/`sectionFilter` in `History`, ~line 743) — the "Wrong only"
-filter already exists; needs either (a) a "Skipped only" filter added
-alongside it (once #2 exists to produce skipped entries), and (b) a "Retry"
-action per entry (or a "Retry all filtered" bulk action) that re-enters
-`PracticeMode` seeded with that specific item (or that filtered set) instead
-of a random draw. Cleanest approach is probably to give `PracticeMode` an
-optional `seedQueue` prop (array of items to work through in order before
-falling back to random draw) rather than building a parallel review-mode
-component — reuse its existing submit/reveal/next flow rather than
-duplicating it. Retried answers should still log to `questionLog` as normal
-new entries (don't mutate/overwrite the original failed record — the
-history of "I got this wrong on 2026-07-12, then right on retry on
-2026-07-20" is more useful than a single overwritten row).
-
-These three interact: #1's copy button is most useful exactly on the
-failed/skipped items #3 surfaces, and #3's retry flow is what #2's skip
-button feeds into. Worth building in the order listed, but design #3's data
-shape (the "skipped" state) before finalizing #1's copy format, so the copy
-button can be dropped into the retry view without rework.
+All three verified locally with Playwright against `vite preview` (skip,
+copy-to-clipboard content, single-entry retry, bulk-filtered retry all
+behaved as expected) before pushing.
