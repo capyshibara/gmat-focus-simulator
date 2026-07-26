@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { getJSON, setJSON, remove } from "./storage";
 import {
-  subscribeAuth, signInWithGoogle, signOutUser,
+  subscribeAuth, signInWithGoogle, signOutUser, authErrorMessage,
   pullUserState, pushAttempts, pushQuestionLog, subscribeUserState,
 } from "./firebase";
 
@@ -995,14 +995,8 @@ export default function App() {
     setAuthError(null);
     try {
       await signInWithGoogle();
-    } catch (err) {
-      const code = err?.code || "";
-      const known = {
-        "auth/configuration-not-found": "Google sign-in isn't turned on for this app yet (Firebase Console → Authentication).",
-        "auth/unauthorized-domain": "This site's domain isn't on the Firebase auth allow-list yet (Firebase Console → Authentication → Settings → Authorized domains).",
-        "auth/popup-closed-by-user": null, // user closed it themselves, not an error worth surfacing
-      };
-      const msg = code in known ? known[code] : `Sign-in failed${code ? ` (${code})` : ""}. Please try again.`;
+    } catch (err: any) {
+      const msg = authErrorMessage(err?.code || "");
       if (msg) setAuthError(msg);
     }
   }
@@ -1039,6 +1033,9 @@ export default function App() {
         );
         setCloudStatus("synced");
       } catch (e) { setCloudStatus("error"); }
+    }, (err) => {
+      const msg = authErrorMessage(err?.code || "");
+      if (msg) setAuthError(msg);
     });
     return () => { unsubAuth(); if (cloudUnsub.current) cloudUnsub.current(); };
   }, []);

@@ -102,13 +102,31 @@ similarity check if the bank gets much bigger.
 
 ## Known gaps / open questions (check before assuming state)
 
-- **Google sign-in end-to-end status is unconfirmed.** We fixed
+- **Google sign-in end-to-end status is still unconfirmed against a real
+  account** (needs a real Google login + popup, which can't be driven
+  headlessly) — but a code review of `src/firebase.ts`/`App.tsx`'s auth path
+  turned up and fixed a real bug that plausibly explains the earlier
+  inconclusive testing: `signInWithGoogle()` was lumping user-cancellation
+  codes (`auth/popup-closed-by-user`, `auth/cancelled-popup-request`) in
+  with genuine popup-unavailable codes, so closing the popup — or a stray
+  double-click — triggered an unrequested full-page `signInWithRedirect` to
+  Google. Also, `getRedirectResult(auth)` errors were swallowed
+  (`.catch(() => {})`), so a failed redirect (e.g. hitting the same
+  `unauthorized-domain`/`configuration-not-found` issues below) never
+  surfaced to `authError` — it would just look like nothing happened. Fixed:
+  cancel codes now rethrow (silently, per the existing `authErrorMessage`
+  map) instead of falling back to redirect; only genuine popup-unavailable
+  codes (`auth/popup-blocked`, `auth/operation-not-supported-in-this-environment`)
+  or `isMobileDevice()` fall back; and `subscribeAuth` now takes an
+  `onRedirectError` callback so redirect failures reach `authError` too. The
+  message mapping itself is now the single exported `authErrorMessage(code)`
+  in `firebase.ts` rather than duplicated inline in `App.tsx`. Still worth a
+  real sign-in test before assuming cloud sync works end-to-end — we fixed
   `CONFIGURATION_NOT_FOUND` (Authentication needed enabling in Firebase
-  Console) and `auth/unauthorized-domain` (github.io domain needed adding
-  to the authorized-domains allowlist) by walking Hanh through Firebase
-  Console clicks, but never got final confirmation sign-in actually
-  completes end-to-end and syncs. If picking this up, ask/verify before
-  building anything that assumes cloud sync works.
+  Console) and `auth/unauthorized-domain` (github.io domain needed adding to
+  the authorized-domains allowlist) previously by walking Hanh through
+  Firebase Console clicks, but never got final confirmation sign-in
+  completes and syncs.
 - RC passage generation was never automated (see above) — still fully
   manual/Claude-only.
 - No code-splitting; the production bundle is ~940KB (mostly the Firebase

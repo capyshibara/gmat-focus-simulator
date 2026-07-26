@@ -22,9 +22,31 @@ const db = getFirestore(app);
 const AUTH_REDIRECT_FLAG = "gmat:auth-redirect-pending";
 const isMobileDevice = () => /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-export function subscribeAuth(callback: (user: User | null) => void) {
+// The user closed/cancelled the popup themselves — not a failure, never fall
+// back to a full-page redirect for these (that would yank them out of the
+// app for something they chose to back out of).
+const SILENT_CANCEL_CODES = new Set(["auth/popup-closed-by-user", "auth/cancelled-popup-request"]);
+// The popup mechanism itself didn't work (blocked, unsupported webview) —
+// these are worth retrying via redirect.
+const POPUP_UNAVAILABLE_CODES = new Set(["auth/popup-blocked", "auth/operation-not-supported-in-this-environment"]);
+
+// Single source of truth for auth error codes → user-facing copy, shared by
+// the popup path (thrown synchronously to the caller) and the redirect path
+// (surfaced via subscribeAuth's onRedirectError).
+export function authErrorMessage(code: string): string | null {
+  const known: Record<string, string | null> = {
+    "auth/configuration-not-found": "Google sign-in isn't turned on for this app yet (Firebase Console → Authentication).",
+    "auth/unauthorized-domain": "This site's domain isn't on the Firebase auth allow-list yet (Firebase Console → Authentication → Settings → Authorized domains).",
+    "auth/popup-closed-by-user": null, // user closed it themselves, not an error worth surfacing
+    "auth/cancelled-popup-request": null,
+  };
+  if (code in known) return known[code];
+  return `Sign-in failed${code ? ` (${code})` : ""}. Please try again.`;
+}
+
+export function subscribeAuth(callback: (user: User | null) => void, onRedirectError?: (err: any) => void) {
   setPersistence(auth, browserLocalPersistence).catch(() => {});
-  getRedirectResult(auth).catch(() => {});
+  getRedirectResult(auth).catch((err) => { if (onRedirectError) onRedirectError(err); });
   return onAuthStateChanged(auth, callback);
 }
 
@@ -35,11 +57,8 @@ export async function signInWithGoogle() {
     await signInWithPopup(auth, provider);
     sessionStorage.removeItem(AUTH_REDIRECT_FLAG);
   } catch (err: any) {
-    const fallbackCodes = new Set([
-      "auth/popup-blocked", "auth/cancelled-popup-request",
-      "auth/popup-closed-by-user", "auth/operation-not-supported-in-this-environment",
-    ]);
-    if (!fallbackCodes.has(err?.code) && !isMobileDevice()) throw err;
+    if (SILENT_CANCEL_CODES.has(err?.code)) throw err;
+    if (!POPUP_UNAVAILABLE_CODES.has(err?.code) && !isMobileDevice()) throw err;
     sessionStorage.setItem(AUTH_REDIRECT_FLAG, "1");
     await signInWithRedirect(auth, provider);
   }
